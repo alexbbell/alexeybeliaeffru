@@ -5,9 +5,9 @@
       "name":"Aleksei Beliaev",
       "position":"Full-stack developer (C#, JS (jQuery, React), (no)SQL)",
       "titleAbout" : "About me",
-      "description" :"Senior solution developer with wide experience of creating and maintaining IT systems. Deep knowledge of C#, JavaScript, SQL and many other technologies; 10+ experience in Microsoft SharePoint technologies, development of SharePoint and standalone applications, integration with databases and web-services. Experience in IT and a master’s degree in engineering makes me capable of executing complicated and challenging projects.",
+      "description" :"Full-stack software developer with wide experience of creating and maintaining IT systems. Deep knowledge of C#, JavaScript, SQL and many other technologies; 10+ experience in Microsoft SharePoint technologies, development of SharePoint and standalone applications, integration with databases and web-services. Experience in IT and a master’s degree in engineering makes me capable of executing complicated and challenging projects.",
       "image":"/public/img/banner/abb.jpg",
-      "bio":"I am looking for a job in the Center of Israel - Tel-Aviv, Rehovot",
+      "bio":"I am looking for a job in Israel - Tel-Aviv, Rehovot, Haifa",
       "email": "beliaeff@gmail.com",
       "phone": "+972 585362546",
       "address":{
@@ -16,8 +16,8 @@
         "state":"",
         "zip": "20293"
       },
-      "website": "http://www.techguywebsolutions.com",
-      "resumedownload":"/public/Aleksei_Beliaev_cv2022v5.pdf",
+      "website": "https://alexey.beliaeff.ru/",
+      "resumedownload":"/public/Aleksei_Beliaev_CV_2022-09.pdf",
       "social":[
         {
           "name":"facebook",
@@ -25,10 +25,17 @@
           "className":"fa fa-facebook"
         },
 
-        
+        {
+          "name":"github",
+          "url":"https://github.com/alexbbell",
+          "className":"fa fa-github"
+        },
+
+
+
         {
           "name":"linkedin",
-          "url":"https://www.linkedin.com/in/aleksei-beliaev-07044b76/",
+          "url":"https://www.linkedin.com/in/aleksei-beliaev/",
           "className":"fa fa-linkedin"
         },
         {
