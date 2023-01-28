@@ -1,0 +1,121 @@
+ {
+    "main": {
+      "greeting" : "Hi! ",
+      "beforename":"I am ",
+      "name":"Aleksei Beliaev",
+      "position":"Full-stack developer (C#, JS (jQuery, React), (no)SQL)",
+      "titleAbout" : "About me",
+      "description" :"Full-stack software developer with wide experience of creating and maintaining IT systems. Deep knowledge of C#, JavaScript, SQL and many other technologies; 10+ experience in Microsoft SharePoint technologies, development of SharePoint and standalone applications, integration with databases and web-services. Experience in IT and a master’s degree in engineering makes me capable of executing complicated and challenging projects.",
+      "image":"/public/img/banner/abb.jpg",
+      "bio":"I am looking for a job in Israel - Tel-Aviv, Rehovot, Haifa",
+      "email": "beliaeff@gmail.com",
+      "phone": "+972 585362546",
+      "address":{
+        "street":"",
+        "city":"Rehovot",
+        "state":"",
+        "zip": "20293"
+      },
+      "website": "https://alexey.beliaeff.ru/",
+      "resumedownload":"/public/Aleksei_Beliaev_CV_2022-09.pdf",
+      "social":[
+        {
+          "name":"facebook",
+          "url":"https://www.facebook.com/alexeybeliaeff/",
+          "className":"fa fa-facebook"
+        },
+
+        {
+          "name":"github",
+          "url":"https://github.com/alexbbell",
+          "className":"fa fa-github"
+        },
+
+
+
+        {
+          "name":"linkedin",
+          "url":"https://www.linkedin.com/in/aleksei-beliaev/",
+          "className":"fa fa-linkedin"
+        },
+        {
+          "name":"instagram",
+          "url":"https://www.instagram.com/alexeybeliaeff/",
+          "className":"fa fa-instagram"
+        },
+
+        {
+          "name":"skype",
+          "url":"https://join.skype.com/invite/gLM7w30Ao8Vj",
+          "className":"fa fa-skype"
+        }
+      ]
+    },
+    "resume":{
+      
+      "titleEducation" : "Education",
+      "education":[
+        {
+          "school":"Moscow Institute of Radio Equipment, Electronics and Automation",
+          "degree":"master’s Degree in Radio engineering",
+          "graduated":"April 2004",
+          "description":"Development of radio engineering and communication environments"
+        }
+      
+      ],
+      "titleWork" : "Work",
+      "work":[
+        {
+          "company":"GPB, financial company",
+          "title":"Senior Full-stack Software Developer",
+          "years":"September 2015 - Present",
+          "description":"I successfully completed migration from SharePoint 2010 to SharePoint 2019 - 25k+ active users, ~1Tb content databases. I developed and implemented tools for direct data migration from SharePoint 2010 to 2019. Successfully led a small team of developers. Created a number of applications in stack of React, C# (.Net) and MS SQL for internal needs."
+        },
+        {
+          "company":"GPB, financial company",
+          "title":"Full-stack SharePoint Software developer",
+          "years":"July 2010 - September 2015",
+          "description":"Full support of the system based on Microsoft SharePoint. Collaborated with contractors to offer and then develop and implement different solutions. Integrated various features and technical specifications of applications, continuous functionality of the Portal system, developed SharePoint solutions for internal needs. Developed applications (Asp.net, C#, MSSQL, SharePoint) with data from several databases, AD, synchronous and asynchronous exchanges between different data sources."
+        },
+        {
+          "company":"GPB, financial company",
+          "title":"Junior software developer",
+          "years":"July 2008 - July 2010",
+          "description":"Development of simple applications and functions for internal needs of the company - polls, photogallery, making promo-pages. Simple SQL requests and usage in web-applications"
+        }
+      ],
+      "titleSkills" : "Skills",
+      "skills":[
+        {
+          "name":"Asp.Net, C#: MVC application, WebForms, Console",
+          "level":"70%"
+        },
+        {
+          "name":"Java Script and environmets (React, jQuery, NodeJS)",
+          "level":"70%"
+        },
+        {
+          "name":"XHTML, CSS, XML: deep knowledge of formats and technologies",
+          "level":"70%"
+        },
+        {
+          "name":"Microsoft SharePoint: development webparts, timer-jobs integration with external applications",
+          "level":"80%"
+        }
+      ]
+    },
+   
+    "testimonials":{
+      "testimonials":[
+        {
+          "text":"",
+          "user":"John Doe"
+        },
+        {
+          "text":"Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.",
+          "user":"Steve Smith"
+        }
+      ]
+    }
+  }
+  

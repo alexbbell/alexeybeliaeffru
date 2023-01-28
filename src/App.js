@@ -1,5 +1,5 @@
 import React, {Component } from "react";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Header from "./Controls/Header";
 import Footer  from "./Controls/Footer";
@@ -7,36 +7,29 @@ import Banner from "./Controls/Banner";
 import About from "./Controls/About";
 import Resume from "./Components/Resume";
 import LangSwitch from "./Controls/LangSwitch";
+import { useSelector } from "react-redux";
+
 
 const axios = require('axios').default;
 
- class  App extends React.Component {
+ export function App () {
+    
+    //const[chLang, setLang] = useState('en'); 
+
     
 
+    const [chLang, setLang] = useState();
 
-    
-    constructor(props) {
-        super(props);
-        this.state = {
-            lang: 'en',
-            resumeData: {}
-        }
-        this.GetResumeData = this.GetResumeData.bind(this)
-    }
+    const [resumeData, setResumeData ] = useState({});
+    const [isLoaded, setLoaded] = useState(false);
+    const lang = useSelector( state => state.lang)
 
-    setLang(lang) {
-        this.setState( {'lang': lang}, () => this.GetResumeData()) ;
-         
-    }
+    //setLang(lang);
 
-     GetResumeData (){
-        let fname = '/public/resume.json';
-        if(this.state.lang == 'ru') {
-            fname = '/public/resume_ru.json';
-        } 
-        if(this.state.lang == 'isr'){
-            fname = '/public/resume_isr.json';
-        }
+
+    const GetResumeData =  () => {
+        setLoaded(false);
+        let fname = `/public/resume_${lang.lang}.json`;
         var options = {
             method: 'GET',
             url: fname
@@ -44,8 +37,8 @@ const axios = require('axios').default;
       
         axios.request(options)
         .then((response) => {
-          // handle success
-          this.setState( {resumeData: response.data}, function() {});    
+          setResumeData (response.data)
+          setLoaded(true);
         })
         .catch(function (error) {
           // handle error
@@ -56,31 +49,34 @@ const axios = require('axios').default;
         });
     }
     
-        componentDidMount() {
-            this.GetResumeData();    
-        }
-        // componentDidUpdate() {
-        //     this.GetResumeData();    
-        // }
-    //childToParent={childToParent}
-     render() {
-         return (
-             <div>
-                 <LangSwitch data={
-                     {
-                         lang: this.state.lang, 
-                        setLang: this.setLang.bind(this) 
-                    }
-                 } />
-                 <Header  />
+    useEffect( () => {
+        setResumeData(GetResumeData());
 
-                 {/* <Banner  data={this.state.resumeData.main} lang={this.state.lang} />             */}
-                 <Banner  data={this.state.resumeData.main} />            
-            <About data={this.state.resumeData.main} /> 
-            <Resume  data={this.state.resumeData.resume}   />
-            <Footer data={this.state.resumeData.main} />
-             </div>
+    }, [lang]);
+    
+    
+    
+
+         return (
+            
+            <>
+                <Header />
+
+                <LangSwitch  />
+            {isLoaded  && (
+                <>
+                
+                    
+                 <Banner  data={resumeData.main} />
+                 <About data={resumeData.main} /> 
+                 <Resume  data={resumeData.resume}   />
+                 <Footer data={resumeData.main} />
+                 </>
+
+
+            )}
+          </>
+
          )
-     }
+     
  }
-export default App

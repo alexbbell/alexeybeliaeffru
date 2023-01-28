@@ -1,29 +1,23 @@
 import React, { Component, useState} from 'react'
+import { useDispatch } from "react-redux";
+import { switchLang} from '../store/langSlice';
 
-class LangSwitch extends React.Component {
+export default function LangSwitch()  {
   
-    constructor(props) {
-        super(props);
 
-        this.state =  {
-            "chosenLang": "selected"
-        };
-    }
     
+    const dispatch = useDispatch();
+    const setlang = (lng) => dispatch(switchLang(lng))
 
-    render() {
+
         return (
             
         <div className="langswitch">
             <div>
                 
                 <div className="langBar">
-                    <a href="#" className='lng langSelected' data="en" onClick={(e) => {
-                    this.props.data.setLang('en')
-                    
-                    }
-                    }>EN</a> |&nbsp;
-                    <a href="#" className='lng' data="rus" onClick={(e) => this.props.data.setLang('ru')}>RU</a> 
+                    <a className='lng ' data="en" onClick={(e) =>  setlang('en')  }>EN</a> |&nbsp;
+                    <a  className='lng' data="rus" onClick={(e) => setlang('ru')}>RU</a> 
                     {/* | <a href="#" data="isr" onClick={(e) => this.props.data.setLang('isr')}>ISR</a> */}
                 </div>
 
@@ -31,7 +25,6 @@ class LangSwitch extends React.Component {
         </div>
             
             )
-    }
+
 }
 
-export default LangSwitch;

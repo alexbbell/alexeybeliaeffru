@@ -1,0 +1,113 @@
+ {
+    "main": {
+      "greeting" : "Привет! ",
+      "beforename":"Меня зовут ",
+      "name":"Алексей Беляев",
+      "position":"Full-stack разработчик (C#, JS, React, (no)SQL)",
+      "titleAbout" : "Обо мне",
+      "description" :"Разработчик ПО с большим опытом создания и внедрения ИТ систем. Большой опыт работы с C#, Javascript, SQL и другими технологиями. Более 10 лет работы с  Microsoft SharePoint и другими технологиями вендора. Разработка приложений для SharePoint и приложений .Net, интегрированных с базами данных (SQL и NoSQL) и веб-сервисами.  Опыт работы в ИТ и высшее инженерное образование помогают мне находить комлексное решение разных задач.",
+      "image":"/public/img/banner/abb.jpg",
+      "bio":"Ищу работу Full-stack developer в Израиле - Tel-Aviv, Rehovot",
+      "email": "beliaeff@gmail.com",
+      "phone": "+972 585362546",
+      "address":{
+        "street":"",
+        "city":"Rehovot",
+        "state":"",
+        "zip": "20293"
+      },
+      "website": "http://www.techguywebsolutions.com",
+      "resumedownload":"/public/Aleksei_Beliaev_cv2022v5.pdf",
+      "social":[
+        {
+          "name":"facebook",
+          "url":"https://www.facebook.com/alexeybeliaeff/",
+          "className":"fa fa-facebook"
+        },
+
+        
+        {
+          "name":"linkedin",
+          "url":"https://www.linkedin.com/in/aleksei-beliaev-07044b76/",
+          "className":"fa fa-linkedin"
+        },
+        {
+          "name":"instagram",
+          "url":"https://www.instagram.com/alexeybeliaeff/",
+          "className":"fa fa-instagram"
+        },
+
+        {
+          "name":"skype",
+          "url":"https://join.skype.com/invite/gLM7w30Ao8Vj",
+          "className":"fa fa-skype"
+        }
+      ]
+    },
+    "resume":{
+      "titleEducation" : "Образование",
+      "education":[
+        {
+          "school":"Московский институт радиотехники, электроники и автоматики (Технический университет)",
+          "degree":"Специальность - Радиотехника",
+          "graduated":"Апрель 2004",
+          "description":"Разработка и использование систем связи"
+        }
+      
+      ],
+      "titleWork" : "Работа",
+      "work":[
+        {
+          "company":"Банк ГПБ (АО)",
+          "title":"Главный разработчик",
+          "years":"Сентябрь 2015 - по н.в.",
+          "description":"Успешно выполнил миграцию портала на платформе SharePoint 2010 в SharePoint 2019: более 25 тысяч пользователей, ~1Tb баз данных содержимого. Првоел глубокий анализ существующей системы и ее инфраструктуры, приложений и интеграций.          Разработал план миграции и рукводил процессов. Также разработал и внедрил средство для переноса данных SharePoint 2010 -> SharePoint 2019 \"напрямую\". Успешно руководил небольшой командой разработчиков."
+        },
+        {
+          "company":"Банк ГПБ (АО)",
+          "title":"Full-stack разработчик для  SharePoint",
+          "years":"Июль  2010 - Сентябрь 2015",
+          "description":"Разработка приложений на стеке Asp.net, C#, MSSQL, SharePoint с обработкой данных из различных баз данных, Active Directory, синхронный и асинхронный обмен данными  между различным поставщиками данных."
+        },
+        {
+          "company":"Банк ГПБ (АО)",
+          "title":"Младший разработчик",
+          "years":"Июнь 2008 - Июль 2010",
+          "description":"Разработка простых приложений и модулей для внутренних задач компании - опросы, фотогалереи, создание промо-страниц и лендингов. Разработка простых SQL запросов и их применение в веб-приложениях "
+        }
+      ],
+      "titleSkills" : "Навыки",
+      "skills":[
+        {
+          "name":"Разработка Asp.Net, C#: MVC, WebForms, консольные утилиты",
+          "level":"70%"
+        },
+        {
+          "name":"Java Script (React, jQuery, NodeJS)",
+          "level":"70%"
+        },
+        {
+          "name":"XHTML, CSS, XML: отличные знания",
+          "level":"70%"
+        },
+        {
+          "name":"Microsoft SharePoint: разработка веб-частей, таймер-джобов, интеграций со сторонними базами",
+          "level":"80%"
+        }
+      ]
+    },
+   
+    "testimonials":{
+      "testimonials":[
+        {
+          "text":"",
+          "user":"John Doe"
+        },
+        {
+          "text":"Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.",
+          "user":"Steve Smith"
+        }
+      ]
+    }
+  }
+  

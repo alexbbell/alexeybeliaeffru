@@ -63,7 +63,15 @@ Author E-mail: naimlasker@gmail.com
 /*---------------------------------------------------- */
 
 
+@import "~bootstrap/scss/bootstrap";
 
 
 
 
+.langBar a {
+    cursor: pointer;
+}
+
+.langSelected {
+    font-weight: bold;
+}
