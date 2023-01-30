@@ -1,32 +1,23 @@
-import React, {Component } from "react";
+import React, { } from "react";
 import { useState, useEffect } from 'react';
+import { Routes, Route, Link} from 'react-router-dom';
 
-import Header from "./Controls/Header";
-import Footer  from "./Controls/Footer";
+import { Layout } from './Components/Layout';
+
 import Banner from "./Controls/Banner";
-import About from "./Controls/About";
-import Resume from "./Components/Resume";
-import LangSwitch from "./Controls/LangSwitch";
+import Education from "./Components/Education";
 import { useSelector } from "react-redux";
-
+import Skills from "./Components/Skills";
 
 const axios = require('axios').default;
 
  export function App () {
     
-    //const[chLang, setLang] = useState('en'); 
-
-    
-
-    const [chLang, setLang] = useState();
-
     const [resumeData, setResumeData ] = useState({});
     const [isLoaded, setLoaded] = useState(false);
     const lang = useSelector( state => state.lang)
 
-    //setLang(lang);
-
-
+ 
     const GetResumeData =  () => {
         setLoaded(false);
         let fname = `/public/resume_${lang.lang}.json`;
@@ -57,26 +48,20 @@ const axios = require('axios').default;
     
     
 
-         return (
-            
-            <>
-                <Header />
+    return (
+      <>
+        {isLoaded && (
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route path="/" element={<Banner data={resumeData.main} />}></Route>
+              <Route path="/blog" element={<Banner data={resumeData.main} />}></Route>
+              <Route path="/experience" element={<Education data={resumeData.resume} />}></Route>
+              <Route path="/skills" element={<Skills data={resumeData.resume} />}></Route>
+            </Route>
+          </Routes>
+          )}
 
-                <LangSwitch  />
-            {isLoaded  && (
-                <>
-                
-                    
-                 <Banner  data={resumeData.main} />
-                 <About data={resumeData.main} /> 
-                 <Resume  data={resumeData.resume}   />
-                 <Footer data={resumeData.main} />
-                 </>
-
-
-            )}
-          </>
-
-         )
+      </>
+    )
      
  }

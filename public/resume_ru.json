@@ -1,7 +1,7 @@
  {
     "main": {
       "greeting" : "Привет! ",
-      "beforename":"Меня зовут ",
+      "beforename":"Я ",
       "name":"Алексей Беляев",
       "position":"Full-stack разработчик (C#, JS, React, (no)SQL)",
       "titleAbout" : "Обо мне",
@@ -76,18 +76,18 @@
           "description":"Разработка простых приложений и модулей для внутренних задач компании - опросы, фотогалереи, создание промо-страниц и лендингов. Разработка простых SQL запросов и их применение в веб-приложениях "
         }
       ],
-      "titleSkills" : "Навыки",
+      "titleSkills" : "С чем я работал или работаю",
       "skills":[
         {
-          "name":"Разработка Asp.Net, C#: MVC, WebForms, консольные утилиты",
+          "name":"Разработка приложений на языке C#:  Net.Framework 3.5, 4.5, .Net Core 3, 5, 6. Типы приложений - WebForms, WebAPI, Console applications",
           "level":"70%"
         },
         {
-          "name":"Java Script (React, jQuery, NodeJS)",
+          "name":"JavaScript. Разработка интерфейсов и SPA с библиотеками  React, jQuery; бэк-энд на NodeJS",
           "level":"70%"
         },
         {
-          "name":"XHTML, CSS, XML: отличные знания",
+          "name":"XHTML, CSS, XML: без этого никуда, но много что отдал на откуп фреймворкам типа MUI, Bootstrap, ANTD",
           "level":"70%"
         },
         {

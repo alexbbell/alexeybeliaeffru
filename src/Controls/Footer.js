@@ -6,13 +6,13 @@ class Footer extends Component {
 
         if(this.props.data) {
            var socialn = this.props.data.social.map(function (soc)  {
-              return <a key={soc.url} href={soc.url}><i className={soc.className}></i></a>
+              return <a key={soc.url} href={soc.url}><i className={soc.className}>q</i></a>
            });
         }
   
         return (
         <footer id='social' className="footer_area">
-		<div className="container">
+
 			<div className="row justify-content-center">
 				<div className="col-lg-12">
 					<div className="footer_top flex-column ">
@@ -22,7 +22,7 @@ class Footer extends Component {
 				</div>
 			</div>
 			<div className="row justify-content-center">
-				<div className="col-lg-6">
+				<div className="col-lg-6 offset-lg-1">
 					<div className="footer_top flex-column ">
                         <div> 
                         
@@ -35,7 +35,7 @@ Phone: <a href="tel:+972585362546" >+972 585362546</a> (mobile, WhatsApp)
                         </div>
 					</div>
 				</div>
-				<div className="col-lg-6">
+				<div className="col-lg-5">
 					<div className="footer_top flex-column ">
                         <div> 
 
@@ -48,7 +48,7 @@ Blogs: <a href="http://markimarta.ru/">markimarta.ru</a>, <a href="http://markim
 				</div>
 			</div>
 
-		</div>
+
 	</footer>
         
         )

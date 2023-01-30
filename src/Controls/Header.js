@@ -1,5 +1,4 @@
 import React, { Component} from 'react'
-import LangSwitch from './LangSwitch';
 
 
 class Header extends Component {
@@ -8,17 +7,12 @@ class Header extends Component {
         this.state = {
             value :props.value
         }
-
-
     }
 
-
     render() {
-
-
         return (
+            <>
             <header className="header_area">
-
             <div className="main_menu">
                 <nav className="navbar navbar-expand-lg navbar-light">
                     <div className="container">
@@ -41,32 +35,16 @@ class Header extends Component {
                                 <li className="nav-item"><a className="nav-link" href="#skills">Skills</a></li>
                                 <li className="nav-item"><a className="nav-link" href="#social">Social</a></li>
 
-                                {/* <li className="nav-item"><a className="nav-link" href="services.html">Services</a></li>
-                                <li className="nav-item"><a className="nav-link smoothscroll" href="#portfolio">Portfolio</a></li>
-                                <li className="nav-item submenu dropdown">
-                                    <a href="#" className="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                                     aria-expanded="false">Pages</a>
-                                    <ul className="dropdown-menu">
-                                        <li className="nav-item"><a className="nav-link" href="elements.html">Elements</a></li>
-                                        <li className="nav-item"><a className="nav-link" href="portfolio-details.html">Portfolio Details</a></li>
-                                    </ul>
-                                </li>
-                                <li className="nav-item submenu dropdown">
-                                    <a href="#" className="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                                     aria-expanded="false">Blog</a>
-                                    <ul className="dropdown-menu">
-                                        <li className="nav-item"><a className="nav-link" href="blog.html">Blog</a></li>
-                                        <li className="nav-item"><a className="nav-link" href="single-blog.html">Blog Details</a></li>
-                                    </ul>
-                                </li>
-                                <li className="nav-item"><a className="nav-link" href="contact.html">Contact</a></li> */}
+  
                             </ul>
                         </div>
                     </div>
                 </nav>
             </div>
-
         </header>
+
+                    </>
+
         )
     }
 }

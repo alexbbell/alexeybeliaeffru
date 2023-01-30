@@ -1,6 +1,6 @@
 //header_area css
 .header_area {
-    position: absolute;
+    // position: absolute;
     width: 100%;
     z-index: 9000;
     background: #ffffff;
@@ -91,7 +91,6 @@
                             }
                             &:hover {
                                 .nav-link {
-                                    @extend .gradient-bg;
                                     color: #fff;
                                 }
                             }
@@ -120,7 +119,7 @@
         .main_menu {
             position: fixed;
             width: 100%;
-            top: -70px;
+            top: 0px;
             left: 0;
             right: 0;
             background: #ffffff;
