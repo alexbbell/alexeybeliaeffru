@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 import {BrowserRouter} from 'react-router-dom';
 
-
+  
 import './scss/style.scss';
 const rootElement = document.getElementById("app");
 //id is given as app
