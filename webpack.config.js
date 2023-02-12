@@ -15,6 +15,7 @@ module.exports = {
     devtool,
     devServer: {
         port: 3003,
+        https: true,
         open: true,
         hot: true,
         static: { 

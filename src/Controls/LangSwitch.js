@@ -9,8 +9,6 @@ export default function LangSwitch()  {
     const [selectedLang,  setSelectedLang ] = useState();
     
     const dispatch = useDispatch();
-    
-    
     const ml = useSelector( state => state.lang);
 
     const setlang = (lng) =>  {

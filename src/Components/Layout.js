@@ -35,6 +35,7 @@ export const Layout = () => {
                     <li className="nav-item"><NavLink className={setActive} to="/">Home</NavLink></li>
                     <li className="nav-item"><NavLink className={setActive} to="/experience">Work & education</NavLink></li>
                     <li className="nav-item"><NavLink className={setActive} to="/skills">Skills</NavLink></li>
+                    <li className="nav-item"><NavLink className={setActive} to="/blog">Blog</NavLink></li>
                     {/* <li className="nav-item"><NavLink className={setActive} to="/blog">Blog</NavLink></li> */}
 
                   </ul>

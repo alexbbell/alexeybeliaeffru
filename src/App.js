@@ -1,13 +1,12 @@
 import React, { } from "react";
 import { useState, useEffect } from 'react';
 import { Routes, Route, Link} from 'react-router-dom';
-
 import { Layout } from './Components/Layout';
-
 import Banner from "./Controls/Banner";
 import Education from "./Components/Education";
 import { useSelector } from "react-redux";
 import Skills from "./Components/Skills";
+import Blog from "./Components/Blog/Blog";
 
 const axios = require('axios').default;
 
@@ -15,7 +14,7 @@ const axios = require('axios').default;
     
     const [resumeData, setResumeData ] = useState({});
     const [isLoaded, setLoaded] = useState(false);
-    const lang = useSelector( state => state.lang)
+    const lang = useSelector( state => state.lang); //
 
  
     const GetResumeData =  () => {
@@ -53,8 +52,9 @@ const axios = require('axios').default;
         {isLoaded && (
           <Routes>
             <Route path="/" element={<Layout />}>
+              <Route path="/blog" element={<Blog/>}></Route>
               <Route path="/" element={<Banner data={resumeData.main} />}></Route>
-              <Route path="/blog" element={<Banner data={resumeData.main} />}></Route>
+              
               <Route path="/experience" element={<Education data={resumeData.resume} />}></Route>
               <Route path="/skills" element={<Skills data={resumeData.resume} />}></Route>
             </Route>
