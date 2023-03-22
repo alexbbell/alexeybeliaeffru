@@ -1,6 +1,5 @@
 
 
-
 export function replaceNbsps(str) {
     var re = new RegExp(String.fromCharCode(160), "g");
     return str.replace(re, " ");
@@ -32,3 +31,39 @@ export function replaceNbsps(str) {
 
     return data;
   }
+
+
+export const SiteMap = (lang, words) => {
+  //Navigation
+const items = [
+    {
+        key : 'item1',
+        label: words.home,
+        url: "/"
+
+    },
+    {
+        key: 'item2',
+        label: words.about,
+        url: "/about"
+    },
+    {
+        key: 'item3',
+        label: words.experience,
+        url: "/experience"
+    },
+    {
+        key: 'item4',
+        label: words.skills,
+        url: "/skills"
+    },
+    {
+        key: 'item5',
+        label: words.blogs,
+        url: "/blog"
+    },
+]
+
+return items;
+
+}

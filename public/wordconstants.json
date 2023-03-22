@@ -1,0 +1,55 @@
+{
+"en": {
+    "morelink" : "Read more",
+    "fullname" : "Aleksei Beliaev",
+    "position" : "Fullstack developer",
+    "resume" : "Resume",
+    "contacts" : "Contacts",
+    "sitemap" : "Sitemap",
+
+
+
+
+
+    "home" : "Home",
+    "experience" : "Experience",
+    "skills" : "Skills",
+    "blogs" : "Blogs",
+    "about": "About"
+    
+
+
+  },
+  "ru": {
+    "morelink" : "Читайте далее",
+    "fullname" : "Алексей Беляев",
+    "position" : "Fullstack developer",
+    "resume" : "Резюме",
+    "contacts" : "Контакты",
+    "sitemap" : "Карта сайта",
+   
+    "home" : "Домой",
+    "experience" : "Опыт",
+    "skills" : "Навыки",
+    "blogs" : "Блоги",
+    "about": "Обо мне"
+
+  },
+  "he": {
+    "morelink" : "קרא עוד",
+    "fullname" : "אלטס'' בל''ב",
+    "position" : "Fullstack developer",
+    "resume" : "קורות חיים",
+    "contacts" : "טֵלֵפוֹן",
+    "sitemap" : "מפת אתר",
+
+    "home" : "בית",
+    "experience" : "ניסיון",
+    "skills" : "כישורים",
+    "blogs" : "בלוגים",
+    "about": "עליי"
+
+  }
+
+
+}

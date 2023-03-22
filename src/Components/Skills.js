@@ -1,35 +1,38 @@
-import React, { Component} from 'react'
+import React from 'react';
+import { Layout, Divider, Space, Row, Col, Button } from 'antd';
+import {  useSelector } from "react-redux";
 
 
-class Skills extends Component {
-    render() {
-       if(this.props.data) {
+const Skills = (props) => {
+    
+   const lang  = useSelector(state => state.lang.lang);
+   const words = useSelector(state => state.lang.words[lang])
 
-
-         var titleSkills = this.props.data.titleSkills;
-
-         var skills = this.props.data.skills.map(function (skill)  {
-            var className = 'bar-expand '+skill.name.toLowerCase()
-            return <li key={skill.name}><span className={className} style={{width: skill.level}}></span><em>{skill.name }</em></li>
+       if(props.data) {
+         var titleSkills = props.data.titleSkills;
+         var skills = props.data.skills.map(function (skill)  {
+            //var className = 'bar-expand '+skill.name.toLowerCase()
+            return <li key={skill.name}>
+               <h4>{skill.name }</h4>
+               <p>
+               {skill.description }
+               </p>
+            </li>
          });
 
-       }
-        return (
+return (
             
-<section id='education'>
-      <div id='skills' className="container">
-         <div className="row skill">
-            <div className="col-lg-12">
-               <h1><span>{titleSkills}</span></h1>
-               <div className="bars">
-                  <ul className="skills">
+<Row className='pt40 pb40'>
+<Col xs={0} md={1} lg={2}></Col>
+<Col xs={24} md={20} lg={20}>
+
+               <h1>{titleSkills}</h1>
+                  <ul>
                      {skills}
                   </ul>
-               </div>
-            </div>
-         </div>
-      </div>   
-</section>
+</Col>
+<Col xs={0} md={1} lg={2}></Col>
+</Row>
 
         );
     }

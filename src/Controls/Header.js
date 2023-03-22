@@ -1,52 +1,59 @@
-import React, { Component} from 'react'
+import React from 'react'
+import {  Row, Col, Layout, Menu } from 'antd';
+import {  useSelector } from "react-redux";
+import { useNavigate, NavLink } from 'react-router-dom'
 
+const { Header } = Layout;
+import LangSwitch from '../Controls/LangSwitch'
+import { SiteMap } from '../Middleware/Helpers';
 
-class Header extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            value :props.value
+const ABHeader = () => {
+    const lang  = useSelector(state => state.lang.lang);
+    const words = useSelector(state => state.lang.words[lang])
+    
+    const items = SiteMap(lang, words);
+    let navigate = useNavigate();
+    
+const setActive =   ( {isActive}) => isActive ? 'active-link' : '' ;
+
+    return (
+        <Header className='header'>
+            <Row>
+                <Col xs={0} md={12} xl={8} className="logoleft">
+                    <div className="logo" 
+     onClick={
+        () => {
+            navigate('./')
+
         }
     }
-
-    render() {
-        return (
-            <>
-            <header className="header_area">
-            <div className="main_menu">
-                <nav className="navbar navbar-expand-lg navbar-light">
-                    <div className="container">
-                        {/* <!-- Brand and toggle get grouped for better mobile display --> */}
-                        <a className="navbar-brand logo_h" href="index.html"><img src="/public/img/abblogo.png" alt="" /></a>
-
-                        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span className="icon-bar"></span>
-                            <span className="icon-bar"></span>
-                            <span className="icon-bar"></span>
-                        </button>
-                        {/* <!-- Collect the nav links, forms, and other content for toggling --> */}
-                        <div className="collapse navbar-collapse offset" id="navbarSupportedContent">
-                            <ul className="nav navbar-nav menu_nav justify-content-end">
-                                <li className="nav-item active"><a className="nav-link" href="index.html">Home</a></li>
-                                <li className="nav-item"><a className="nav-link" href="#about">About</a></li>
-                                <li className="nav-item"><a className="nav-link" href="#education">Education</a></li>
-                                <li className="nav-item"><a className="nav-link" href="#work">Work</a></li>
-                                <li className="nav-item"><a className="nav-link" href="#skills">Skills</a></li>
-                                <li className="nav-item"><a className="nav-link" href="#social">Social</a></li>
-
-  
-                            </ul>
-                        </div>
+                    >
+                        <h1 className="bold">{words.fullname}</h1>
+                        <h2 className='thin'>Fullstack developer</h2>
                     </div>
-                </nav>
-            </div>
-        </header>
+                </Col>
+                <Col xs={24} md={12} xl={16} className='hdrleft'>
+                    <LangSwitch />
+      
 
-                    </>
+                    <div className="topMenu">
 
-        )
-    }
+                        <ul>
+                        {
+                            items.map( elm => {
+                                return (
+                                    <li key={elm.key} ><NavLink className={setActive} to={elm.url}>{elm.label}</NavLink></li>
+                                )
+                            })
+
+                        }
+                        </ul>
+                    </div>
+                </Col>
+            </Row>
+        </Header>
+    )
 }
 
-export default Header;
+export default ABHeader;
+

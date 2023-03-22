@@ -1,41 +1,42 @@
 import React, { useState, useEffect} from 'react'
 import { useDispatch, useSelector } from "react-redux";
-import { switchLang} from '../store/langSlice';
+import { switchLang, loadWords} from '../store/langSlice';
+const axios = require('axios').default;
 
 export default function LangSwitch()  {
   
 
-    const langs = [  'en', 'ru', 'isr' ]
-    const [selectedLang,  setSelectedLang ] = useState();
+    const langs = [  'en', 'ru', 'he' ]
     
     const dispatch = useDispatch();
     const ml = useSelector( state => state.lang);
 
+
     const setlang = (lng) =>  {
-        dispatch(switchLang(lng));
+        dispatch( 
+            switchLang(lng)
+        );
     }
 
         return (
+
             
-    <div className="langswitch">
-        <div>
-
-            <div className="langBar">
-                {
-                    langs.map((lang, i) => {
-                        return (
-                            <span key={lang}>
-                                <a className={lang == ml.lang ? 'lng selected' : 'lng'} data={lang} onClick={(e) => { e.preventDefault(); setlang(lang); }}>{lang.toUpperCase()}</a>&nbsp;|&nbsp;
-                            </span>
-
-                        )
-                    })
-                }
-            </div>
-        </div>
+    <div className="langCtrl">
+    <ul>
+        {
+            langs.map((lang, i) => {
+                return (
+                    <span key={lang}>
+                        &nbsp;<a className={lang == ml.lang ? 'lng selected' : 'lng'} data={lang} onClick={(e) => { e.preventDefault(); setlang(lang); }}>{lang.toUpperCase()}</a>
+                        { (langs[i+1]) ? " | " : "" } 
+                    </span>
+                )
+            })
+        }
+    </ul>
     </div>
             
-            )
+    )
 
 }
 

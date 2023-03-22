@@ -21,7 +21,9 @@ module.exports = {
         static: { 
             directory: path.resolve(__dirname, './public'), 
             publicPath: '/public'
-          }
+          },
+          historyApiFallback: true
+
     },
     entry: [ path.resolve(__dirname,  'src', 'index.js') ],
     
@@ -65,7 +67,7 @@ module.exports = {
             },
 
             {
-                test: /\.woff2?$/i,
+                test: /\.(ttf|woff|woff2)?$/i,
                 type: 'asset/resource',
                 generator: {
                     filename: 'assets/fonts/[name][ext]'

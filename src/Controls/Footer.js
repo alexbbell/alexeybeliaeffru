@@ -1,59 +1,85 @@
-import React, { Component} from 'react'
+import React  from 'react'
+import { Layout, Divider, Space, Row, Col, Button} from 'antd';
+import {  useSelector } from "react-redux";
+import { SiteMap } from '../Middleware/Helpers';
+import { useNavigate, NavLink } from 'react-router-dom'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { solid, regular, files, icon } from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import styles to be used
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faFilePdf } from "@fortawesome/free-regular-svg-icons";
+import { faGithub, faLinkedin, faGitlab } from "@fortawesome/free-brands-svg-icons";
 
 
-class Footer extends Component {
-    render() {
+library.add(faFilePdf);
 
-        if(this.props.data) {
-           var socialn = this.props.data.social.map(function (soc)  {
-              return <a key={soc.url} href={soc.url}><i className={soc.className}>q</i></a>
-           });
-        }
+const ABFooter = (props) => {
+    
+    const lang  = useSelector(state => state.lang.lang);
+    const words = useSelector(state => state.lang.words[lang])
+    
+    const items = SiteMap(lang, words);
+	if(props.data) {
+	   var socialn = props.data.social.map(function (soc)  {
+		  return <a key={soc.url} href={soc.url}><i className={soc.className}>q</i></a>
+	   });
+	}
   
-        return (
-        <footer id='social' className="footer_area">
+    const setActive =   ( {isActive}) => isActive ? 'active-link' : '' ;
 
-			<div className="row justify-content-center">
-				<div className="col-lg-12">
-					<div className="footer_top flex-column ">
-						<div className="footer_social">{socialn}</div>
 
-					</div>
-				</div>
-			</div>
-			<div className="row justify-content-center">
-				<div className="col-lg-6 offset-lg-1">
-					<div className="footer_top flex-column ">
-                        <div> 
+    return (
+
+		<Row justify="space-around">
+ <Col span={5}>
+    <h3>{words.sitemap}</h3>
+        <ul className='clean-list'>
+            {
+                items.map(elm => {
+                    return (
+                        <li key={`f${elm.key}`}><NavLink className={setActive} to={elm.url}>{elm.label}</NavLink></li>
+                    )
+                })
+
+            }
+        </ul>
+ </Col>
+      <Col span={5}>
+	  <h3>{words.contacts}</h3>
+      
+            <ul className='clean-list'>
+            
+                <li><FontAwesomeIcon icon={regular("envelope")} />&nbsp; beliaeff@gmail.com</li>
+                <li><FontAwesomeIcon icon={solid("phone")} /> +7 9261803635 <br />(mobile, WhatsApp)</li>
+                <li><FontAwesomeIcon icon={solid("phone")} /> +972 585362546 <br />(mobile, WhatsApp)</li>
+            </ul>
+
+	  </Col>
+      <Col span={5}>
+	  <h3>{words.resume}</h3>
                         
-Email: <a href="mailto:beliaeff@gmail.com">beliaeff@gmail.com</a>
-<br />
-Phone: <a href="tel:+79261803635" >+7 9261803635</a> (mobile, WhatsApp)<br />
-Phone: <a href="tel:+972585362546" >+972 585362546</a> (mobile, WhatsApp)
+      <FontAwesomeIcon icon={faFilePdf} className='icon-high'/> &nbsp;<a href="/public/Aleksei_Beliaev_cv2022v5.pdf">{words.resume}</a>
+	  </Col>
+      <Col span={5}>
+	  <h3>{words.blogs}</h3>
+        <ul className='clean-list'>
+            
+            <li>
+            <FontAwesomeIcon icon={solid("blog")} className='icon-sm' /> <a href="https://markimarta.ru">markimarta.ru</a></li>
+            <li><FontAwesomeIcon icon={solid("blog")} className='icon-sm' />  <a href="https://markimarta.com">markimarta.com</a></li>
+            <li><FontAwesomeIcon icon={faLinkedin} className='icon-sm'/>&nbsp; <a href="https://www.linkedin.com/in/aleksei-beliaev/">LinkedIn</a></li>
+            <li><FontAwesomeIcon icon={faGithub} className='icon-sm'/>&nbsp;<a href="https://github.com/alexbbell/">Github</a></li>
+            <li><FontAwesomeIcon icon={faGitlab} className='icon-sm'/>&nbsp;<a href="https://gitlab.com/alexbbell/">Gitlab</a></li>
+        </ul>
+
+	  </Col>
+		</Row>
 
 
-                        </div>
-					</div>
-				</div>
-				<div className="col-lg-5">
-					<div className="footer_top flex-column ">
-                        <div> 
-
-Blogs: <a href="http://markimarta.ru/">markimarta.ru</a>, <a href="http://markimarta.com/">markimarta.com</a>, 
-<a href="http://mark-and-marta.ru/">mark-and-marta.ru</a>
-<br />
-
-                        </div>
-					</div>
-				</div>
-			</div>
-
-
-	</footer>
         
         )
-    }
+    
 }
 
 
-export default Footer;
+export default ABFooter;

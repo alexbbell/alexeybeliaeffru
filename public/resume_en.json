@@ -1,11 +1,15 @@
  {
+  "dictionary": {
+    "morelink" : "Read more"
+
+  },
     "main": {
       "greeting" : "Hi! ",
       "beforename":"I am ",
       "name":"Aleksei Beliaev",
-      "position":"Full-stack developer (C#, JS (jQuery, React), (no)SQL)",
+      "position":"Full-stack developer",
       "titleAbout" : "About me",
-      "description" :"Full-stack software developer with wide experience of creating and maintaining IT systems. Deep knowledge of C#, JavaScript, SQL and many other technologies; 10+ experience in Microsoft SharePoint technologies, development of SharePoint and standalone applications, integration with databases and web-services. Experience in IT and a master’s degree in engineering makes me capable of executing complicated and challenging projects.",
+      "description" :"I work as full-stack software developer and have a wide experience of creating and maintaining IT systems. Most of all I use C#, JavaScript, Rest API, Rabbit Mq. With C# I mean Net (.NetFramework, Net Core, EF Core, Nlog, NewtonSoft, OpenXML). JavaScript is not only a native language, but also TypeScript and the React library. I also created several simple tools with NodeJS, so JavaScript is not only for frontend.",
       "image":"/public/img/banner/abb.jpg",
       "bio":"I am looking for a job in Israel - Tel-Aviv, Rehovot, Haifa",
       "email": "beliaeff@gmail.com",
@@ -16,6 +20,7 @@
         "state":"",
         "zip": "20293"
       },
+      "about" : "I work as full-stack software developer and have a wide experience of creating and maintaining IT systems. Most of all I use C#, JavaScript, Rest API, Rabbit Mq. With C# I mean Net (.NetFramework, Net Core, EF Core, Nlog, NewtonSoft, OpenXML). JavaScript is not only a native language, but also TypeScript and the React library. I also created several simple tools with NodeJS, so JavaScript is not only for frontend.\n",
       "website": "https://alexey.beliaeff.ru/",
       "resumedownload":"/public/Aleksei_Beliaev_CV_2022-09.pdf",
       "social":[
@@ -87,21 +92,26 @@
       "titleSkills" : "Skills",
       "skills":[
         {
-          "name":"Asp.Net, C#: MVC application, WebForms, Console",
-          "level":"70%"
+          "name":"Asp.Net, C#: MVC applications, WebForms, Console applications",
+          "description": "The development of the small tools, the parts of microservices and the monolith applications for Net Framework and Net Core, the usage of the extensions EntityFramework, Dapper, Nlog, NewtonSoft, OpenXML and many others. "
         },
         {
-          "name":"Java Script and environmets (React, jQuery, NodeJS)",
-          "level":"70%"
+          "name":"JavaScript and libraries (React and connected libraries, jQuery, NodeJS)",
+          "description":  "The front-end development with popular JS frameworks and libraries - React, Redux, Antd, Axios, Bootstrap, jQuery (mostly for old projects). I use webpack to bundle JavaScript and TypeScript applications."
         },
         {
           "name":"XHTML, CSS, XML: deep knowledge of formats and technologies",
-          "level":"70%"
+          "description":"The modern usage of CSS and SCSS for styles, use webpack to automize the CSS compilation."
         },
         {
           "name":"Microsoft SharePoint: development webparts, timer-jobs integration with external applications",
-          "level":"80%"
+          "description":"The full cycle of work with MS SharePoint (2010, 2019) - the creating a farm, the development of webparts, timerjobs and console applications for the export-import of data, integrations with external applications, Office online."
+        },
+        {
+          "name" : "Devops engineer",
+          "description" : "Setting up the CI/CD processes with Gitlab, the automation of the creating environments with Terraform (AWS, YandexCloud) and Vagrant (VirtualBox). "
         }
+
       ]
     },
    

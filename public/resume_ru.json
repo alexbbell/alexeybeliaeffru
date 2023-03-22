@@ -1,11 +1,12 @@
- {
+{
+
     "main": {
       "greeting" : "Привет! ",
-      "beforename":"Я ",
+      "beforename":"Меня зовут ",
       "name":"Алексей Беляев",
       "position":"Full-stack разработчик (C#, JS, React, (no)SQL)",
       "titleAbout" : "Обо мне",
-      "description" :"Разработчик ПО с большим опытом создания и внедрения ИТ систем. Большой опыт работы с C#, Javascript, SQL и другими технологиями. Более 10 лет работы с  Microsoft SharePoint и другими технологиями вендора. Разработка приложений для SharePoint и приложений .Net, интегрированных с базами данных (SQL и NoSQL) и веб-сервисами.  Опыт работы в ИТ и высшее инженерное образование помогают мне находить комлексное решение разных задач.",
+      "description" :"Работаю разработчик ПО более 15 лет. Имею большой опыт разработки и внедрения ИТ систем. Основной стек - C# (Net), Javascript (React), SQL, REST. Более 10 лет работаю с  Microsoft SharePoint, в том числе разработал ряд приложений для SharePoint, интегрированных со сторонними базами данных (SQL и NoSQL) и веб-сервисами.",
       "image":"/public/img/banner/abb.jpg",
       "bio":"Ищу работу Full-stack developer в Израиле - Tel-Aviv, Rehovot",
       "email": "beliaeff@gmail.com",
@@ -16,7 +17,8 @@
         "state":"",
         "zip": "20293"
       },
-      "website": "http://www.techguywebsolutions.com",
+      "about" : "Работаю разработчик ПО более 15 лет. Имею большой опыт разработки и внедрения ИТ систем. Основной стек - C# (Net), Javascript (React), SQL, REST. Более 10 лет работаю с  Microsoft SharePoint, в том числе разработал ряд приложений для SharePoint, интегрированных со сторонними базами данных (SQL и NoSQL) и веб-сервисами.\n <h1></h1>", 
+      "website": "https://alexey.beliaeff.ru",
       "resumedownload":"/public/Aleksei_Beliaev_cv2022v5.pdf",
       "social":[
         {
@@ -80,20 +82,25 @@
       "skills":[
         {
           "name":"Разработка приложений на языке C#:  Net.Framework 3.5, 4.5, .Net Core 3, 5, 6. Типы приложений - WebForms, WebAPI, Console applications",
-          "level":"70%"
+          "description" : "Разработка утилит, модулей микросервисной архитектуры и блоков монолитных решений для фреймворков Net Framework and Net Core с использованием EntityFramework, Dapper, Nlog, NewtonSoft, OpenXM и многих других."
         },
         {
           "name":"JavaScript. Разработка интерфейсов и SPA с библиотеками  React, jQuery; бэк-энд на NodeJS",
-          "level":"70%"
+          "description" : "Разработка клиентских интерфейсов на Javascript с использованием библиотек React, Redux, Antd, Axios, Bootstrap, jQuery. Использую Webpack для сборки решений"
         },
         {
           "name":"XHTML, CSS, XML: без этого никуда, но много что отдал на откуп фреймворкам типа MUI, Bootstrap, ANTD",
-          "level":"70%"
+          "description" : "Современные подходы к созданию стилей с классическим CSS и SCSS,  использование Webpack для компиляции в CSS."
         },
         {
-          "name":"Microsoft SharePoint: разработка веб-частей, таймер-джобов, интеграций со сторонними базами",
-          "level":"80%"
+          "name":"Microsoft SharePoint",
+          "description":"Полный цикл работы с SharePoint (2010, 2019) -развертывание фермы серверов, разработка веб-частей, таймер-джобов и консольных приложений для импорта-экспорта данных, интеграции со сторонними базами и сервисами"
+        },
+        {
+          "name": "Devops",
+          "description": "Настройка процессов непрерывных интеграции и деплоя CI / CD с помощью Gitlab, планирование и развертывание инфраструктуры с помощью Terraform (AWS, YandexCloud) и Vagrant (VirtualBox)."
         }
+
       ]
     },
    

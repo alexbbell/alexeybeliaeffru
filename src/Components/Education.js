@@ -1,67 +1,62 @@
 import React, { Component} from 'react'
+import { Col, Row, Divider } from 'antd';
 
 
-class Education extends Component {
-    render() {
-       if(this.props.data) {
-          var titleEducation = this.props.data.titleEducation;
-         var education = this.props.data.education.map(function (ed)  {
-            return <div key={ed.graduated} className="row item">      
-               <div className="col-lg-12">
-               <h4>{ed.school}</h4>
-               <p className="">{ed.degree} <span>&bull;</span> 
-                  <em className="date">{ed.graduated}</em>
-                  <br />
+const Education = (props) => {
+
+       if(props.data) {
+          var titleEducation = props.data.titleEducation;
+          var education = props.data.education.map(function (ed)  {
+            return <div key={ed.graduated} className="pb10">      
+               
+               <h4 className='uppercase'>{ed.school}</h4>
+               <em className="date"></em>
+               <h5 className='thin italic' >{ed.graduated} </h5> 
+               <h3>{ed.degree}</h3>
+                  <p>
                  {ed.description}
                   </p>
-               </div>
+               
             </div>
          });
 
-         var titleWork = this.props.data.titleWork;
+         var titleWork = props.data.titleWork;
 
-         var work = this.props.data.work.map(function (wrk)  {
-            return <div key={wrk.years} className="row item">   
-               <div className="col-lg-12">
-                        <h4>{wrk.company}</h4>
-                  <p className="">{wrk.title} <span>&bull;</span> 
-                  <em className="date">{wrk.years}</em>
-                  <br />
-                 {wrk.description}
+         var work = props.data.work.map(function (wrk)  {
+            return <div key={wrk.years} className="pb10">  
+                  <h4 className='uppercase'>{wrk.company}</h4>
+                  <h5 className='thin italic grey' >{wrk.years}</h5>
+                  <h3>{wrk.title} </h3>
+                  <p>
+                  {wrk.description}
                   </p>
                </div>
-            </div>
+            
          });
    
 
        }
-        return (
+
+
+       return (
             
-<section id='education'>
+<Row className='pt40'>
+   <Col xs={1} md={1} lg={2}></Col>
+   <Col xs={22} md={22} lg={20} >
 
-         <div id='work' className="container">
-            <div className="row work">
-               <div className="col-lg-12">
-                  <h1><span>{titleWork}</span></h1>
+                  <h1>{titleWork}</h1>
                   {work}
-               </div>
-            </div>
-         </div>
 
-         <div className="container">
-            <div className="row education">
-               <div className="col-lg-12">
+                  <Divider className='ant-divider-horizontal line pt40'></Divider>
+
                   <h1><span>{titleEducation}</span></h1>
 
                   {education}
-               </div>
-            </div>
-         </div>
+         </Col>
+         <Col xs={1} md={1} lg={2}></Col>
+</Row>
 
-</section>
-
-        );
-    }
+        )
 }
 
 export default Education;

@@ -1,7 +1,16 @@
 import React, { } from 'react'
+import { Layout, Divider, Space, Row, Col, Button } from 'antd';
+import {  useSelector } from "react-redux";
+import { useNavigate, NavLink } from 'react-router-dom'
 
-import { Button } from 'react-bootstrap';
+
+import imageToAdd from "../img/abbfp.jpg";
 const  Banner = (props) => {
+
+    let navigate = useNavigate(); 
+
+    const lang  = useSelector(state => state.lang.lang);
+    const words = useSelector(state => state.lang.words[lang])
 
         if(props.data) {
             var t = props.data;
@@ -9,53 +18,90 @@ const  Banner = (props) => {
             var beforename = t.beforename;
             var greeting = t.greeting;
             var position = t.position;
+            var description = t.description;
             var hi = t.hi;
             var about = t.description
             var titleAbout = t.titleAbout
         }
-        if(props.lang) {
-            var lang = props.lang;
-        }
 
         return ( 
 <>
-        <section className="home_banner_area">
-            <div className="banner_inner">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-7">
-                            <div className="banner_content">
-                                <h3 className="text-uppercase ">{greeting}</h3>
-                                <h1 className="text-uppercase tracking-in-expand ">{beforename}<br /> {name}</h1>
-                                <h5 className="text-uppercase " >{position}</h5>
-                                <div className="d-flex align-items-center">
-                                    <a href="https://wa.me/972585362546">
-                                        <Button className="btn  btn-success">WhatsApp</Button></a>
-                                    &nbsp;
-                                    <a className="primary_btn tr-bg" href="/public/Aleksei_Beliaev_cv2022v5.pdf">
-                                        <Button className="btn  btn-primary">Get CV</Button></a>
-                                </div>
-                                <div>
-                                    <div className="main_title text-left">
-                                    <br />
-                                        <p>{about}</p>
-                                        <a className="primary_btn tr-bg" href="/public/Aleksei_Beliaev_cv2022v5.pdf">
-                                            <Button className="btn  btn-primary">Get CV</Button></a>        </div>
+    <Row className='pb40'>
+        <Col xs={0} md={10} lg={9}>
+            <div className="tracking-in-expand ">
+                <img src='/assets/img/abbfp.jpg' className='image'></img>
 
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-5">
-                            <div className="home_right_img">
-                                <img src="/public/img/banner/abb.jpg" alt="" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
-        </section>
+        </Col>
+        <Col xs={24} md={14} lg={15} className='about'>
+            <h3 >{greeting}</h3>
+            <h1 className=" tracking-in-expand ">{beforename} {name}</h1>
+            <p>{description}</p>
+            <p>
+                <NavLink to='/about' className="more">{words.morelink}...</NavLink>
+            </p>
+            
 
 
+        </Col>
+    </Row>
+    
+    <Space></Space>
+
+    <Divider className='ant-divider-horizontal line pb10'></Divider>
+    
+    <Row  className='pb10' justify="space-between">
+        <Col xs={1} md={0} lg={2}></Col>
+
+        <Col xs={23} md={11} lg={8}>
+    <div id="education" className='fpadvert education education_off' 
+    onMouseOver={
+        () => {
+            document.getElementById('education').classList.remove('education_off');
+            document.getElementById('education').classList.add('education_on')
+        }}
+    onMouseOut={
+        () => {
+            document.getElementById('education').classList.remove('education_on');
+            document.getElementById('education').classList.add('education_off');
+        }} 
+        onClick={
+            () => {
+                navigate('./experience')
+
+            }
+        }
+    ><NavLink to="./experience" className={'h3 uppercase'}>{words.experience}</NavLink></div>
+        </Col>
+        <Col xs={1} md={0} lg={2}></Col>
+        <Col xs={23} md={11} lg={8}>
+    <div id="skills" className="fpadvert skills skills_off"
+        onMouseOver={
+        () => {
+                document.getElementById('skills').classList.remove('skills_off');
+                document.getElementById('skills').classList.add('skills_on');
+        }}
+        onMouseOut={
+            () => {
+
+                document.getElementById('skills').classList.remove('skills_on');
+                document.getElementById('skills').classList.add('skills_off');
+            } }
+            onClick={
+                () => {
+                    navigate('./skills')
+
+                }
+            }
+            >
+            <NavLink to="" className={'h3 uppercase'}>{words.skills}</NavLink>
+            </div>
+    
+            </Col>
+            <Col xs={0} md={0} lg={2}></Col>
+    </Row>
+
+ 
 </>
 
         )
