@@ -12,7 +12,9 @@ export default function Blog () {
   const [totalPages, setTotalPages] = useState(0)
   const [totalPosts, setTotalPosts] = useState(0)
   const [currentPage, setCurrentPage] = useState(1)
+  const [perPage, setPerPage] = useState(10)
   const lang = useSelector(state => state.lang.lang)
+  const words = useSelector(state => state.lang.words[lang])
 
   let blogUrl = 'https://markimarta.com'
   if (lang === 'ru') {
@@ -25,21 +27,20 @@ export default function Blog () {
       setOperationResult(true)
     }
     fetchData()
-  }, [operationResult, currentPage, lang])
+  }, [operationResult, currentPage, perPage, lang])
 
   const LoadPosts = async () => {
     const mode = 'prod' // prod | dev
     let data, json
 
-    // console.log(`${blogUrl}/wp-json/wp/v2/posts?page=${currentPage}&per_page=10&order=desc`)
     if (mode === 'dev') {
       // data = await fetch('/public/posts.json');
-      data = await fetch(`${blogUrl}/wp-json/wp/v2/posts?page=${currentPage}&per_page=10&order=desc`)
+      data = await fetch(`${blogUrl}/wp-json/wp/v2/posts?page=${currentPage}&per_page=${perPage}&order=desc`)
       json = await data.json()
       setTotalPages(24)
       setTotalPosts(239)
     } else {
-      data = await fetch(`${blogUrl}/wp-json/wp/v2/posts?page=${currentPage}&per_page=10&order=desc`)
+      data = await fetch(`${blogUrl}/wp-json/wp/v2/posts?page=${currentPage}&per_page=${perPage}&order=desc`)
       json = await data.json()
       setTotalPages(data.headers.get('x-wp-totalpages'))
       setTotalPosts(data.headers.get('x-wp-total'))
@@ -88,7 +89,7 @@ export default function Blog () {
 
                                 <span><i>Date: {item.date}</i></span>
                                 {item.anons}
-                                <a href={item.link}>Read the full post</a>
+                                <a href={item.link}>{words.morelink}</a>
 
                             </div>
                         </div>
@@ -104,15 +105,18 @@ export default function Blog () {
   }
 
   const onChange = (page, items) => {
+    console.log(page, items)
+    page = (page === 0) ? page + 1 : page
     setCurrentPage(page)
+    setPerPage(items)
   }
 
   return (
 
         <>
-            <Row className='pb40'>
+            <Row className='pt40 pb40'>
                 <Col xs={0} md={1} lg={2}></Col>
-                <Col xs={0} md={15} lg={15}>
+                <Col xs={24} md={15} lg={15}>
 
                     <h1>Posts from my blog</h1>
 
@@ -120,10 +124,14 @@ export default function Blog () {
                 </Col>
                 <Col xs={0} md={1} lg={2}></Col>
             </Row>
-        <br />
-            <div>Total pages: {totalPages}</div>
-            <div>Total posts: {totalPosts}</div>
-            <Pagination defaultCurrent={currentPage + 1 } total={totalPages} onChange={onChange} />
+            <Row className='pt10 p10'>
+            <Col xs={0} md={1} lg={2}></Col>
+            <Col xs={24} md={15} lg={15}>
+            <Pagination defaultCurrent={currentPage + 1 } total={totalPosts} onChange={onChange} pageSizeOptions={[10, 20, 40]} />
+            <br />
+            </Col>
+            <Col xs={0} md={1} lg={2}></Col>
+            </Row>
             {/* <Paging totalPages={totalPages} totalPosts={totalPosts} /> */}
 
         </>

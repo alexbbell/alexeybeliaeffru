@@ -18,7 +18,7 @@ const ABFooter = (props) => {
   return (
 
     <Row justify="space-around">
-        <Col span={5}>
+        <Col xs={11} md={5} lg={5}>
             <h3>{words.sitemap}</h3>
             <ul className='clean-list'>
                 {
@@ -31,7 +31,7 @@ const ABFooter = (props) => {
                 }
             </ul>
         </Col>
-        <Col span={5}>
+        <Col xs={11} md={5} lg={5}>
             <h3>{words.contacts}</h3>
 
             <ul className='clean-list'>
@@ -42,12 +42,12 @@ const ABFooter = (props) => {
             </ul>
 
         </Col>
-        <Col span={5}>
+        <Col xs={11} md={5} lg={5}>
             <h3>{words.resume}</h3>
 
             <FontAwesomeIcon icon={faFilePdf} className='icon-high' /> &nbsp;<a href="/public/Aleksei_Beliaev_cv2022v5.pdf">{words.resume}</a>
         </Col>
-        <Col span={5}>
+        <Col xs={11} md={5} lg={5}>
             <h3>{words.blogs}</h3>
             <ul className='clean-list'>
 

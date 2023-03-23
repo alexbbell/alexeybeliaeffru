@@ -31,7 +31,8 @@ const ABHeader = () => {
                         <h2 className='thin'>Fullstack developer</h2>
                     </div>
                 </Col>
-                <Col xs={24} md={12} xl={16} className='hdrleft'>
+
+                <Col xs={23} md={12} xl={16} className='hdrleft'>
                     <LangSwitch />
 
                     <div className="topMenu">
