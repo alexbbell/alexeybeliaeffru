@@ -1,9 +1,9 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit'
 
-import langReducer from './langSlice';
+import langReducer from './langSlice'
 
-export default configureStore( {
-    reducer: {
-        lang: langReducer
-    }
-})  
+export default configureStore({
+  reducer: {
+    lang: langReducer
+  }
+})
