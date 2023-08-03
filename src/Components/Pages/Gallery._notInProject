@@ -1,0 +1,94 @@
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+
+import styles from './gallery.module.scss'
+//import './../style/style.module.scss'
+import { useTranslation } from 'react-i18next'
+import { DefaultButton, IButtonStyles, IIconProps, IStackTokens, IconButton, Modal, Stack, getTheme } from 'office-ui-fabric-react'
+import { IImageCollection, ITeam, teamImages, teams } from '../igallery'
+
+
+
+
+
+
+export const Gallery = () => {
+    const { t, i18n } = useTranslation();
+    const navigate = useNavigate()
+
+ 
+    const [isModalOpen, toggleModal] = useState<boolean>(false);
+
+    const [selectedTeam, setSelectedTeam] = useState<ITeam>(teams[0])
+    const [loadedImages, setLoadedImages] = useState<IImageCollection>(teamImages[0])
+
+    const theme = getTheme();
+    const cancelIcon: IIconProps = { iconName: 'Cancel' };
+
+    const titleId = 'title';
+    const stackTokens: IStackTokens = { childrenGap: 5 };
+
+    const iconButtonStyles: Partial<IButtonStyles> = {
+        root: {
+          color: theme.palette.neutralPrimary,
+          marginLeft: 'auto',
+          marginTop: '4px',
+          marginRight: '2px',
+        },
+        rootHovered: {
+          color: theme.palette.neutralDark,
+        },
+      };
+    
+    return (
+<>
+<Stack horizontal tokens={stackTokens} style={{padding: '50px 50px 50px 100px'}}>
+    <Stack.Item className={styles.gallery}>
+        {
+            teams.map( (t)  => {
+                return <Stack.Item className={styles.teamCtrl}
+                onClick={ () => {
+                        setSelectedTeam(t);
+                        const newim = teamImages.filter(x=>x.team.teamId === t.teamId)[0]
+                        setLoadedImages( newim  ) 
+                }}
+                >{t.title}</Stack.Item>
+            })
+        }
+
+    </Stack.Item>
+    <Stack.Item>
+        <Stack.Item> {selectedTeam.title}
+            {
+                loadedImages.images.map((im) => {
+                    return (
+                        <Stack>
+                            <b>{im.filename}
+                                <br />
+                                <img src={`/gallery/team${selectedTeam.teamId}/${im.filename}`} style={{ width: '150px' }} />
+                            </b>
+                        </Stack>
+
+                    )
+                }
+                )
+
+            }
+        </Stack.Item>
+
+    </Stack.Item>
+
+
+
+
+ </Stack> 
+ <DefaultButton onClick={() => toggleModal(true)} text="Open Modal" />
+
+{/* <Modal isOpen={isModalOpen}          onDismiss={hideModal} /> */}
+
+ <Modal isOpen={isModalOpen} onDismiss={() => toggleModal(false)}
+  isBlocking={false} titleAriaId='test' closeButtonAriaLabel='close'  />
+    
+</>
+    )
+}

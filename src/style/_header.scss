@@ -1,0 +1,203 @@
+.header {
+    margin-top: 10px;
+    background: inherit;
+    line-height: normal;
+    height: 90px;   
+    padding-inline: 0px;
+  }
+  
+  
+  .hdrleft {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    align-content: flex-end;
+    -ms-flex-align: end;
+    padding-top: 14px;
+    min-height: 90px;
+    
+  }
+  
+  .logoleft {
+  }
+  
+  .logo {
+    margin-left: 45px;
+    width: 400px;   
+    padding: 5px 0px;
+    cursor: pointer;
+  }
+  
+  .logo h1, .logo h2 {
+    padding: 0px;
+    line-height: normal;
+    margin: 0px;
+    font-size: 31px;
+  }
+  .logo h2 {
+    color: $nonActiveLinkColor;
+    font-size: 28px;
+    
+  }
+
+  
+
+//Language control start
+.langCtrl {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 10px ;
+  justify-content: flex-end;
+}
+.langCtrl ul {
+  padding-right: 5px;
+}
+
+
+.langCtrl ul li {
+  list-style-type: none;
+  flex-direction: column;
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  -webkit-align-self: end;
+  -ms-flex-item-align:  end;
+  align-self: flex-end;
+  padding: 0px 5px;
+  border-left: grey 0px solid;
+}
+
+.langCtrl .selected {
+  font-weight: bold;
+}
+//Language control end
+
+
+//Top navigation start
+.topMenu {
+  flex-grow: 1;
+
+}
+
+.topMenu ul {
+    margin: 0; padding:0;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  background-color: none;
+  flex-wrap: nowrap ;
+  justify-content: flex-end;
+  align-items: flex-end;
+  -ms-flex-align: end;
+}
+
+.topMenu ul li {
+  list-style-type: none;
+  order: 0;
+  text-align: center;
+  line-height: 2;
+}
+
+.topMenu ul li a, .topMenu ul li a:link, .topMenu ul li a:visited {
+  background-color: $bgNonactive;
+  border-top-right-radius: 5px ;
+  border-top-left-radius: 5px ;
+  padding: 3px 10px 3px 10px;
+  min-width: 70px;
+  width: auto;
+  display: block;
+  color: $maintTextColor;
+  font-weight: normal;
+  text-transform: lowercase;
+  white-space:nowrap;
+  border-left: $nonActiveLightLinkColor 1px solid;
+}
+.topMenu ul a:nth-child(1){
+  border: 0px;
+}
+.topMenu ul li a:hover, .topMenu ul li a.selected {
+  background-color: $bgSelected ;
+}
+.activelink  {
+  font-weight: bold;
+  background-color: $bgSelected;
+
+}
+
+
+
+//Top navigation end
+
+.about {
+  padding-top: 6em;
+  padding-left: 1em;
+}
+
+a.more,  a.more:link, a.more:visited {
+  color: $maintTextColor;
+  font-weight: bold;
+  font-size: $mainSize + 0.07;
+}
+
+
+.line {
+  border-top: $bgSelected 10px solid;
+  margin: 0px;
+  padding: 0px;
+  // border-bottom: $bgSelected 5px solid;
+}
+
+.fpslider {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between ;
+}
+.fpslider div {
+
+  padding: 5px;
+  margin: 5px;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+}
+
+
+
+.education, .skills {
+  width: 447px; height: 150px;
+  display: block;
+}
+.skills {
+  background-image: url('../img/skills_off.png');
+  cursor: pointer;
+  &:hover {
+    background-image: url('../img/skills_on.png');
+  }
+}
+
+.education {
+  background-image: url('../img/education_off.png');
+  cursor: pointer;
+  &:hover {
+    background-image: url('../img/education_on.png');
+  }
+  }
+
+
+.content {
+  clear: both;
+}
+
+footer {
+  font-size: 10pt;
+}
+
+.fpadvert {
+  padding: 10px
+}
