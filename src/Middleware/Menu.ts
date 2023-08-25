@@ -17,7 +17,8 @@ class Menu {
       { url: '/about', label: 'about' },
       { url: '/contacts', label: 'contacts' },
       { url: '/sitemap', label: 'sitemap' },
-      { url: '/resume', label: 'resume' }
+      { url: '/resume', label: 'resume' },
+      { url: '/lngmngr', label: 'lngmngr' }
     ]
   }
 

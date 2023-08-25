@@ -14,7 +14,7 @@ export const Homepage = (): JSX.Element => {
   return (
 <>
 <Row className={styles.pb40}>
-        <Col xs={14} md={15} lg={9}>
+        <Col xs={14} md={15} lg={9} style={{ textAlign: 'center' }}>
             <div className={styles.trackingInExpand}>
                 <img src='/img/abbfp.jpg' className={styles.image}
                 alt={`${t('main.beforename')} {t('main.name')}`} />

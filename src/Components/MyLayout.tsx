@@ -1,4 +1,4 @@
-import React, { } from 'react'
+import React, { Suspense } from 'react'
 import { Layout, Divider } from 'antd'
 import styles from './../style/style.module.scss'
 import { Outlet } from 'react-router-dom'
@@ -13,9 +13,9 @@ export const MyLayout = (): JSX.Element => {
        <ABHeader />
        <Divider plain={true} className={`${styles.line}`}></Divider>
       <Content>
-
+        <Suspense fallback={<b>Loading....</b>}>
         <Outlet></Outlet>
-
+        </Suspense>
     </Content>
     <Divider plain={true} className={`${styles.line}`}></Divider>
 

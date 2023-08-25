@@ -94,7 +94,7 @@ export default function Blog (): JSX.Element {
                 <Anonspost items={items} />
 
       )
-    } else return <div><div className="lds-circle"><div></div></div></div>
+    } else return <div><div className={styles.ldsCircle}><div></div></div></div>
   }
 
   const Anonspost = (props: any): JSX.Element => {

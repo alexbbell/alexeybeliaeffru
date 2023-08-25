@@ -20,7 +20,7 @@ const ABHeader = (): JSX.Element => {
     i18n.changeLanguage(lang).then(res => { console.log('') }).catch(err => { console.log('err', err) })
   }, [lang])
 
-  const items = m.fetchMenUItems(['home', 'skills', 'blogs', 'about', 'gallery'])
+  const items = m.fetchMenUItems(['home', 'skills', 'blogs', 'about', 'gallery', 'lngmngr'])
   const navigate = useNavigate()
 
   //  const setActive = ({ isActive }) => isActive ? 'active-link' : ''

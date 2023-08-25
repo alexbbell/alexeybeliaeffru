@@ -12,7 +12,8 @@
     "blogs": "Blogs",
     "about": "About",
     "education": "Education",
-    "gallery": "Gallery"
+    "gallery": "Gallery",
+    "lngmngr": "Lang Manager"
   },
   "skills": {
     "title": "Skills",

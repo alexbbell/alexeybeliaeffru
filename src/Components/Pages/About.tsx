@@ -3,7 +3,7 @@ import { Row, Col, Space, Modal } from 'antd'
 import styles from './../../style/style.module.scss'
 import { useTranslation } from 'react-i18next'
 
-export const About = (): JSX.Element => {
+const About = (): JSX.Element => {
   const { t } = useTranslation()
 
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -55,3 +55,4 @@ export const About = (): JSX.Element => {
 </>
   )
 }
+export default About

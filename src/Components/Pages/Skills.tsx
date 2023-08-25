@@ -27,7 +27,7 @@ interface IEducation {
   description: string
 }
 
-export const Skills = (props: IStaticPage): JSX.Element => {
+const Skills = (props: IStaticPage): JSX.Element => {
   const { t } = useTranslation()
   const skillsList: ND[] = t(`${props.query}.content`, { returnObjects: true })
   const skillsContent: JSX.Element[] = skillsList.map(function (skill) {
@@ -95,3 +95,4 @@ export const Skills = (props: IStaticPage): JSX.Element => {
 </>
   )
 }
+export default Skills
