@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { type Skill } from './BLLangMaster'
 
 const SkillsEditor = (props: any): JSX.Element => {
+  console.log('SkillsEditor props', props)
   const [swSkills, setSwSkills] = useState<Skill[]>([])
   useEffect(() => {
     setSwSkills(props.data)
@@ -15,6 +16,7 @@ const SkillsEditor = (props: any): JSX.Element => {
       swSkills.map((sk, index) => {
         return <>
           <input type='text' value={String(sk.name)}
+style={{ width: '100%' }}
             onChange={(evt: React.ChangeEvent<HTMLInputElement>) => {
               const t = swSkills
               t[index].name = evt.currentTarget.value

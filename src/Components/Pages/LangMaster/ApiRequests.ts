@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { emptyObject, type ISiteObjects } from './BLLangMaster'
 import { mainUrl } from './config'
+
 export function updateSkills (lang: string, newContent: ISiteObjects): void {
   const langApiUrl: string = mainUrl + '?lang=' + lang
 
