@@ -3,12 +3,36 @@ export interface ILangSiteObjects {
   siteobjects: ISiteObjects
 }
 
+export interface ISocial {
+  name: string
+  url: string
+  className: string
+}
+
+export interface IMain {
+  greeting: string
+  beforename: string
+  name: string
+  position: string
+  titleAbout: string
+  description: string
+  image: string
+  bio: string
+  email: string
+  phone: string
+  address: string
+  about: string
+  website: string
+  resumedownload: string
+  social: ISocial[]
+}
+
 export interface ISiteObjects {
   morelink: string
   fullname: string
   menu: string
   skills: Skills
-  main: string[]
+  main: IMain
   work: Work
   education: Education
 }
@@ -50,7 +74,7 @@ export const emptyObject: ISiteObjects = {
   morelink: '',
   education: { title: '', content: [] },
   fullname: '',
-  main: [],
+  main: { about: '', address: '', beforename: '', bio: '', description: '', email: '', greeting: '', image: '', name: '', phone: '', position: '', resumedownload: '', social: [], titleAbout: '', website: '' },
   menu: '',
   skills: { title: '', content: [] },
   work: { title: '', content: [] }
@@ -59,27 +83,3 @@ export const emptyLangObject: ILangSiteObjects = {
   lang: 'en',
   siteobjects: emptyObject
 }
-
-// export const requiredFields = ['morelink', 'fullname', 'menu', 'skills', 'main', 'work', 'education']
-
-// export interface ISiteContent {
-//     morelink: string,
-//     fullname: string,
-//     menu: string,
-//     skills: string[],
-//     main: string[]
-//     work: string[]
-//     education: string[]
-// }
-
-// export const readdata = async (key:string): Promise<string> => {
-//     const t = await fetch('/locales/en/en-translation.json')
-//     const movies: any = await t.json()
-//     setContent(movies)
-//     console.log(movies)
-
-//     console.log(Object.keys(movies))
-//     console.log(Object.keys(movies?.skills))
-//     console.log(Object.keys(movies?.skills?.content))
-//     console.log('jsp', movies.skills)
-//   }
