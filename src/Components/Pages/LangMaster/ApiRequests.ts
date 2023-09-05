@@ -23,7 +23,15 @@ export function updateSkills (lang: string, newContent: ISiteObjects): void {
 export const GetLangContent = async (lang: string): Promise<ISiteObjects> => {
   let data: ISiteObjects = emptyObject
   console.log(mainUrl + lang)
-  const response: any = await axios.get(mainUrl + lang)
-  data = response.data
+  // const response: any = await axios.get(mainUrl + lang)
+  await axios.get(mainUrl + lang).then(response => {
+    data = response.data
+    return data
+  }).catch(err => {
+    data = emptyObject
+    data.errorText = 'some kind of shit' // err.AxiosError?.message
+    console.log('err', err)
+    return data
+  })
   return data
 }

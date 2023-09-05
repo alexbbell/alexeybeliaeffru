@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 const LangSelector = (props: any): JSX.Element => {
   const [swLang, setSwLang] = useState('en')
 
-  const langs: string[] = ['ru', 'en', 'he', 'qq']
+  const langs: string[] = ['ru', 'en', 'he']
   return (
     <div style={{ display: 'flex', flexDirection: 'row' }}>
     {

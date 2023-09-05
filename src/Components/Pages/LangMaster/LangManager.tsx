@@ -3,11 +3,12 @@ import { Row, Col, Space, Input, type CollapseProps, Collapse, Button } from 'an
 import styles from './../../../style/style.module.scss'
 import { useTranslation } from 'react-i18next'
 import formstyles from './LangMaster.module.scss'
-import { emptyObject, type Skill, type ISiteObjects, type WorkItem, type EducationItem } from './BLLangMaster'
+import { emptyObject, type Skill, type ISiteObjects, type WorkItem, type EducationItem, type ISocial } from './BLLangMaster'
 import { GetLangContent, updateSkills } from './ApiRequests'
 import LangSelector from './LangSelector'
 import SkillsEditor from './SkillsEditor'
 import TextArea from 'antd/es/input/TextArea'
+
 const LangManager = (): JSX.Element => {
   const { t } = useTranslation()
   // const selectedLang = useAppSelector(state => state.lang.lang)
@@ -209,6 +210,50 @@ const LangManager = (): JSX.Element => {
   </>
   }
 
+  const jsxSocial = (alldata: ISiteObjects): JSX.Element => {
+    return <>
+    <h1 key='h1soc'>Social</h1>
+    <div onClick={ () => {
+      const t = content
+      const newSoc: ISocial = { className: '', name: '', url: '' }
+      t.main.social.push(newSoc)
+      setContent({ ...t })
+    }}><span style={{ fontSize: 20 }}>+</span>Add new row</div>
+    {
+      content.main.social.map((soc, index) => {
+        return <div key={`j${index}`}>
+<div className={formstyles.remove} onClick={ () => {
+  const socials = content
+  socials.main.social.splice(index, 1)
+  setContent({ ...socials })
+}}><span>-</span> Remove row</div>
+          Name: <input key={`dddeg${index}`} value={soc.name} className={formstyles.inputText}
+            onChange={(evt: React.ChangeEvent<HTMLInputElement>) => {
+              evt.preventDefault()
+              const t = { ...content }
+              t.main.social[index].name = evt.currentTarget.value
+              setContent({ ...t })
+            }} /><br />
+            URL <input key={'schoold'} value={String(soc.url)} className={formstyles.inputText}
+              onChange={(evt: React.ChangeEvent<HTMLInputElement>) => {
+                const t = { ...content }
+                t.main.social[index].url = evt.currentTarget.value
+                setContent({ ...t })
+              }} /><br />
+            className: <input key={'grad'} value={String(soc.className)} className={formstyles.inputText}
+              onChange={(evt: React.ChangeEvent<HTMLInputElement>) => {
+                const t = { ...content }
+                // t.content[index].graduated = evt.currentTarget.value
+                t.main.social[index].className = evt.currentTarget.value
+                setContent({ ...t })
+              }} /><br />
+        </div>
+      })
+    }
+   <br />
+  </>
+  }
+
   const GetCollapseProps = (lang: string): CollapseProps['items'] => {
     const items: CollapseProps['items'] = [
       {
@@ -232,6 +277,11 @@ const LangManager = (): JSX.Element => {
         label: 'Education',
         // children: <EducationEditor data={education} fnc={reloadEdu} />
         children: <>{jsxEducation(content)}</>
+      },
+      {
+        key: 'cp5',
+        label: 'Social',
+        children: <>{jsxSocial(content)}</>
       }
 
     ]
@@ -244,21 +294,31 @@ const LangManager = (): JSX.Element => {
     <Col xs={1} md={1} lg={1}></Col>
     <Col xs={21} md={21} lg={21}>
       <LangSelector data={switchLangEdit} />
-
     {
   !isLoaded &&
   (
-
     <div>...Loading  </div>
   )
   }
-
 {
   isLoaded && (
     <>
-    <h1>{t('main.titleAbout')}</h1>
-    <Collapse items={GetCollapseProps('ru')} defaultActiveKey={['cp4']} />
-    <Button type="primary" onClick={() => { updateSkills(selectedLang, content) }}>Update Skills {selectedLang}</Button>
+    {
+      content.errorText !== null && (
+        <b>{content.errorText}</b>
+      )
+    }
+
+    {
+    content.errorText === undefined && (
+      <>
+      {content.errorText}
+        <h1>{t('main.titleAbout')}</h1>
+        <Collapse items={GetCollapseProps('ru')} defaultActiveKey={['cp4']} />
+        <Button type="primary" onClick={() => { updateSkills(selectedLang, content) }}>Update Skills {selectedLang}</Button>
+        </>
+    )
+  }
     </>
   )
 }

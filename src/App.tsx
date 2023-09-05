@@ -3,11 +3,11 @@ import { Route, Routes } from 'react-router-dom'
 import { MyLayout } from './Components/MyLayout'
 import { Homepage } from './Components/Pages/Homepage'
 import { lazy } from 'react'
-import LangManager from './Components/Pages/LangMaster/LangManager'
 
 const About = lazy(async () => await import('./Components/Pages/About'))
 const Skills = lazy(async () => await import ('./Components/Pages/Skills'))
 const Blog = lazy(async () => await import ('./Components/Pages/Blog'))
+const LangMaster = lazy(async () => await import ('./Components/Pages/LangMaster/LangMaster'))
 const App = (): JSX.Element => {
 //  const lang = useSelector(state => state) //
 
@@ -21,7 +21,7 @@ const App = (): JSX.Element => {
       <Route path="/about" element={<About />}></Route>
       <Route path="/experience" element={<Skills query='work' />}></Route>
       <Route path="/skills" element={<Skills query='skills' />}></Route>
-      <Route path="/lngmngr" element={<LangManager />}></Route>
+      <Route path="/lngmngr" element={<LangMaster />}></Route>
 
     </Route>
   </Routes>

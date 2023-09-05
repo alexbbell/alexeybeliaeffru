@@ -4,8 +4,8 @@ const langSlice = createSlice({
   name: 'lanswitch',
   initialState: {
     lang: 'en',
-    selectedPage: 1
-
+    selectedPage: 1,
+    userToken: ''
   },
 
   reducers: {
@@ -14,11 +14,14 @@ const langSlice = createSlice({
     },
     switchPage (state, action: PayloadAction<number>) {
       state.selectedPage = action.payload
+    },
+    saveUserToken (state, action: PayloadAction<string>) {
+      state.userToken = action.payload
+      console.log('state.userToken ', state.userToken)
     }
-
   }
 })
 
-export const { switchLang, switchPage } = langSlice.actions
+export const { switchLang, switchPage, saveUserToken } = langSlice.actions
 
 export default langSlice.reducer

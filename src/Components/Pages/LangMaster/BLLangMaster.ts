@@ -35,6 +35,7 @@ export interface ISiteObjects {
   main: IMain
   work: Work
   education: Education
+  errorText?: string
 }
 
 export interface Skill {
@@ -82,4 +83,9 @@ export const emptyObject: ISiteObjects = {
 export const emptyLangObject: ILangSiteObjects = {
   lang: 'en',
   siteobjects: emptyObject
+}
+
+export interface ILoginData {
+  username: string
+  password: string
 }
