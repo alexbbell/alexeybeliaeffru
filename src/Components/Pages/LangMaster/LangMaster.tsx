@@ -2,18 +2,36 @@ import React, { } from 'react'
 import LangManager from './LangManager'
 import Login from '../Login/Login'
 import { useAppSelector } from './../../../hooks'
+import { useAppDispatch } from '../../../hooks'
+import { useLocalStorage } from 'usehooks-ts'
+import { saveUserToken } from './../../../store/langSlice'
 
 const LangMaster = (): JSX.Element => {
-  const token = useAppSelector(state => state.lang.userToken)
-  console.log('token', token)
+  const [, setTokenAuth] = useLocalStorage('userToken', '')
+  let token: string | null = useAppSelector(state => state.lang.userToken)
+  const dispatch = useAppDispatch()
+
+  if (token === '') {
+    const temp: string | null = localStorage.getItem('userToken')
+    token = temp !== null ? JSON.parse(temp) : ''
+    console.log('token local', token)
+  }
 
   return (
     <>
-     {(token === '') && (
+     {token === '' && (
        <Login />
      )}
-     {(token !== '') && (
+     {token !== '' && (
+
+      <>
+      <div onClick={ () => {
+        dispatch(saveUserToken(''))
+        setTokenAuth('')
+      }}>Logout</div>
+
         <LangManager />
+      </>
      )}
       </>
   )
