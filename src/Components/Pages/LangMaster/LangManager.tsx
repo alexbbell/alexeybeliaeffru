@@ -1,28 +1,28 @@
 import React, { useEffect, useState } from 'react'
 import { Row, Col, Space, Input, type CollapseProps, Collapse, Button } from 'antd'
 import styles from './../../../style/style.module.scss'
-import { useTranslation } from 'react-i18next'
 import formstyles from './LangMaster.module.scss'
 import { emptyObject, type Skill, type ISiteObjects, type WorkItem, type EducationItem, type ISocial } from './BLLangMaster'
 import { GetLangContent, updateSkills } from './ApiRequests'
 import LangSelector from './LangSelector'
 import SkillsEditor from './SkillsEditor'
 import TextArea from 'antd/es/input/TextArea'
+import { useAppSelector } from './../../../hooks'
 
 const LangManager = (): JSX.Element => {
-  const { t } = useTranslation()
-  // const selectedLang = useAppSelector(state => state.lang.lang)
-  const [selectedLang, setSelectedLang] = useState('en')
+  const selectedGlobalLang = useAppSelector(state => state.lang.lang)
+  const [selectedLang, setSelectedLang] = useState(selectedGlobalLang)
   const [content, setContent] = useState<ISiteObjects>(emptyObject)
 
   const [isLoaded, setIsLoaded] = useState<boolean>(false)
+  const token: string | null = useAppSelector(state => state.lang.userToken)
 
   const switchLangEdit = (lang: string): void => {
     setSelectedLang(lang)
   }
 
   const readdata = async (): Promise<void> => {
-    const siteData: ISiteObjects = await GetLangContent(selectedLang)
+    const siteData: ISiteObjects = await GetLangContent(selectedLang, token)
     // const eduData: ISiteObjects = await GetLangContent(selectedLang)
     setContent(siteData)
   }
@@ -38,7 +38,8 @@ const LangManager = (): JSX.Element => {
     setIsLoaded(true)
   }, [selectedLang])
 
-  const jsxInputText = (fieldName: 'address' | 'beforename' | 'bio' | 'description' | 'email' | 'fullname' | 'greeting' | 'image' | 'name' | 'phone' | 'position' | 'resumedownload' | 'social' | 'titleAbout' | 'website'): JSX.Element => {
+  const jsxInputText = (fieldName: 'address' | 'beforename' | 'bio' | 'description' | 'email' | 'fullname' | 'greeting' | 'image' | 'name' | 'phone' | 'position' | 'resumedownload' | 'social' | 'titleAbout' | 'website'
+  | 'resume' | 'contacts' | 'sitemap' | 'home' | 'experience' | 'skills' | 'blogs' | 'about' | 'education'): JSX.Element => {
     let cValue = ''
     if (fieldName === 'address') cValue = content.main.address
     if (fieldName === 'beforename') cValue = content.main.beforename
@@ -54,6 +55,15 @@ const LangManager = (): JSX.Element => {
     if (fieldName === 'resumedownload') cValue = content.main.resumedownload
     if (fieldName === 'website') cValue = content.main.website
     if (fieldName === 'titleAbout') cValue = content.main.titleAbout
+    if (fieldName === 'resume') cValue = content.menu.resume
+    if (fieldName === 'contacts') cValue = content.menu.contacts
+    if (fieldName === 'sitemap') cValue = content.menu.sitemap
+    if (fieldName === 'home') cValue = content.menu.home
+    if (fieldName === 'experience') cValue = content.menu.experience
+    if (fieldName === 'skills') cValue = content.menu.skills
+    if (fieldName === 'blogs') cValue = content.menu.blogs
+    if (fieldName === 'about') cValue = content.menu.about
+    if (fieldName === 'education') cValue = content.menu.education
 
     return (
       <div className={formstyles.formRow}>
@@ -77,6 +87,15 @@ const LangManager = (): JSX.Element => {
         if (fieldName === 'resumedownload') t.main.resumedownload = evt.currentTarget.value
         if (fieldName === 'website') t.main.website = evt.currentTarget.value
         if (fieldName === 'titleAbout') t.main.titleAbout = evt.currentTarget.value
+        if (fieldName === 'resume') t.menu.resume = evt.currentTarget.value
+        if (fieldName === 'contacts') t.menu.contacts = evt.currentTarget.value
+        if (fieldName === 'sitemap') t.menu.sitemap = evt.currentTarget.value
+        if (fieldName === 'home') t.menu.home = evt.currentTarget.value
+        if (fieldName === 'experience') t.menu.experience = evt.currentTarget.value
+        if (fieldName === 'skills') t.menu.skills = evt.currentTarget.value
+        if (fieldName === 'blogs') t.menu.blogs = evt.currentTarget.value
+        if (fieldName === 'about') t.menu.about = evt.currentTarget.value
+        if (fieldName === 'education') t.menu.education = evt.currentTarget.value
         setContent({ ...t })
       } } /></div>
       </div>
@@ -86,6 +105,16 @@ const LangManager = (): JSX.Element => {
   const jsxLangComponent = (alldata: ISiteObjects): JSX.Element => (
     <div>
       <>{jsxInputText('fullname')}</>
+      <>{jsxInputText('resume')}</>
+      <>{jsxInputText('contacts')}</>
+      <>{jsxInputText('sitemap')}</>
+      <>{jsxInputText('home')}</>
+      <>{jsxInputText('experience')}</>
+      <>{jsxInputText('skills')}</>
+      <>{jsxInputText('blogs')}</>
+      <>{jsxInputText('about')}</>
+      <>{jsxInputText('education')}</>
+
       <br />
 
       <>{jsxInputText('image')}</>
@@ -313,9 +342,18 @@ const LangManager = (): JSX.Element => {
     content.errorText === undefined && (
       <>
       {content.errorText}
-        <h1>{t('main.titleAbout')}</h1>
-        <Collapse items={GetCollapseProps('ru')} defaultActiveKey={['cp4']} />
-        <Button type="primary" onClick={() => { updateSkills(selectedLang, content) }}>Update Skills {selectedLang}</Button>
+        <h1>Content Editor</h1>
+        <Collapse items={GetCollapseProps('ru')} defaultActiveKey={['cp1']} />
+
+        {
+          token !== '' && (
+            <Button type="primary" onClick={(evt: any) => {
+              evt.preventDefault()
+              updateSkills(selectedLang, content, token)
+            }}>Update Skills {selectedLang}</Button>
+          )
+
+        }
         </>
     )
   }

@@ -27,12 +27,25 @@ export interface IMain {
   social: ISocial[]
 }
 
+export interface IMenu {
+  position: string
+  resume: string
+  contacts: string
+  sitemap: string
+  home: string
+  experience: string
+  skills: string
+  blogs: string
+  about: string
+  education: string
+}
+
 export interface ISiteObjects {
   morelink: string
   fullname: string
-  menu: string
   skills: Skills
   main: IMain
+  menu: IMenu
   work: Work
   education: Education
   errorText?: string
@@ -76,7 +89,7 @@ export const emptyObject: ISiteObjects = {
   education: { title: '', content: [] },
   fullname: '',
   main: { about: '', address: '', beforename: '', bio: '', description: '', email: '', greeting: '', image: '', name: '', phone: '', position: '', resumedownload: '', social: [], titleAbout: '', website: '' },
-  menu: '',
+  menu: { about: '', blogs: '', contacts: '', education: '', experience: '', home: '', position: '', resume: '', sitemap: '', skills: '' },
   skills: { title: '', content: [] },
   work: { title: '', content: [] }
 }

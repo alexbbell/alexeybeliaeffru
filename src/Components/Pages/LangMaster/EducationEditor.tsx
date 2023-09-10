@@ -3,13 +3,11 @@ import { type EducationItem } from './BLLangMaster'
 import formstyles from './LangMaster.module.scss'
 
 const EducationEditor = (props: any): JSX.Element => {
-  console.log('education props', props)
   const [swEdu, setSwEdu] = useState<EducationItem[]>([])
   // const swEdu: EducationItem[] = props.data
   useEffect(() => {
     setSwEdu(props.data)
   }, [props.data])
-  console.log('swEdu', swEdu)
   return (
     <>
       <h1 key='h1edu'>Education</h1>
@@ -21,7 +19,6 @@ const EducationEditor = (props: any): JSX.Element => {
                 evt.preventDefault()
                 const t = { ...swEdu }
                 t[index].degree = evt.currentTarget.value
-                console.log('t[index].degree', swEdu)
                 props.fnc(t)
               }} /><br />
           </div>

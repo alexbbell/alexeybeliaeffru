@@ -1,5 +1,5 @@
 import React, { type FormEvent, useState } from 'react'
-import { authUrl } from './../LangMaster/config'
+import { authUrl } from '../../../config'
 import { type ILoginData } from '../LangMaster/BLLangMaster'
 import { saveUserToken } from './../../../store/langSlice'
 import axios from 'axios'
@@ -38,7 +38,6 @@ export default function Login (): JSX.Element {
 
   function handleSubmit (e: FormEvent<HTMLFormElement>): void {
     e.preventDefault()
-    console.log(e)
     const t: ILoginData = {
       username,
       password

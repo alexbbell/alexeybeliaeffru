@@ -1,30 +1,29 @@
 import axios from 'axios'
 import { emptyObject, type ISiteObjects } from './BLLangMaster'
-import { mainUrl } from './config'
+import { mainUrl } from '../../../config'
 
-export function updateSkills (lang: string, newContent: ISiteObjects): void {
+export function updateSkills (lang: string, newContent: ISiteObjects, token: string): void {
   const langApiUrl: string = mainUrl + '?lang=' + lang
-
-  // const sendData: ILangSiteObjects = {
-  //   lang: lang,
-  //   siteobjects: newContent
-  // }
-  console.log('updateSkills', newContent)
   void axios.post(langApiUrl, newContent,
     {
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
       }
     }).then(res => {
-    console.log('result', res)
+    console.log('res update', res.data)
   })
 }
 
-export const GetLangContent = async (lang: string): Promise<ISiteObjects> => {
+export const GetLangContent = async (lang: string, token: string): Promise<ISiteObjects> => {
   let data: ISiteObjects = emptyObject
-  console.log(mainUrl + lang)
-  // const response: any = await axios.get(mainUrl + lang)
-  await axios.get(mainUrl + lang).then(response => {
+  await axios.get(mainUrl + lang,
+    {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
+      }
+    }).then(response => {
     data = response.data
     return data
   }).catch(err => {

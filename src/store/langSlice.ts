@@ -15,9 +15,10 @@ const langSlice = createSlice({
     switchPage (state, action: PayloadAction<number>) {
       state.selectedPage = action.payload
     },
-    saveUserToken (state, action: PayloadAction<string>) {
-      state.userToken = action.payload
-      console.log('state.userToken ', state.userToken)
+    saveUserToken (state, action: PayloadAction<string | null>) {
+      if (action.payload !== null) {
+        state.userToken = action.payload
+      }
     }
   }
 })

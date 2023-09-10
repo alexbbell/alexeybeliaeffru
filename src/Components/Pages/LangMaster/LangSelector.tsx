@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 const LangSelector = (props: any): JSX.Element => {
-  const [swLang, setSwLang] = useState('en')
+  const [switchEditorLang, setSwitchEditorLang] = useState('en')
 
   const langs: string[] = ['ru', 'en', 'he']
   return (
@@ -10,10 +10,10 @@ const LangSelector = (props: any): JSX.Element => {
         langs.map((el) => {
           return <div key={`langs${el}`}
           onClick={ () => {
-            setSwLang(el)
+            setSwitchEditorLang(el)
             props.data(el)
           }}
-          style={{ width: '40px', fontWeight: (el === swLang) ? 'bold' : 'normal' }}
+          style={{ width: '40px', fontWeight: (el === switchEditorLang) ? 'bold' : 'normal' }}
           >{el}</div>
         })
     }
