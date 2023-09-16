@@ -39,7 +39,7 @@ a, a:link, a:visited {
   background-size: cover;
   &:hover {
     filter: saturate(1.5);
-  }  
+  }
 }
 
 p {
@@ -139,19 +139,19 @@ ul.cleanList > li{
 
 
 .icon-high {
-  font-size: 40px;  
+  font-size: 40px;
 }
 .icon-mid {
-  font-size: 25px;  
+  font-size: 25px;
 }
 
 .icon-sm {
-  font-size: 20px;  
+  font-size: 20px;
 }
 
 .experience {
   display: block;
-  
+
 }
 .experience > div:nth-child(1) {
   display: block;
@@ -177,7 +177,7 @@ ul.cleanList > li{
   white-space:nowrap;
   border-left: $nonActiveLightLinkColor 1px solid;
   border-bottom: $bgSelected 1px solid;
-  &:hover { 
+  &:hover {
     background-color: $bgSelected;
   }
 }
@@ -188,3 +188,25 @@ ul.cleanList > li{
   color: $nonActiveLinkColor
 }
 
+.newsItem {
+  width: 45%;
+  border: #CCC 1px solid;
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 2px 2px 2px #e7e7e7;
+  border-radius: 10px;
+}
+.newsItem > h1 {
+  font-size: 22px;
+  padding: 1px 0px 2px 0px;
+  margin: 1px 0px 0px 0px;
+  font-weight: normal;
+}
+.newsItem > span {
+  padding: 5px 0px;
+}
+.newsItem .newsdate {
+  padding: 10px 0px;
+  font-size: 11px;
+  font-weight: bold;
+}

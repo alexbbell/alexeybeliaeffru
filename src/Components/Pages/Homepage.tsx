@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { } from 'react'
 
 import { Row, Col, Divider } from 'antd'
 import { useNavigate, NavLink } from 'react-router-dom'
 
 import styles from './../../style/style.module.scss'
-// import './../style/style.module.scss'
 import { useTranslation, Trans } from 'react-i18next'
+import Newsloader from './../NewsLoader'
 
 export const Homepage = (): JSX.Element => {
   const { t } = useTranslation()
@@ -64,7 +64,12 @@ export const Homepage = (): JSX.Element => {
             </Col>
             <Col xs={0} md={0} lg={2}></Col>
     </Row>
-
+    <Row>
+      <Col xs={1} md={1} lg={1}></Col>
+      <Col xs={22} md={22} lg={22}>
+        <Newsloader />
+      </Col>
+    </Row>
 </>
   )
 }

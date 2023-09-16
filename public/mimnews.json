@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1261,
+    "date": "2023-09-13T10:02:56",
+    "status": "publish",
+    "title": "Add the application as a service at Windows Server",
+    "excerpt": "<p>You can add the service with PowerShell. New-Service and Get-service are available in PowerShell 5, for &#8216;Remove-Service&#8217; PowerShell &gt;= 6 required. Otherwise you can use &#8216;sc.exe DELETE MyMegaServiceApplication&#8217;. You should execute it with as an administrator. Not any application you can start a service. As a .Net developer, I usually create .Net solutions, in this [&hellip;]</p>\n",
+    "link": "https://markimarta.com/windows/add-the-application-as-a-service/"
+  },
+  {
+    "id": 1255,
+    "date": "2023-09-11T10:07:30",
+    "status": "publish",
+    "title": "Simple implementation of 'env.IsDevelopment' for a console Net Core application",
+    "excerpt": "<p>If you work with Net Core WebApi project, it already contains the packages for DI, Environment variables. But if you make a console application from the template, it doesn’t contain the packages for environment variables. And if you want to use different configs for Debug and Release, there are 2 ways:</p>\n",
+    "link": "https://markimarta.com/c/simple-implementation-of-env-isdevelopment-for-a-console-net-core-application/"
+  },
+  {
+    "id": 1252,
+    "date": "2023-09-09T19:54:54",
+    "status": "publish",
+    "title": "Add user to Nginx folder",
+    "excerpt": "<p>Create a group in Linux with command line :sudo addgroup nginxusers sudo usermod -a -G nginxusers newusername</p>\n",
+    "link": "https://markimarta.com/ubuntu/add-user-to-nginx-folder/"
+  },
+  {
+    "id": 1247,
+    "date": "2023-09-07T14:55:19",
+    "status": "publish",
+    "title": "Fishing a-la 'Deutsche Post' in Germany from Canada",
+    "excerpt": "<p>Paper mail is very popular in Germany. People send the letters if they need to do it or even if they don’t need one. To send the letter costs from 0,85 € cents to 2.75€ and it depends on the size of the letter. Today I’ve got the sms «Ihr Paket DE14127482 wird im Zollzentrum [&hellip;]</p>\n",
+    "link": "https://markimarta.com/uncategorized/fishing-a-la-deutsche-post-in-germany-from-canada/"
+  },
+  {
+    "id": 1243,
+    "date": "2023-09-04T11:26:32",
+    "status": "publish",
+    "title": "ID numbers dramatically increased with MS SQL in Docker",
+    "excerpt": "<p>I work with a WebApi project in Net.Core and MS SQL Database. MS SQL server is executed in Docker container. Suddenly I found out, that ID field value with autoincrement has increased from 2 to 1001.</p>\n",
+    "link": "https://markimarta.com/sql/id-numbers-dramatically-increased-with-ms-sql-in-docker/"
+  },
+  {
+    "id": 1238,
+    "date": "2023-08-31T06:52:36",
+    "status": "publish",
+    "title": "How to adapt SharePoint online workbench.aspx for a full width solution",
+    "excerpt": "<p>When you are developing SPFX application for SharePoint online, you use a page https://{sharepoint_url}/sites/{some_subsite}/_layouts/15/workbench.aspx. For non-fullwidth webparts it fits normally, but if you need to create a wide or full-width webpart, it&#8217;s not very comfortable.</p>\n",
+    "link": "https://markimarta.com/sharepoint/sharepoint-online-workbench-aspx-to-full-width/"
+  },
+  {
+    "id": 1235,
+    "date": "2023-08-30T07:45:27",
+    "status": "publish",
+    "title": "Create a self-signed public certificate to authenticate your application",
+    "excerpt": "<p>Create a self-signed public certificate to authenticate your application in PowerShell</p>\n",
+    "link": "https://markimarta.com/windows/create-a-self-signed-public-certificate-to-authenticate-your-application/"
+  },
+  {
+    "id": 1232,
+    "date": "2023-08-21T08:17:39",
+    "status": "publish",
+    "title": "C# method to create a UNC directory recursively and return the path",
+    "excerpt": "<p>I will write down the useful method. I used it several times and it works good. It&#8217;s C# method to create a UNC directory recursively and return the path.</p>\n",
+    "link": "https://markimarta.com/c/c-method-to-create-a-unc-directory-recursively-and-return-the-path/"
+  },
+  {
+    "id": 1226,
+    "date": "2023-08-18T11:38:35",
+    "status": "publish",
+    "title": "Create .Net application with RabbitMQ on your local machine",
+    "excerpt": "<p>If you want to write an application which uses RabbitMQ, I advise you to use docker image of Rabbit. It&#8217;s lightweight and can be easily executed.</p>\n",
+    "link": "https://markimarta.com/c/create-net-application-with-rabbitmq-on-your-local-machine/"
+  },
+  {
+    "id": 1222,
+    "date": "2023-08-17T09:36:03",
+    "status": "publish",
+    "title": "Add external CSS or styles to SPFX solution",
+    "excerpt": "<p>When I started to work with SPFX solutions for SharePoint, I couldn’t understand how to load external CSS files. I came up with one solution, but it was a crutch. I did it with embedding &lt;styles&gt; tag into JSX. It looked like this:</p>\n",
+    "link": "https://markimarta.com/html-css/add-external-css-or-styles-to-spfx-solution/"
+  }
+]

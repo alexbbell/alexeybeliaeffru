@@ -13,7 +13,6 @@ const { Header } = Layout
 
 const ABHeader = (): JSX.Element => {
   const { t, i18n } = useTranslation()
-
   const lang = useAppSelector(state => state.lang.lang)
   const m = new Menu()
   useEffect(() => {
@@ -22,7 +21,6 @@ const ABHeader = (): JSX.Element => {
 
   const items = m.fetchMenUItems(['home', 'skills', 'blogs', 'about', 'gallery'])
   const navigate = useNavigate()
-
   //  const setActive = ({ isActive }) => isActive ? 'active-link' : ''
 
   return (

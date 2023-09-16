@@ -32,8 +32,6 @@ interface WPItem {
 }
 export default function Blog (): JSX.Element {
   const lang = useAppSelector(state => state.lang.lang)
-  // console.log('lang', lang);
-
   const [items, setItems] = useState<blogItem[]>([])
   const [operationResult, setOperationResult] = useState<boolean>(false)
   const [totalPosts, setTotalPosts] = useState(0)
@@ -42,21 +40,16 @@ export default function Blog (): JSX.Element {
   const blogUrl = (lang === 'ru') ? 'https://markimarta.ru' : 'https://markimarta.com'
 
   const LoadPosts = async (): Promise<void> => {
-    const mode = process.env.NODE_ENV // 'prod' // prod | dev
-    console.log({ mode })
     let data
     let json: WPItem[] = []
 
-    if (mode.toString() === 'development') {
+    if (process.env.NODE_ENV === 'development') {
       data = await fetch('/posts.json')
-      // data = await fetch(`${blogUrl}/wp-json/wp/v2/posts?page=${currentPage}&per_page=${perPage}&order=desc`)
       json = await data.json()
       setTotalPosts(239)
     } else {
-      // data = await fetch('/posts.json');
       data = await fetch(`${blogUrl}/wp-json/wp/v2/posts?page=${currentPage}&per_page=${perPage}&order=desc`)
       json = await data.json()
-      // setTotalPages(data.headers.get('x-wp-totalpages'))
       setTotalPosts(data?.headers?.get('x-wp-total') !== null ? 10 : 0)
     }
     // console.log('header', data.headers.get('x-wp-total'))

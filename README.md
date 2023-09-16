@@ -1,33 +1,50 @@
-# Getting Started with Create React App
+# Aleksei Beliaev personal site
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+I use this site as a platform for the experiments and the feture creations.
+
 
 ## Available Scripts
 
 In the project directory, you can run:
-
 ### `npm start`
-
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+ ### `startHttps`
+ Like the commend 'npm start' but with https
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `linter`
+executes linter tests ""linter": "npx eslint src\\**\\*.ts*",",
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `linter-fix`
+Executes linter and fixes all found problems. Better not to use it
+
+### `build`
+Builds the solution for production to the `build` folder
+
+
+### `test`
+Tests will be executed if they are :)
+
+### `eject`
+I never used it, don't really remember why it is
+
+### `loadapi`
+This command executes the local backend solution with WebApi
+("D:\\Projects\\AbbContentEditor\\AbbContentEditor\\bin\\Debug\\net6.0\\AbbContentEditor.exe")
+
+## News
+
+2023.09.16
+News at first page implemented. News are loaded from WordPress blogs Markimarta.ru and markimarta.com with WordpressNewsLoader (https://github.com/alexbbell/WordpressNewsLoader)
+
 
 ### `npm run eject`
 
@@ -39,8 +56,3 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
