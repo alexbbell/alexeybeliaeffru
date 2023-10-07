@@ -8,8 +8,8 @@ const NewsLoader = (): JSX.Element => {
   const [newsaons, setNewAnons] = useState<INewsAnons[]>([])
   // const setActive = ({ isActive }) => isActive ? 'active-link' : ''
   const LoadNews = async (lang: string): Promise<void> => {
-    console.log('lang', lang)
-    const newsFile = (lang === 'ru') ? '/public/mimrunews.json' : '/public/mimnews.json'
+    const pubDir = (process.env.NODE_ENV === 'production') ? '/public/' : '/'
+    const newsFile = (lang === 'ru') ? `${pubDir}mimrunews.json` : `${pubDir}mimnews.json`
     const newsdata = await fetch(newsFile)
     const json: INewsAnons[] = await newsdata.json()
     setNewAnons(json)

@@ -1,6 +1,6 @@
 import React, { } from 'react'
 import { Row, Col } from 'antd'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { solid, regular } from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import styles to be used
 import { faFilePdf } from '@fortawesome/free-regular-svg-icons'
@@ -11,12 +11,15 @@ import { Footer } from 'antd/es/layout/layout'
 import { useTranslation } from 'react-i18next'
 import Menu from '../Middleware/Menu'
 import styles from './../style/style.module.scss'
+import { useAppSelector } from '../hooks'
 
 const ABFooter = (): JSX.Element => {
 //  const lang = useSelector(state => state)
   // const words = useSelector(state => state.lang.words[lang])
   // const words = useSelector(state => state)
-
+  const { mylang } = useParams()
+  const lng = mylang
+  const lang = (lng === undefined) ? useAppSelector(state => state.lang.lang) : lng
   const { t } = useTranslation()
   const m = new Menu()
   const items = m.fetchMenUItems(['home', 'skills', 'blogs', 'about', 'gallery'])
@@ -35,7 +38,7 @@ const ABFooter = (): JSX.Element => {
                             <li key={`f${elm.label}`}><NavLink className={({ isActive }) => {
                               return isActive ? `${styles.activelink}` : ''
                             } }
-                           to={elm.url}>{elm.label}</NavLink></li>
+                           to={`/${lang}/${elm.url}/`.replaceAll(/\/+/g, '/')}>{elm.label}</NavLink></li>
                       )
                     })
 

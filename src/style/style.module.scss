@@ -91,9 +91,8 @@ h4, .h4 {
 }
 
 .newsitem {
-  display: flex;
-  flex-direction: row;
   align-items:center;
+  width: 100%;
 }
 
 .newsImage {
@@ -190,6 +189,7 @@ ul.cleanList > li{
 
 .newsItem {
   width: 45%;
+  min-width: 300px;
   border: #CCC 1px solid;
   padding: 10px;
   margin: 10px;

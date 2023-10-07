@@ -2,13 +2,12 @@ import React, { } from 'react'
 
 import { Row, Col, Divider } from 'antd'
 import { useNavigate, NavLink } from 'react-router-dom'
-
 import styles from './../../style/style.module.scss'
 import { useTranslation, Trans } from 'react-i18next'
 import Newsloader from './../NewsLoader'
 
 export const Homepage = (): JSX.Element => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const navigate = useNavigate()
 
   return (
@@ -21,12 +20,12 @@ export const Homepage = (): JSX.Element => {
             </div>
         </Col>
         <Col xs={24} md={9} lg={13} className={styles.about}>
-            <h3 ><Trans i18nKey="main.greeting" /></h3>
+            <h3><Trans i18nKey="main.greeting" /></h3>
 
             <h1 className={styles.trackingInExpand}>{t('main.beforename')} {t('main.name')}</h1>
             <p>{t('main.description')}</p>
             <p>
-                <NavLink to='/about' className={styles.more}>{t('morelink')}...</NavLink>
+                <NavLink to={`/${i18n.language}/about/`} className={styles.more}>{t('morelink')}...</NavLink>
             </p>
 
         </Col>

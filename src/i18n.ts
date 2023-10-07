@@ -13,7 +13,7 @@ void i18n.use(HttpBackend)
     backend: {
       loadPath:
             process.env.NODE_ENV !== 'production'
-              ? './locales/{{lng}}/{{lng}}-{{ns}}.json'
+              ? '/locales/{{lng}}/{{lng}}-{{ns}}.json'
               : ' /public/locales/{{lng}}/{{lng}}-{{ns}}.json'
     },
     debug: false,
@@ -23,4 +23,5 @@ void i18n.use(HttpBackend)
     }
 
   })
+
 export default i18n

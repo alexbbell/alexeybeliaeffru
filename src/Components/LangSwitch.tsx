@@ -2,6 +2,7 @@ import React from 'react'
 import { useAppDispatch, useAppSelector } from './../hooks'
 import { switchLang } from '../store/langSlice'
 import styles from './../style/style.module.scss'
+import { NavLink } from 'react-router-dom'
 
 const LangSwitch = (): JSX.Element => {
   const langs = ['en', 'ru', 'he']
@@ -12,6 +13,8 @@ const LangSwitch = (): JSX.Element => {
   const setlang = (lng: string): void => {
     dispatch(switchLang(lng))
   }
+  // const currentUrl = window.location.pathname
+  // console.log({ currentUrl })
 
   return (
 
@@ -20,10 +23,11 @@ const LangSwitch = (): JSX.Element => {
         {
             langs.map((lang, i) => {
               return (
+
                     <span key={lang}>
-                        &nbsp;<a href="#" className={lang === ml ? `${styles.lng}  ${styles.selected}` : `${styles.lng}`}
+                        &nbsp;<NavLink to={`/${lang}/`} className={lang === ml ? `${styles.lng}  ${styles.selected}` : `${styles.lng}`}
                         // data={lang}
-                        onClick={(e) => { e.preventDefault(); setlang(lang) }}>{lang.toUpperCase()}</a>
+                        onClick={(e) => { setlang(lang) }}>{lang.toUpperCase()}</NavLink>
                         { (langs[i + 1] !== '') ? ' | ' : '' }
                     </span>
               )

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+
 import { Row, Col, Space, Modal } from 'antd'
 import styles from './../../style/style.module.scss'
 import { useTranslation } from 'react-i18next'
@@ -35,7 +36,7 @@ const About = (): JSX.Element => {
 
 <Col xs={1} md={1} lg={1}></Col>
 
-<Col xs={22} md={8} lg={13}>
+<Col xs={22} md={8} lg={12}>
 
     <h1>{t('main.titleAbout')}</h1>
     {aboutText}

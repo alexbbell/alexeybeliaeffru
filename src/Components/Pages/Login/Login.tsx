@@ -21,6 +21,7 @@ export default function Login (): JSX.Element {
     axios.post(authUrl, data,
       {
         headers: {
+          'Access-Control-Allow-Origin': '*',
           'Content-Type': 'application/json'
         }
       })

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Row, Col, Space, Input, type CollapseProps, Collapse, Button } from 'antd'
+import { Row, Col, Space, Input, type CollapseProps, Collapse, Button, Popconfirm, message } from 'antd'
 import styles from './../../../style/style.module.scss'
 import formstyles from './LangMaster.module.scss'
 import { emptyObject, type Skill, type ISiteObjects, type WorkItem, type EducationItem, type ISocial } from './BLLangMaster'
@@ -19,6 +19,22 @@ const LangManager = (): JSX.Element => {
 
   const switchLangEdit = (lang: string): void => {
     setSelectedLang(lang)
+  }
+
+  // Implementation drag n drop for work
+  const dragItem = React.useRef<number>(0)
+  const dragOverItem = React.useRef<number>(0)
+
+  const handleSortWork = (): void => {
+    const prevItems = content
+    const _items = [...content.work.content]
+    const draggedItemContent = _items.splice(dragItem.current, 1)[0]
+    _items.splice(dragOverItem.current, 0, draggedItemContent)
+
+    dragItem.current = 0
+    dragOverItem.current = 0
+    prevItems.work.content = _items
+    setContent({ ...prevItems })
   }
 
   const readdata = async (): Promise<void> => {
@@ -152,13 +168,36 @@ const LangManager = (): JSX.Element => {
       setContent({ ...t })
     }}><span style={{ fontSize: 20 }}>+</span>Add new row</div>
     {content.work.content.map((edu, index) => {
-      return <div key={`j${index}`} className={formstyles.arrayItem}>
+      return <div key={`j${index}`} className={formstyles.arrayItem}
+      draggable
+      onDragStart={ () => { dragItem.current = index } }
+      onDragEnter={ () => { dragOverItem.current = index } }
+      onDragEnd={ handleSortWork }
+      onDragOver={ (e) => { e.preventDefault() }}
+      >
 
-<div className={formstyles.remove} onClick={ () => {
-  const newWorks = content
-  newWorks.work.content.splice(index, 1)
-  setContent({ ...newWorks })
-}}><span>-</span> Remove row</div>
+<div>
+<Popconfirm
+    title="Delete the task"
+    description="Are you sure to delete this task?"
+  onConfirm={ (e) => {
+    console.log('efd', index)
+    const newWorks = content
+    newWorks.work.content.splice(index, 1)
+    setContent({ ...newWorks })
+    void message.info(`the row # ${index} removed`)
+  }}
+  onCancel={ () => {
+    void message.success('canceled')
+  }}
+    // onConfirm={ confirm }
+    // onCancel={ cancel }
+    okText="Yes"
+    cancelText="No"
+  >
+        <Button danger>Delete</Button>
+  </Popconfirm><br />
+  </div>
         Title: <input key={`dddeg${index}`} value={edu.title} className={formstyles.inputText}
           onChange={(evt: React.ChangeEvent<HTMLInputElement>) => {
             evt.preventDefault()
@@ -343,7 +382,7 @@ const LangManager = (): JSX.Element => {
       <>
       {content.errorText}
         <h1>Content Editor</h1>
-        <Collapse items={GetCollapseProps('ru')} defaultActiveKey={['cp1']} />
+        <Collapse items={GetCollapseProps('ru')} defaultActiveKey={['cp4']} />
 
         {
           token !== '' && (

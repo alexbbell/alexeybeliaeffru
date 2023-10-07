@@ -36,13 +36,16 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "startHttps": "set REACT_APP=HOY HTTPS=true&&react-scripts start",
+    "start2": "set HTTPS=true SSL_CRT_FILE=certdev.pem SSL_KEY_FILE=keydev.pem &&react-scripts start",
+    "start3": "react-scripts start",
+    "startHttps": "set HTTPS=true set SSL_CRT_FILE=certdev.pem&&SSL_KEY_FILE=keydev.pem&&react-scripts start",
+    "startHttps3": "set  HTTPS=true&&react-scripts start",
     "linter": "npx eslint src\\**\\*.ts*",
     "linter-fix": "npx eslint src\\**\\*.ts* --fix",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "loadapi": "D:\\Projects\\AbbContentEditor\\AbbContentEditor\\bin\\Debug\\net6.0\\AbbContentEditor.exe"
+    "loadapi": "d:\\Projects\\AbbContentEditor\\AbbContentEditor\\bin\\Debug\\net6.0\\AbbContentEditor.exe"
   },
   "eslintConfig": {
     "extends": [
