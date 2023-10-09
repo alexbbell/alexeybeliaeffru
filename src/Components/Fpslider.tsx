@@ -4,13 +4,13 @@ import { useEffect, useState } from 'react'
 interface Props {
   title: string
 }
+// function toRadians (angle: number): number {
+//   return angle * (Math.PI / 180)
+// }
 
 const Fpslider = (title: Props): JSX.Element => {
   const tittle = title.title
   const [lines, setLines] = useState<string[]>([])
-  useEffect(() => {
-    setLines(['line1', 'line2', 'line 3', 'line 4'])
-  }, [])
 
   const dragItem = React.useRef<number>(0)
   const dragOverItem = React.useRef<number>(0)
@@ -19,12 +19,14 @@ const Fpslider = (title: Props): JSX.Element => {
     const _items = [...lines]
     const draggedItemContent = _items.splice(dragItem.current, 1)[0]
     _items.splice(dragOverItem.current, 0, draggedItemContent)
-
     dragItem.current = 0
     dragOverItem.current = 0
-
     setLines(_items)
   }
+
+  useEffect(() => {
+    setLines(['line1', 'line2', 'line 3', 'line 4'])
+  }, [])
 
   return (
     <div>

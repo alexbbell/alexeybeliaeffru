@@ -5,6 +5,7 @@ import { useNavigate, NavLink } from 'react-router-dom'
 import styles from './../../style/style.module.scss'
 import { useTranslation, Trans } from 'react-i18next'
 import Newsloader from './../NewsLoader'
+import AbbAnalogClock from './AbbAnaligClock'
 
 export const Homepage = (): JSX.Element => {
   const { t, i18n } = useTranslation()
@@ -27,7 +28,7 @@ export const Homepage = (): JSX.Element => {
             <p>
                 <NavLink to={`/${i18n.language}/about/`} className={styles.more}>{t('morelink')}...</NavLink>
             </p>
-
+<AbbAnalogClock size={200} />
         </Col>
     </Row>
 
