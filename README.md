@@ -41,6 +41,9 @@ This command executes the local backend solution with WebApi
 ("D:\\Projects\\AbbContentEditor\\AbbContentEditor\\bin\\Debug\\net6.0\\AbbContentEditor.exe")
 
 ## News
+2023.10.11
+Implemented the analog clock component, it is built as a vidget at the Homepage. I don't really know why I did it, but I wanted to.
+
 
 2023.09.16
 News at first page implemented. News are loaded from WordPress blogs Markimarta.ru and markimarta.com with WordpressNewsLoader (https://github.com/alexbbell/WordpressNewsLoader)

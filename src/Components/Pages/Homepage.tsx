@@ -6,7 +6,6 @@ import styles from './../../style/style.module.scss'
 import { useTranslation, Trans } from 'react-i18next'
 import Newsloader from './../NewsLoader'
 import AbbAnalogClock from './AbbAnaligClock'
-
 export const Homepage = (): JSX.Element => {
   const { t, i18n } = useTranslation()
   const navigate = useNavigate()
@@ -15,6 +14,7 @@ export const Homepage = (): JSX.Element => {
 <>
 <Row className={styles.pb40}>
         <Col xs={14} md={15} lg={9} style={{ textAlign: 'center' }}>
+
             <div className={styles.trackingInExpand}>
                 <img src='/img/abbfp.jpg' className={styles.image}
                 alt={`${t('main.beforename')} {t('main.name')}`} />
@@ -28,42 +28,45 @@ export const Homepage = (): JSX.Element => {
             <p>
                 <NavLink to={`/${i18n.language}/about/`} className={styles.more}>{t('morelink')}...</NavLink>
             </p>
-<AbbAnalogClock size={200} />
+
         </Col>
     </Row>
 
     <Divider plain={true} className={`${styles.line} ${styles.pb10}`}></Divider>
 
     <Row className={`${styles.pb40}`} justify="space-between">
-        <Col xs={1} md={0} lg={2}></Col>
+        <Col xs={1} md={0} lg={0}></Col>
 
-        <Col xs={23} md={11} lg={8}>
+        <Col xs={23} md={11} lg={9}>
 
-        <div id='education' className={`${styles.fpadvert} ${styles.education}`}
-        onClick={
-            () => {
-              navigate('./experience')
-            }
-        }
-        >
-                <NavLink to="./experience" className={`${styles.h3} ${styles.uppercase}`}>{t('menu.education')}</NavLink>
-                </div>
-        </Col>
-        <Col xs={1} md={0} lg={2}></Col>
-        <Col xs={23} md={11} lg={8}>
-    <div id="skills" className={`${styles.fpadvert} ${styles.skills} ${styles.skills}`}
-            onClick={
+            <div id='education' className={`${styles.fpadvert} ${styles.education}`}
+              onClick={
+                () => {
+                  navigate('./experience')
+                }
+              }
+            >
+              <NavLink to="./experience" className={`${styles.h3} ${styles.uppercase}`}>{t('menu.education')}</NavLink>
+            </div>
+            </Col>
+            <Col xs={23} md={0} lg={6} style={{ minWidth: '200px', margin: '0px auto' }}>
+            <div ><AbbAnalogClock size={150} /></div>
+            </Col>
+            <Col xs={23} md={11} lg={8}>
+            <div id="skills" className={`${styles.fpadvert} ${styles.skills} ${styles.skills}`}
+              onClick={
                 () => {
                   navigate('./skills')
                 }
-            }
+              }
             >
-            <NavLink to="" className={`${styles.h3} ${styles.uppercase}`}>{t('menu.skills')}</NavLink>
+              <NavLink to="" className={`${styles.h3} ${styles.uppercase}`}>{t('menu.skills')}</NavLink>
             </div>
-
             </Col>
-            <Col xs={0} md={0} lg={2}></Col>
+            <Col xs={0} md={1} lg={1}></Col>
     </Row>
+
+    <Divider plain={true} className={`${styles.line} ${styles.pb40}`}></Divider>
     <Row>
       <Col xs={1} md={1} lg={1}></Col>
       <Col xs={22} md={22} lg={22}>

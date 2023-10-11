@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { type INewsAnons } from './../interfaces'
 import styles from './../style/style.module.scss'
 import { useAppSelector } from '../hooks'
+import { pubDir } from './../config'
 
 const NewsLoader = (): JSX.Element => {
   const lang = useAppSelector(state => state.lang.lang)
   const [newsaons, setNewAnons] = useState<INewsAnons[]>([])
   // const setActive = ({ isActive }) => isActive ? 'active-link' : ''
   const LoadNews = async (lang: string): Promise<void> => {
-    const pubDir = (process.env.NODE_ENV === 'production') ? '/public/' : '/'
     const newsFile = (lang === 'ru') ? `${pubDir}mimrunews.json` : `${pubDir}mimnews.json`
     const newsdata = await fetch(newsFile)
     const json: INewsAnons[] = await newsdata.json()

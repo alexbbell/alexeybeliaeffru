@@ -4,9 +4,7 @@ import { useNavigate, NavLink, useParams } from 'react-router-dom'
 import LangSwitch from './LangSwitch'
 import styles from './../style/style.module.scss'
 import { useAppSelector } from './../hooks'
-
 import { useTranslation } from 'react-i18next'
-
 import Menu from '../Middleware/Menu'
 
 const { Header } = Layout
@@ -39,14 +37,12 @@ const ABHeader = (): JSX.Element => {
                     >
                         <h1 className={styles.bold}>{t('fullname')}</h1>
                         <h2 className={styles.thin}>Fullstack developer</h2>
-
                     </div>
                 </Col>
 
                 <Col xs={24} md={12} xl={16} className={ styles.hdrleft }>
                     <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'end' }}>
                     <LangSwitch />
-
                     <div className={styles.topMenu}>
 
                         <ul>

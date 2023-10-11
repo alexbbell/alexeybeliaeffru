@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react'
 import { type IClockParams, type IPoint, type IWatch, defCoords } from '../../interfaces'
 
 const AbbAnalogClock = (props: IClockParams): JSX.Element => {
-  console.log('props', props)
   const clockSize = props.size
   const [sec, setSec] = useState<number>(0)
 
@@ -19,7 +18,7 @@ const AbbAnalogClock = (props: IClockParams): JSX.Element => {
     return (
         <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
         width={`${clockSize}`} height={`${clockSize}`} viewBox={'0 0 600 600'}
-        preserveAspectRatio="xMidYMid meet" style={{ border: '#000 1px solid' }}>
+        preserveAspectRatio="xMidYMid meet" >
        <metadata>
        Created by Aleksei Beliaev
        </metadata>
@@ -96,7 +95,7 @@ const AbbAnalogClock = (props: IClockParams): JSX.Element => {
   }, [sec])
 
   return (
-        <div style={{ height: `${clockSize}px`, width: `${clockSize}px` }}>
+        <div style={{ height: `${clockSize}px`, width: `${clockSize}px`, alignContent: 'center', textAlign: 'center', margin: '0px auto' }}>
         { sv }
         </div>
   )
