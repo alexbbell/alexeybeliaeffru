@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react'
 
 import { Simplemath } from '../../Middleware/mathfuncs'
 import { type IExample } from './inttypes'
-import styles from './Mathema.module.css'
+import styles from './../../style/style.module.scss'
+import mathstyles from './Mathema.module.css'
 import { useTranslation } from 'react-i18next'
+import { Col, Row } from 'antd'
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 const Mathema = () => {
@@ -44,25 +46,30 @@ const Mathema = () => {
   }, [])
 
   return (
-    <div>
-<div className={styles.correctResult} style={{ width: '100%', height: '100%', zIndex: 1000, visibility: errorAnswer ? 'hidden' : 'visible' }}>
+    <>
+<Row className={`${styles.pb40} ${styles.pt40}`}>
+<h1>The Game for my son Ian</h1>
+
+<div className={mathstyles.correctResult} style={{ width: '100%', height: '100%', zIndex: 1000, visibility: errorAnswer ? 'hidden' : 'visible' }}>
 <div>Hooray!</div>
 </div>
-        <div className={styles.primerWrapper}>
+{/* */}
+    <Col xs={1} md={1} lg={1} className={mathstyles.primerWrapper} ></Col>
+    <Col xs={22} md={21} lg={15} className={mathstyles.primerWrapper} >
 
-          <div className={styles.digit}>
+          <div className={mathstyles.digit}>
             <div>
               {example.dig1}
             </div>
           </div>
-          <div className={styles.mathActionWrapper}><div> + </div></div>
-          <div className={styles.digit}>
+          <div className={mathstyles.mathActionWrapper}><div> + </div></div>
+          <div className={mathstyles.digit}>
             <div>
               {example.dig2}
             </div>
           </div>
-          <div className={styles.mathActionWrapper}><div> = </div></div>
-          <div className={errorAnswer ? `${styles.errorAnswer} ${styles.digit}` : `${styles.digit}`}>
+          <div className={mathstyles.mathActionWrapper}><div> = </div></div>
+          <div className={errorAnswer ? `${mathstyles.errorAnswer} ${mathstyles.digit}` : `${mathstyles.digit}`}>
             <div>
               {
                 ((example.result == null) && <b>?</b>)
@@ -72,14 +79,14 @@ const Mathema = () => {
               }
             </div>
           </div>
-
-          <div className={styles.answersWrapper}>
-            <div className={styles.titleAnswer}>{t('menu.chooseAnwer')}</div>
-            <div className={`${styles.answers}` }>
+</Col><Col xs={24} md={21} lg={7}>
+          <div className={mathstyles.answersWrapper}>
+            <div className={mathstyles.titleAnswer}>{t('menu.chooseAnwer')}</div>
+            <div className={`${mathstyles.answers}` }>
               {
                 myAnswers.map((x, index) => {
                   return (
-                      <div className={ closedAnswers[index] ? `${styles.closedAnwer}` : ''}
+                      <div className={ closedAnswers[index] ? `${mathstyles.closedAnwer}` : ''}
                           key={`ans${index}`}
                           onClick={() => {
                             if (x === (example.dig1 + example.dig2)) {
@@ -110,15 +117,17 @@ const Mathema = () => {
               }
             </div>
           </div>
-        </div>
-
-        <div className={styles.btnWrapper} onClick={() => {
+          </Col>
+    </Row>
+    <Row>
+      <Col>
+        <div className={mathstyles.btnWrapper} onClick={() => {
           createExample()
           setClosedAnswers([])
-        }}>
-          <a href="#"><span>{t('menu.next')}</span></a>
-        </div>
-      </div>
+        }}><a href="#"><span>{t('menu.next')}</span></a></div>
+        </Col>
+    </Row>
+    </>
   )
 }
 
