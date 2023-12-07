@@ -1,13 +1,10 @@
 import * as React from 'react'
 import { useEffect, useState } from 'react'
-import { type IClockParams, type IPoint, type IWatch, defCoords } from '../../interfaces'
+import { type IClockParams, type IPoint, type IWatch } from '../../interfaces'
 
 const AbbAnalogClock = (props: IClockParams): JSX.Element => {
   const clockSize = props.size
   const [sec, setSec] = useState<number>(0)
-
-  const [, setCoords] = useState<IWatch>(defCoords)
-
   const center: IPoint = { x: 300, y: 300 }
   const defSv: JSX.Element = <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
     width="400px" height="400px" viewBox="0 0 1280.000000 1280.000000"
@@ -88,7 +85,6 @@ const AbbAnalogClock = (props: IClockParams): JSX.Element => {
           y: hourLineY
         }
       }
-      setCoords(localCoords)
       setSVG(renderSVG(localCoords))
       setSec(sec + 1)
     }, 1000)

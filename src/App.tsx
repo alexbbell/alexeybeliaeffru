@@ -7,6 +7,7 @@ import { Homepage } from './Components/Pages/Homepage'
 import { lazy } from 'react'
 import Fpslider from './Components/Fpslider'
 import AbbAnalogClock from './Components/Pages/AbbAnaligClock'
+import Mathema from './Components/Mathema/Mathema'
 const About = lazy(async () => await import('./Components/Pages/About'))
 const Skills = lazy(async () => await import ('./Components/Pages/Skills'))
 const Blog = lazy(async () => await import ('./Components/Pages/Blog'))
@@ -31,6 +32,7 @@ const App = (): JSX.Element => {
       <Route path="/:lng/experience/" element={<Skills query='work' />}></Route>
       <Route path="/:lng/skills/" element={<Skills query='skills' />}></Route>
       <Route path="/:lng/lngmngr/" element={<LangMaster />}></Route>
+      <Route path="/:lng/math/" element={<Mathema />}></Route>
     </Route>
   </Routes>
   </>

@@ -20,7 +20,7 @@ const ABHeader = (): JSX.Element => {
     i18n.changeLanguage(lang).then(res => { console.log('') }).catch(err => { console.log('err', err) })
   }, [lang])
 
-  const items = m.fetchMenUItems(['home', 'skills', 'blogs', 'about', 'gallery'])
+  const items = m.fetchMenUItems(['home', 'skills', 'blogs', 'about', 'gallery', 'math'])
   const navigate = useNavigate()
   //  const setActive = ({ isActive }) => isActive ? 'active-link' : ''
 
@@ -47,7 +47,7 @@ const ABHeader = (): JSX.Element => {
 
                         <ul>
                         {
-                            items.map(elm => {
+                            items.map((elm) => {
                               return (
                               // <li key={elm.key} ><NavLink className={setActive} to={elm.url}>{elm.label}</NavLink></li>
                  <li key={elm.url} >

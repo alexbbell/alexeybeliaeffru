@@ -25,17 +25,3 @@ export interface IWatch {
 export interface IClockParams {
   size: number
 }
-export const defCoords: IWatch = {
-  sec: {
-    x: 0,
-    y: 0
-  },
-  min: {
-    x: 0,
-    y: 0
-  },
-  hour: {
-    x: 0,
-    y: 0
-  }
-}
