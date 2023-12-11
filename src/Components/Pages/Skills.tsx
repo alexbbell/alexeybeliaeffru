@@ -1,8 +1,6 @@
 import React from 'react'
 import { Row, Col, Space, Tabs } from 'antd'
-
 import styles from './../../style/style.module.scss'
-// import './../style/style.module.scss'
 import { useTranslation } from 'react-i18next'
 import { type IStaticPage } from '../../interfaces'
 

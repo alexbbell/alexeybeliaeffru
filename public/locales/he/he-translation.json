@@ -55,10 +55,12 @@
         "blogs": "בלוגים",
         "about": "עליי",
         "education": "חינוך",
-        "math": "משחק",
+        "math": "משחק"
+    },
+    "theGame": {
         "chooseAnwer": "בחר תשובה",
-        "next": "הַבָּא"
-
+        "next": "הַבָּא",
+        "gameTitle": "משחק"
     },
     "skills": {
         "title": "כישורים",

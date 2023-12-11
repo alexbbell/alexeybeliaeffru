@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-
 import { Simplemath } from '../../Middleware/mathfuncs'
 import { type IExample } from './inttypes'
 import styles from './../../style/style.module.scss'
@@ -7,10 +6,8 @@ import mathstyles from './Mathema.module.css'
 import { useTranslation } from 'react-i18next'
 import { Col, Row } from 'antd'
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-const Mathema = () => {
+const Mathema = (): JSX.Element => {
   const { t } = useTranslation()
-
   const mymaths = new Simplemath()
   const maxVal = 10
   const pr: IExample = {
@@ -25,7 +22,7 @@ const Mathema = () => {
   const [closedAnswers, setClosedAnswers] = useState<boolean[]>([false, false, false, false])
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  const createExample = () => {
+  const createExample = (): void => {
     const pr: IExample = {
       dig1: mymaths.randomIntFromInterval(0, maxVal),
       dig2: mymaths.randomIntFromInterval(0, maxVal)
@@ -47,17 +44,22 @@ const Mathema = () => {
 
   return (
     <>
-<Row className={`${styles.pb40} ${styles.pt40}`}>
-<h1>The Game for my son Ian</h1>
-
+<Row className={` ${styles.pt40}`}>
+  <Col xs={1} md={1} lg={1} ></Col>
+  <Col >
+  <h1 style={{ paddingLeft: '40px' }} className={styles.trackingInExpand}>{t('theGame.gameTitle')}</h1>
+  </Col>
+  <Col xs={1} md={1} lg={1} ></Col>
+</Row>
+<Row>
 <div className={mathstyles.correctResult} style={{ width: '100%', height: '100%', zIndex: 1000, visibility: errorAnswer ? 'hidden' : 'visible' }}>
 <div>Hooray!</div>
 </div>
 {/* */}
-    <Col xs={1} md={1} lg={1} className={mathstyles.primerWrapper} ></Col>
-    <Col xs={22} md={21} lg={15} className={mathstyles.primerWrapper} >
+    <Col xs={1} md={1} lg={1} ></Col>
+    <Col xs={22} md={22} lg={13} className={mathstyles.primerWrapper} >
 
-          <div className={mathstyles.digit}>
+          <div className={`${mathstyles.digit}  ${styles.pt40}`} >
             <div>
               {example.dig1}
             </div>
@@ -79,9 +81,13 @@ const Mathema = () => {
               }
             </div>
           </div>
-</Col><Col xs={24} md={21} lg={7}>
+</Col>
+<Col xs={0} md={0} lg={1} ></Col>
+<Col xs={1} md={1} lg={1}></Col>
+
+<Col xs={22} md={24} lg={6}>
           <div className={mathstyles.answersWrapper}>
-            <div className={mathstyles.titleAnswer}>{t('menu.chooseAnwer')}</div>
+            <div className={mathstyles.titleAnswer}>{t('theGame.chooseAnwer')}</div>
             <div className={`${mathstyles.answers}` }>
               {
                 myAnswers.map((x, index) => {
@@ -119,12 +125,12 @@ const Mathema = () => {
           </div>
           </Col>
     </Row>
-    <Row>
+    <Row className={`${styles.pb40} ${styles.pt40}`}>
       <Col>
         <div className={mathstyles.btnWrapper} onClick={() => {
           createExample()
           setClosedAnswers([])
-        }}><a href="#"><span>{t('menu.next')}</span></a></div>
+        }}><a href="#"><span>{t('theGame.next')}</span></a></div>
         </Col>
     </Row>
     </>

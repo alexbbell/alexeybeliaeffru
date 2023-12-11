@@ -111,20 +111,26 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    margin: auto;
+    min-width: 350px;
+    flex-grow: 2;
+    @media (max-width:992px) {
+      width: 620px;
+    }
 
+    @media (max-width:640px) {
+      width: 330px;
+    }
   }
 
 .answers {
-    width: 100%;
-    min-width: 350px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 20px 40px;
     justify-content: center;
+    align-items: center;
   }
-
 
   .answers >  div {
     width: 120px; height: 120px;
@@ -175,6 +181,9 @@
     color: rgb(2, 102, 140);
     word-wrap: none;
     padding: 0px 0px 20px 0px;
+    @media (max-width:300px) {
+      font-size: 25px;
+    }
   }
 
 .breakhor {
@@ -200,7 +209,7 @@
   border-radius: 10px;
   margin: 20px; padding: 20px;
   background: rgb(255, 255, 255);
-  top: 100px; left: 100px;
+  top: 10vw; left: 5vh;
 }
 
 .closedAnwer {

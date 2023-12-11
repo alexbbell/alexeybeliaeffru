@@ -9,7 +9,7 @@
         "titleAbout": "About me",
         "description": "I work as a full-stack software developer and have a wide experience of creating and maintaining IT systems. Most of all I use C#, JavaScript, Rest API, Rabbit Mq. With C# I mean Net (.NetFramework, Net Core, EF Core, Nlog, NewtonSoft, OpenXML). JavaScript is not only a native language, but also TypeScript and the React library. I also created several simple tools with NodeJS, so JavaScript is not only for frontend.",
         "image": "/public/img/banner/abb.jpg",
-        "bio": "I am looking for a job in Israel - Tel-Aviv, Rehovot, Haifa",
+        "bio": "I work as a software developer and eager to work in NRW area - Muelheim, Essen, Duisburg, Dusseldorf",
         "email": "beliaeff@gmail.com",
         "phone": "+972 585362546",
         "address": "Rehovot, 20293",
@@ -55,9 +55,12 @@
         "blogs": "Blogs",
         "about": "About",
         "education": "Education",
-        "math": "The game",
+        "math": "The game"
+    },
+    "theGame": {
         "chooseAnwer": "Choose answer",
-        "next": "Next"
+        "next": "Next",
+        "gameTitle": "The Math Game for Ian"
     },
     "skills": {
         "title": "Skills",
