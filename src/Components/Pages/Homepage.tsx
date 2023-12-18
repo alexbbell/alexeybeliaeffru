@@ -34,25 +34,19 @@ export const Homepage = (): JSX.Element => {
 
     <Divider plain={true} className={`${styles.line} ${styles.pb10}`}></Divider>
 
-    <Row className={`${styles.pb40}`} justify="space-between">
-        <Col xs={1} md={0} lg={0}></Col>
-
-        <Col xs={23} md={11} lg={9}>
-
-            <div id='education' className={`${styles.fpadvert} ${styles.education}`}
+    <Row className={`${styles.pb40}`} >
+    <Col xs={24} style={{ display: 'flex', flexDirection: 'row', justifyItems: 'center', alignItems: 'center', justifyContent: 'space-around', flexWrap: 'wrap' }}>
+            <div id='education' className={`${styles.fpadvert} ${styles.education}`} style={{ position: 'relative' }}
               onClick={
                 () => {
                   navigate('./experience')
                 }
               }
             >
+              <div style={{ position: 'absolute', top: '38px', right: '100px' }}><AbbAnalogClock size={60} /></div>
               <NavLink to="./experience" className={`${styles.h3} ${styles.uppercase}`}>{t('menu.education')}</NavLink>
             </div>
-            </Col>
-            <Col xs={23} md={0} lg={6} style={{ minWidth: '200px', margin: '0px auto' }}>
-            <div ><AbbAnalogClock size={150} /></div>
-            </Col>
-            <Col xs={23} md={11} lg={8}>
+
             <div id="skills" className={`${styles.fpadvert} ${styles.skills} ${styles.skills}`}
               onClick={
                 () => {
@@ -63,7 +57,6 @@ export const Homepage = (): JSX.Element => {
               <NavLink to="" className={`${styles.h3} ${styles.uppercase}`}>{t('menu.skills')}</NavLink>
             </div>
             </Col>
-            <Col xs={0} md={1} lg={1}></Col>
     </Row>
 
     <Divider plain={true} className={`${styles.line} ${styles.pb40}`}></Divider>

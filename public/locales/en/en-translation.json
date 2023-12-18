@@ -55,12 +55,7 @@
         "blogs": "Blogs",
         "about": "About",
         "education": "Education",
-        "math": "The game"
-    },
-    "theGame": {
-        "chooseAnwer": "Choose answer",
-        "next": "Next",
-        "gameTitle": "The Math Game for Ian"
+        "math": "the game"
     },
     "skills": {
         "title": "Skills",
@@ -156,5 +151,10 @@
                 "description": "The development of radio engineering and communication environments"
             }
         ]
+    },
+    "theGame": {
+        "chooseAnwer": "Choose answer",
+        "next": "Next",
+        "gameTitle": "The Math Game for Ian"
     }
 }

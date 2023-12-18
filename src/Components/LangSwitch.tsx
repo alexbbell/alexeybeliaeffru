@@ -5,7 +5,7 @@ import { type IStaticPage } from '../interfaces'
 import i18n from '../i18n'
 
 const LangSwitch = (props: IStaticPage): JSX.Element => {
-  const langs = ['en', 'ru', 'he']
+  const langs = ['en', 'ru', 'de', 'he']
   const ml = props.query
   useEffect(() => {
     void i18n.changeLanguage(ml)

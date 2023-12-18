@@ -17,7 +17,7 @@ void i18n.use(HttpBackend)
               : ' /public/locales/{{lng}}/{{lng}}-{{ns}}.json'
     },
     debug: false,
-    fallbackLng: 'ru',
+    fallbackLng: 'en',
     interpolation: {
       escapeValue: false // not needed for react as it escapes by default
     }

@@ -16,7 +16,7 @@ const ABHeader = (): JSX.Element => {
   const { lng } = useParams()
 
   // const lang = (lng === undefined) ? useAppSelector(state => state.lang.lang) : lng
-  const lang: string = (typeof lng === 'undefined') ? '' : lng
+  const lang: string = (typeof lng === 'undefined') ? 'en' : lng
   console.log('lang', lng)
   const m = new Menu()
 

@@ -170,12 +170,11 @@ a.more,  a.more:link, a.more:visited {
 
 
 .education, .skills {
-  width: 447px; height: 150px;
+  min-width: 447px; height: 150px;
   background-repeat: no-repeat;
   background-position-x: center;
   box-sizing: content-box;
   justify-items:center;
-
 }
 .skills {
   background-image: url('../img/skills_off.png');
