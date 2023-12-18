@@ -1,10 +1,12 @@
 import { type PayloadAction, createSlice } from '@reduxjs/toolkit'
+import { type IMathSettings } from '../Components/Mathema/inttypes'
 
 const langSlice = createSlice({
   name: 'lanswitch',
   initialState: {
     lang: 'en',
     selectedPage: 1,
+    mathSettings: { minValue: 0, maxValue: 10, mathAction: 'addition' } satisfies IMathSettings,
     userToken: ''
   },
 
@@ -15,6 +17,13 @@ const langSlice = createSlice({
     switchPage (state, action: PayloadAction<number>) {
       state.selectedPage = action.payload
     },
+    setMathSettings (state, action: PayloadAction<IMathSettings>) {
+      state.mathSettings = {
+        mathAction: action.payload.mathAction,
+        maxValue: action.payload.maxValue,
+        minValue: action.payload.minValue
+      }
+    },
     saveUserToken (state, action: PayloadAction<string | null>) {
       if (action.payload !== null) {
         state.userToken = action.payload
@@ -23,6 +32,6 @@ const langSlice = createSlice({
   }
 })
 
-export const { switchLang, switchPage, saveUserToken } = langSlice.actions
+export const { switchLang, switchPage, setMathSettings, saveUserToken } = langSlice.actions
 
 export default langSlice.reducer
