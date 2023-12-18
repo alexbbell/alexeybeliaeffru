@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import { Simplemath } from '../../Middleware/mathfuncs'
-import { type IExample } from './inttypes'
+import { type IMathSettings, type IExample, AllMathActions } from './inttypes'
 import styles from './../../style/style.module.scss'
 import mathstyles from './Mathema.module.css'
 import { useTranslation } from 'react-i18next'
-import { Col, Row } from 'antd'
+import { Button, Col, Input, Modal, Row, Select } from 'antd'
+import { useAppDispatch, useAppSelector } from '../../hooks'
+import { setMathSettings } from '../../store/langSlice'
 
 const Mathema = (): JSX.Element => {
   const { t } = useTranslation()
+  const dispatch = useAppDispatch()
   const mymaths = new Simplemath()
-  const maxVal = 10
+  const mathSettings: IMathSettings = useAppSelector(state => state.lang.mathSettings)
+
   const pr: IExample = {
-    dig1: mymaths.randomIntFromInterval(0, maxVal),
-    dig2: mymaths.randomIntFromInterval(0, maxVal)
+    dig1: mymaths.randomIntFromInterval(mathSettings.minValue, mathSettings.maxValue),
+    dig2: mymaths.randomIntFromInterval(mathSettings.minValue, mathSettings.maxValue)
   }
 
   const [myAnswers, setMyAnswers] = useState<number[]>([])
@@ -21,22 +25,33 @@ const Mathema = (): JSX.Element => {
   const [errorAnswer, setErrorAnswer] = useState<boolean>(true)
   const [closedAnswers, setClosedAnswers] = useState<boolean[]>([false, false, false, false])
 
+  const [settingsOpened, setSettingsOpened] = useState<boolean>(false)
+
+  const [localMathSettings, setLocalMathSettings] = useState<IMathSettings>(mathSettings)
+
+  const mathActionOptions: any[] = []
+  // eslint-disable-next-line array-callback-return
+  AllMathActions.map(x => {
+    mathActionOptions.push({ value: x, label: x.toUpperCase() })
+  })
+
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const createExample = (): void => {
     const pr: IExample = {
-      dig1: mymaths.randomIntFromInterval(0, maxVal),
-      dig2: mymaths.randomIntFromInterval(0, maxVal)
+      dig1: mymaths.randomIntFromInterval(mathSettings.minValue, mathSettings.maxValue),
+      dig2: mymaths.randomIntFromInterval(mathSettings.minValue, mathSettings.maxValue)
     }
     setExample(pr)
     let answers: number[] = []
     answers.push(pr.dig1 + pr.dig2)
     while (answers.length < 4) {
-      const newValue = mymaths.randomIntFromInterval(0, maxVal * 2)
+      const newValue = mymaths.randomIntFromInterval(0, mathSettings.maxValue * 2)
       if (answers.filter(x => x === newValue).length === 0) answers.push(newValue)
     }
     answers = mymaths.shuffle(answers)
     setMyAnswers(answers)
   }
+  // const dispatch = useAppDispatch()
 
   useEffect(() => {
     createExample()
@@ -44,6 +59,10 @@ const Mathema = (): JSX.Element => {
 
   return (
     <>
+    <div>{mathSettings.mathAction}
+    <br />
+    <Button onClick={() => { setSettingsOpened(true) }} title='Test' />
+    </div>
 <Row className={` ${styles.pt40}`}>
   <Col xs={1} md={1} lg={1} ></Col>
   <Col >
@@ -133,6 +152,35 @@ const Mathema = (): JSX.Element => {
         }}><a href="#"><span>{t('theGame.next')}</span></a></div>
         </Col>
     </Row>
+
+          <Modal
+            closable
+            open={settingsOpened}
+            onCancel={ () => { setSettingsOpened(false) }}
+            onOk={ () => {
+              dispatch(setMathSettings(localMathSettings))
+              setSettingsOpened(false)
+            }}
+            >
+            <div>Min Value: <Input type='text' value={localMathSettings.minValue}
+            onChange={(e) => {
+              console.log(e.currentTarget.value)
+              setLocalMathSettings({ ...localMathSettings, minValue: Number(e.currentTarget.value) })
+            }}></Input></div>
+            <div>Max Value: <Input type='text' value={localMathSettings.maxValue}
+              onChange={(e) => {
+                console.log(e.currentTarget.value)
+                setLocalMathSettings({ ...localMathSettings, maxValue: Number(e.currentTarget.value) })
+              }}></Input></div>
+            <div>Action:
+              <Select style={{ width: 160 }} options={ mathActionOptions } value={ localMathSettings.mathAction}
+              onSelect={(e) => {
+                setLocalMathSettings({ ...localMathSettings, mathAction: e })
+                console.log(e)
+              }}>
+              </Select>
+            </div>
+          </Modal>
     </>
   )
 }
