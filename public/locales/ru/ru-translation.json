@@ -60,7 +60,17 @@
     "theGame": {
         "chooseAnwer": "Выбери ответ",
         "next" : "Следующий",
-        "gameTitle": "Игра для Яна. Сложение"
+        "gameTitle": "Математическая игра для Яна",
+        "settings": "Настройки",
+        "action": "Действие",
+        "addition": "Сложение",
+        "subtraction": "Вычитание",
+        "multiplication": "Умножение",
+        "division": "Деление",
+        "minValue": "От",
+        "maxValue": "До",
+        "errorMinMaxText": "Значение От не может быть больше До"
+
     },
     "skills": {
         "title": "Навыки",

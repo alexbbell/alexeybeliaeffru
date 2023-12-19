@@ -60,7 +60,17 @@
     "theGame": {
         "chooseAnwer": "בחר תשובה",
         "next": "הַבָּא",
-        "gameTitle": "משחק"
+        "gameTitle": "משחק",
+        "settings": "הגדרות",
+        "action": "פעולה",
+        "addition": "חיבור",
+        "subtraction": "חִסוּר",
+        "multiplication": "כֶּפֶל",
+        "division": "חֲלוּקָה",
+        "minValue": "מינימום",
+        "maxValue": "מקסימום",
+        "errorMinMaxText": "הערך המינימלי לא יכול להיות פחות ממקסימום"
+
     },
     "skills": {
         "title": "כישורים",

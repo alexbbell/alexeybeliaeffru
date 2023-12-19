@@ -151,6 +151,15 @@
     "theGame": {
         "chooseAnwer": "Antwort wählen",
         "next": "Weiter",
-        "gameTitle": "Das Mathematikspiel für Ian"
+        "gameTitle": "Das Mathematikspiel für Ian",
+        "settings": "Einstellungen",
+        "action": "Aktion",
+        "addition": "Subtraktion",
+        "subtraction": "Subtraktion",
+        "multiplication": "Multiplikation",
+        "division": "Aufteilung",
+        "minValue": "von",
+        "maxValue": "bis",
+        "errorMinMaxText": "Der Wert von kann nicht größer sein als bis"
     }
 }

@@ -156,6 +156,16 @@
         "chooseAnwer": "Choose answer",
         "next": "Next",
         "gameTitle": "The Math Game for Ian",
-        "settings": "Settings"
+        "settings": "Settings",
+        "action": "Action",
+        "addition": "Addition",
+        "subtraction": "Subtraction",
+        "multiplication": "Multiplication",
+        "division": "Division",
+        "minValue": "Min Value",
+        "maxValue": "Max Value",
+        "errorMinMaxText": "Min value can't be less than Max"
+
+
     }
 }
