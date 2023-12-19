@@ -155,6 +155,7 @@
     "theGame": {
         "chooseAnwer": "Choose answer",
         "next": "Next",
-        "gameTitle": "The Math Game for Ian"
+        "gameTitle": "The Math Game for Ian",
+        "settings": "Settings"
     }
 }

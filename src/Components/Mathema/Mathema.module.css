@@ -52,7 +52,7 @@
     align-items: center;
     gap: 20px;
     position: relative;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     @media (max-width:540px) {
       gap: 5px;
       padding: 10pt 0pt;
@@ -62,7 +62,7 @@
   .digit {
       padding: 1pt ;
       box-sizing: content-box;
-      width: 20vw;
+      width: auto;
       height: 30vh;
       max-width: 180px;
       min-width: 120px;
@@ -73,6 +73,7 @@
       -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 1);
       box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 1);
       margin: auto;
+      padding: 0px 20px;
       background: linear-gradient(-15deg, #f4f0ef, #ffe4db 55%);
       border: #91bde2 6px solid;
       color: #00dfc4;
@@ -82,7 +83,6 @@
         border-radius: 10px;
         font-size: 90px;
         font-weight: normal;
-        max-width: 100px;
         min-width: 67px;
         max-height: 130px;
         min-height: 130px;

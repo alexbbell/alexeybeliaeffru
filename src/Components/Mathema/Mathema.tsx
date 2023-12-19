@@ -24,9 +24,7 @@ const Mathema = (): JSX.Element => {
   const [example, setExample] = useState<IExample>(pr)
   const [errorAnswer, setErrorAnswer] = useState<boolean>(true)
   const [closedAnswers, setClosedAnswers] = useState<boolean[]>([false, false, false, false])
-
   const [settingsOpened, setSettingsOpened] = useState<boolean>(false)
-
   const [localMathSettings, setLocalMathSettings] = useState<IMathSettings>(mathSettings)
 
   const mathActionOptions: any[] = []
@@ -37,18 +35,38 @@ const Mathema = (): JSX.Element => {
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const createExample = (): void => {
+    console.log('mathc action', mathSettings.mathAction)
     const pr: IExample = {
       dig1: mymaths.randomIntFromInterval(mathSettings.minValue, mathSettings.maxValue),
       dig2: mymaths.randomIntFromInterval(mathSettings.minValue, mathSettings.maxValue)
     }
-    setExample(pr)
+
+    if (pr.dig1 < pr.dig2) {
+      [pr.dig1, pr.dig2] = [pr.dig2, pr.dig1]
+    }
+    console.log({ pr })
     let answers: number[] = []
-    answers.push(pr.dig1 + pr.dig2)
+    switch (mathSettings.mathAction) {
+      case ('addition'):
+        pr.correctResult = pr.dig1 + pr.dig2
+        pr.sign = '+'
+        answers.push(pr.correctResult)
+        break
+      case ('subtraction'):
+        pr.correctResult = pr.dig1 - pr.dig2
+        pr.sign = '-'
+        answers.push(pr.correctResult)
+        break
+    }
+    setExample(pr)
+
     while (answers.length < 4) {
       const newValue = mymaths.randomIntFromInterval(0, mathSettings.maxValue * 2)
       if (answers.filter(x => x === newValue).length === 0) answers.push(newValue)
     }
     answers = mymaths.shuffle(answers)
+    console.log({ answers })
+
     setMyAnswers(answers)
   }
   // const dispatch = useAppDispatch()
@@ -59,14 +77,18 @@ const Mathema = (): JSX.Element => {
 
   return (
     <>
-    <div>{mathSettings.mathAction}
+    <div>
+      {mathSettings.mathAction}
     <br />
-    <Button onClick={() => { setSettingsOpened(true) }} title='Test' />
+
     </div>
 <Row className={` ${styles.pt40}`}>
   <Col xs={1} md={1} lg={1} ></Col>
-  <Col >
+  <Col xs={22} md={22} lg={22}>
+  <div style={{ position: 'relative' }} >
   <h1 style={{ paddingLeft: '40px' }} className={styles.trackingInExpand}>{t('theGame.gameTitle')}</h1>
+  <div style={{ position: 'absolute', top: '0px', right: '0px' }}><Button onClick={() => { setSettingsOpened(true) }}>{t('theGame.settings')}</Button></div>
+  </div>
   </Col>
   <Col xs={1} md={1} lg={1} ></Col>
 </Row>
@@ -83,7 +105,7 @@ const Mathema = (): JSX.Element => {
               {example.dig1}
             </div>
           </div>
-          <div className={mathstyles.mathActionWrapper}><div> + </div></div>
+          <div className={mathstyles.mathActionWrapper}><div> {example.sign} </div></div>
           <div className={mathstyles.digit}>
             <div>
               {example.dig2}
@@ -114,7 +136,7 @@ const Mathema = (): JSX.Element => {
                       <div className={ closedAnswers[index] ? `${mathstyles.closedAnwer}` : ''}
                           key={`ans${index}`}
                           onClick={() => {
-                            if (x === (example.dig1 + example.dig2)) {
+                            if (x === (example.correctResult)) {
                               const newEx = { ...example }
                               newEx.result = x
                               setErrorAnswer(false)
@@ -162,17 +184,17 @@ const Mathema = (): JSX.Element => {
               setSettingsOpened(false)
             }}
             >
-            <div>Min Value: <Input type='text' value={localMathSettings.minValue}
+            <div>Min Value: <Input type='number' value={localMathSettings.minValue}
             onChange={(e) => {
               console.log(e.currentTarget.value)
               setLocalMathSettings({ ...localMathSettings, minValue: Number(e.currentTarget.value) })
             }}></Input></div>
-            <div>Max Value: <Input type='text' value={localMathSettings.maxValue}
+            <div>Max Value: <Input type='number' value={localMathSettings.maxValue}
               onChange={(e) => {
                 console.log(e.currentTarget.value)
                 setLocalMathSettings({ ...localMathSettings, maxValue: Number(e.currentTarget.value) })
               }}></Input></div>
-            <div>Action:
+            <div>Action:&nbsp;<br />
               <Select style={{ width: 160 }} options={ mathActionOptions } value={ localMathSettings.mathAction}
               onSelect={(e) => {
                 setLocalMathSettings({ ...localMathSettings, mathAction: e })
