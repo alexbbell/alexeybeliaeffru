@@ -4,6 +4,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 I use this site as a platform for the experiments and the feture creations.
 
 
+## News:
+21 Dcecember 2023
+Fixed links in footer,
+Fixed 'Settings' position for mobile devices
+
 ## Available Scripts
 
 In the project directory, you can run:
