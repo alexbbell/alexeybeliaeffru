@@ -3,10 +3,8 @@ import { Row, Col, Layout } from 'antd'
 import { useNavigate, NavLink, useParams } from 'react-router-dom'
 import LangSwitch from './LangSwitch'
 import styles from './../style/style.module.scss'
-// import { useAppSelector } from './../hooks'
 import { useTranslation } from 'react-i18next'
 import Menu from '../Middleware/Menu'
-// import i18n from '../i18n'
 
 const { Header } = Layout
 
@@ -14,12 +12,8 @@ const ABHeader = (): JSX.Element => {
   // const { t, i18n } = useTranslation()
   const { t } = useTranslation()
   const { lng } = useParams()
-
-  // const lang = (lng === undefined) ? useAppSelector(state => state.lang.lang) : lng
   const lang: string = (typeof lng === 'undefined') ? 'en' : lng
-  console.log('lang', lng)
   const m = new Menu()
-
   const items = m.fetchMenUItems(['home', 'skills', 'blogs', 'about', 'gallery', 'math'])
   const navigate = useNavigate()
 

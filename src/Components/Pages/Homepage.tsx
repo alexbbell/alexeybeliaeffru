@@ -1,7 +1,7 @@
 import React, { } from 'react'
 
 import { Row, Col, Divider } from 'antd'
-import { useNavigate, NavLink } from 'react-router-dom'
+import { useNavigate, NavLink, useParams } from 'react-router-dom'
 import styles from './../../style/style.module.scss'
 import { useTranslation, Trans } from 'react-i18next'
 import Newsloader from './../NewsLoader'
@@ -9,7 +9,8 @@ import AbbAnalogClock from './AbbAnaligClock'
 export const Homepage = (): JSX.Element => {
   const { t, i18n } = useTranslation()
   const navigate = useNavigate()
-
+  const { lng } = useParams()
+  const lang: string = (typeof lng === 'undefined') ? 'en' : lng
   return (
 <>
 <Row className={styles.pb40}>
@@ -63,7 +64,7 @@ export const Homepage = (): JSX.Element => {
     <Row>
       <Col xs={1} md={1} lg={1}></Col>
       <Col xs={22} md={22} lg={22}>
-        <Newsloader />
+        <Newsloader query={lang} />
       </Col>
     </Row>
 </>

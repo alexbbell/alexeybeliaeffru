@@ -75,10 +75,12 @@ const Mathema = (): JSX.Element => {
 <Row className={` ${styles.pt40}`}>
   <Col xs={1} md={1} lg={1} ></Col>
   <Col xs={22} md={22} lg={22}>
-    <div style={{ position: 'relative' }} >
+  <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }} >
+    <div style={{ display: 'flex', flexDirection: 'column' }} >
       <h1 className={styles.trackingInExpand}>{t('theGame.gameTitle')}</h1>
       <h3>{t(`theGame.${mathSettings.mathAction}`)}. {mathSettings.minValue} &ndash; {mathSettings.maxValue}</h3>
-      <div style={{ position: 'absolute', top: '0px', right: '0px' }}><Button className={mathstyles.btn} onClick={() => { setSettingsOpened(true) }}>{t('theGame.settings')}</Button></div>
+    </div>
+      <div style={{ }}><Button className={mathstyles.btn} onClick={() => { setSettingsOpened(true) }}>{t('theGame.settings')}</Button></div>
     </div>
   </Col>
   <Col xs={1} md={1} lg={1} ></Col>
