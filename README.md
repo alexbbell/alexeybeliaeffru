@@ -5,14 +5,14 @@ I use this site as a platform for the experiments and the feture creations.
 
 
 ## News:
-###31 Dcecember 2023
+### 31 Dcecember 2023
 Implemented the multiplication and the division in math for Ian
 
-###21 Dcecember 2023
+### 21 Dcecember 2023
 Fixed links in footer,
 Fixed 'Settings' position for mobile devices
 
-###11 October 2023
+### 11 October 2023
 Implemented the analog clock component, it is built as a vidget at the Homepage. I don't really know why I did it, but I wanted to.
 
 ###16 September 2023
