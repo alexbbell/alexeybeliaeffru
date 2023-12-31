@@ -46,6 +46,9 @@ This command executes the local backend solution with WebApi
 ("D:\\Projects\\AbbContentEditor\\AbbContentEditor\\bin\\Debug\\net6.0\\AbbContentEditor.exe")
 
 ## News
+2023.12.31
+Implemented the multiplication and the division in math for Ian
+
 2023.10.11
 Implemented the analog clock component, it is built as a vidget at the Homepage. I don't really know why I did it, but I wanted to.
 
