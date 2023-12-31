@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Simplemath } from '../../Middleware/mathfuncs'
-import { type IMathSettings, type IExample, AllMathActions } from './inttypes'
+import { type IMathSettings, type IExample, AllMathActions, type MathActions } from './inttypes'
 import styles from './../../style/style.module.scss'
 import mathstyles from './Mathema.module.css'
 import { useTranslation } from 'react-i18next'
@@ -22,6 +22,7 @@ const Mathema = (): JSX.Element => {
   const [myAnswers, setMyAnswers] = useState<number[]>([])
 
   const [example, setExample] = useState<IExample>(pr)
+  const [nextExample, setNextExample] = useState<number>(0)
   const [errorAnswer, setErrorAnswer] = useState<boolean>(true)
   const [closedAnswers, setClosedAnswers] = useState<boolean[]>([false, false, false, false])
   const [settingsOpened, setSettingsOpened] = useState<boolean>(false)
@@ -31,30 +32,48 @@ const Mathema = (): JSX.Element => {
   const mathActionOptions: any[] = []
   // eslint-disable-next-line array-callback-return
   AllMathActions.map(x => {
-    mathActionOptions.push({ value: x, label: t(`theGame.${x}`), disabled: (x === 'multiplication' || x === 'division') })
+    // mathActionOptions.push({ value: x, label: t(`theGame.${x}`), disabled: (x === 'multiplication' || x === 'division') })
+    mathActionOptions.push({ value: x, label: t(`theGame.${x}`), disabled: false })
   })
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  const createExample = (): void => {
+  const createExample = (matchAction: MathActions): void => {
     const pr: IExample = {
       dig1: mymaths.randomIntFromInterval(mathSettings.minValue, mathSettings.maxValue),
       dig2: mymaths.randomIntFromInterval(mathSettings.minValue, mathSettings.maxValue)
     }
 
-    if (pr.dig1 < pr.dig2) {
-      [pr.dig1, pr.dig2] = [pr.dig2, pr.dig1]
-    }
     let answers: number[] = []
-    switch (mathSettings.mathAction) {
+    switch (matchAction) {
       case ('addition'):
         pr.correctResult = pr.dig1 + pr.dig2
         pr.sign = '+'
         answers.push(pr.correctResult)
         break
       case ('subtraction'):
+        if (pr.dig1 < pr.dig2) [pr.dig1, pr.dig2] = [pr.dig2, pr.dig1]
         pr.correctResult = pr.dig1 - pr.dig2
         pr.sign = '-'
         answers.push(pr.correctResult)
+        break
+      case ('multiplication'):
+        pr.correctResult = pr.dig1 * pr.dig2
+        pr.sign = '*'
+        answers.push(pr.correctResult)
+        break
+      case ('division'): {
+        // overwrite values
+        // eslint-disable-next-line no-case-declarations
+        while (pr.dig2 === 0) {
+          pr.dig2 = mymaths.randomIntFromInterval(mathSettings.minValue, mathSettings.maxValue)
+        }
+        const theResult = pr.dig1 * pr.dig2
+        pr.dig1 = theResult
+        pr.correctResult = pr.dig1 / pr.dig2
+        if (pr.dig1 < pr.dig2) [pr.dig1, pr.dig2] = [pr.dig2, pr.dig1]
+        pr.sign = ':'
+        answers.push(pr.correctResult)
+      }
         break
     }
     setExample(pr)
@@ -67,8 +86,8 @@ const Mathema = (): JSX.Element => {
     setMyAnswers(answers)
   }
   useEffect(() => {
-    createExample()
-  }, [])
+    createExample(mathSettings.mathAction)
+  }, [nextExample])
 
   return (
     <>
@@ -80,7 +99,10 @@ const Mathema = (): JSX.Element => {
       <h1 className={styles.trackingInExpand}>{t('theGame.gameTitle')}</h1>
       <h3>{t(`theGame.${mathSettings.mathAction}`)}. {mathSettings.minValue} &ndash; {mathSettings.maxValue}</h3>
     </div>
-      <div style={{ }}><Button className={mathstyles.btn} onClick={() => { setSettingsOpened(true) }}>{t('theGame.settings')}</Button></div>
+      <div style={{ }}><Button className={mathstyles.btn} onClick={() => {
+        setSettingsOpened(true)
+        createExample(mathSettings.mathAction)
+      }}>{t('theGame.settings')}</Button></div>
     </div>
   </Col>
   <Col xs={1} md={1} lg={1} ></Col>
@@ -135,7 +157,7 @@ const Mathema = (): JSX.Element => {
                               setErrorAnswer(false)
                               setExample(newEx)
                               setTimeout(() => {
-                                createExample()
+                                createExample(mathSettings.mathAction)
                                 setClosedAnswers([])
                                 setErrorAnswer(true)
                               }, 3000)
@@ -161,7 +183,7 @@ const Mathema = (): JSX.Element => {
     <Row className={`${styles.pb40} ${styles.pt40}`}>
       <Col>
         <div className={mathstyles.btnWrapper} onClick={() => {
-          createExample()
+          createExample(mathSettings.mathAction)
           setClosedAnswers([])
         }}><a href="#"><span>{t('theGame.next')}</span></a></div>
         </Col>
@@ -174,6 +196,11 @@ const Mathema = (): JSX.Element => {
             onOk={ () => {
               dispatch(setMathSettings(localMathSettings))
               setSettingsOpened(false)
+              createExample(mathSettings.mathAction)
+              setNextExample(nextExample + 1)
+              // setTimeout(() => {
+              //   createExample()
+              // }, 3000)
             }}
             >
             <Alert message={t('theGame.errorMinMaxText')} type="error" style={{ display: isAlertVisibe }} />
