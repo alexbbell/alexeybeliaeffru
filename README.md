@@ -5,9 +5,18 @@ I use this site as a platform for the experiments and the feture creations.
 
 
 ## News:
-21 Dcecember 2023
+###31 Dcecember 2023
+Implemented the multiplication and the division in math for Ian
+
+###21 Dcecember 2023
 Fixed links in footer,
 Fixed 'Settings' position for mobile devices
+
+###11 October 2023
+Implemented the analog clock component, it is built as a vidget at the Homepage. I don't really know why I did it, but I wanted to.
+
+###16 September 2023
+News at first page implemented. News are loaded from WordPress blogs Markimarta.ru and markimarta.com with WordpressNewsLoader (https://github.com/alexbbell/WordpressNewsLoader)
 
 ## Available Scripts
 
@@ -44,17 +53,6 @@ I never used it, don't really remember why it is
 ### `loadapi`
 This command executes the local backend solution with WebApi
 ("D:\\Projects\\AbbContentEditor\\AbbContentEditor\\bin\\Debug\\net6.0\\AbbContentEditor.exe")
-
-## News
-2023.12.31
-Implemented the multiplication and the division in math for Ian
-
-2023.10.11
-Implemented the analog clock component, it is built as a vidget at the Homepage. I don't really know why I did it, but I wanted to.
-
-
-2023.09.16
-News at first page implemented. News are loaded from WordPress blogs Markimarta.ru and markimarta.com with WordpressNewsLoader (https://github.com/alexbbell/WordpressNewsLoader)
 
 
 ### `npm run eject`
