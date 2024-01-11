@@ -3,9 +3,8 @@ import parse from 'html-react-parser'
 import { dateToDDmmYYYY } from '../../Middleware/Helpers'
 import Image from './Image'
 import { Row, Col, Divider, Pagination } from 'antd'
-import { useAppSelector } from '../../hooks'
-// import LangSwitch from '../LangSwitch'
 import styles from './../../style/style.module.scss'
+import { useParams } from 'react-router-dom'
 
 interface blogItem {
   postId: number
@@ -31,7 +30,9 @@ interface WPItem {
   excerpt: IWpAnonsExcerpt
 }
 export default function Blog (): JSX.Element {
-  const lang = useAppSelector(state => state.lang.lang)
+  // const lang = useAppSelector(state => state.lang.lang)
+  const { lng } = useParams()
+  const lang: string = (typeof lng === 'undefined') ? 'en' : lng
   const [items, setItems] = useState<blogItem[]>([])
   const [operationResult, setOperationResult] = useState<boolean>(false)
   const [totalPosts, setTotalPosts] = useState(0)

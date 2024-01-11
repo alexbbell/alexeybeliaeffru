@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { type INewsAnons } from './../interfaces'
+import { type IStaticPage, type INewsAnons } from './../interfaces'
 import styles from './../style/style.module.scss'
-import { useAppSelector } from '../hooks'
 import { pubDir } from './../config'
 
-const NewsLoader = (): JSX.Element => {
-  const lang = useAppSelector(state => state.lang.lang)
+const NewsLoader = (props: IStaticPage): JSX.Element => {
   const [newsaons, setNewAnons] = useState<INewsAnons[]>([])
   // const setActive = ({ isActive }) => isActive ? 'active-link' : ''
   const LoadNews = async (lang: string): Promise<void> => {
@@ -14,6 +12,7 @@ const NewsLoader = (): JSX.Element => {
     const json: INewsAnons[] = await newsdata.json()
     setNewAnons(json)
   }
+  const lang = props.query
   useEffect(() => {
     void LoadNews(lang)
   }, [lang])

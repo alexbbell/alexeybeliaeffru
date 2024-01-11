@@ -20,7 +20,7 @@ const LangSwitch = (props: IStaticPage): JSX.Element => {
                   <span key={lang}>
                       &nbsp;<NavLink to={`/${lang}/`} className={lang === ml ? `${styles.lng}  ${styles.selected}` : `${styles.lng}`}
                       >{lang.toUpperCase()}</NavLink>
-                      { (langs[i + 1] !== '') ? ' | ' : '' }
+                      { (typeof langs[i + 1] !== 'undefined') ? ' | ' : '' }
                   </span>
               )
             })
