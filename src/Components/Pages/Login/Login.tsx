@@ -7,18 +7,13 @@ import { useAppDispatch } from '../../../hooks'
 import { useLocalStorage } from 'usehooks-ts'
 
 export default function Login (): JSX.Element {
-  const [username, setUserName] = useState<string>('')
-  const [password, setPassword] = useState<string>('')
+  const [credentials, setCredentials] = useState<ILoginData>({ email: '', password: '' })
   const [, setTokenAuth] = useLocalStorage('userToken', '')
-  // const [token, setToken] = useState<string>()
+  const [errorAuth, setErrorAuth] = useState('')
   const dispatch = useAppDispatch()
-  async function loginUser (credentials: ILoginData): Promise<void> {
-    // console.log(JSON.stringify(credentials))
-    const data = {
-      username,
-      password
-    }
-    axios.post(authUrl, data,
+  async function loginUser (): Promise<void> {
+    console.log('credentials', credentials)
+    axios.post(authUrl, credentials,
       {
         headers: {
           'Access-Control-Allow-Origin': '*',
@@ -26,24 +21,27 @@ export default function Login (): JSX.Element {
         }
       })
       .then(res => {
+        console.log('autg', res.data) // ITokenApiModel
         // setToken(res.data)
-        dispatch(saveUserToken(res.data))
-        setTokenAuth(res.data)
+        if (res.data?.status === 'Failed to login') {
+          setErrorAuth(`Failed to login  ${res.data?.status as string}`)
+        } else {
+          console.log('Auth success')
+          dispatch(saveUserToken({ accessToken: res.data.accessToken, refreshToken: res.data.refreshToken }))
+          setTokenAuth(res.data)
+          setErrorAuth('')
+        }
       })
-      .catch(function (error) {
-        dispatch(saveUserToken(''))
+      .catch((error) => {
+        dispatch(saveUserToken({ accessToken: '', refreshToken: '' }))
         setTokenAuth('')
-        console.log({ error })
+        setErrorAuth(`Login failed,   ${error.message as string}`)
       })
   }
 
   function handleSubmit (e: FormEvent<HTMLFormElement>): void {
     e.preventDefault()
-    const t: ILoginData = {
-      username,
-      password
-    }
-    void loginUser(t)
+    void loginUser()
   }
 
   return (
@@ -52,12 +50,26 @@ export default function Login (): JSX.Element {
             <form onSubmit={ handleSubmit }>
                 <label>
                     <p>Username</p>
-                    <input type="text" onChange={e => { setUserName(e.target.value) }} />
+                    <input type="text" onChange={e => {
+                      setCredentials({
+                        ...credentials,
+                        email: e.target.value
+                      })
+                    }
+                  }
+                     />
                 </label>
                 <label>
                     <p>Password</p>
-                    <input type="password" onChange={e => { setPassword(e.target.value) }} />
+                    <input type="password" autoComplete='true' onChange={e => {
+                      setCredentials({
+                        ...credentials,
+                        password: e.target.value
+                      })
+                    }
+                  } />
                 </label>
+                <div>{errorAuth}</div>
                 <div>
                     <button type="submit">Submit</button>
                 </div>

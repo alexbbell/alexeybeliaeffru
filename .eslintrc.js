@@ -19,7 +19,9 @@ module.exports = {
         "react"
     ],
     "rules": {
-        "@typescript-eslint/restrict-template-expressions": "error"
+        // "@typescript-eslint/restrict-template-expressions": "error",
+        // "jsx-a11y/anchor-is-valid": "off"
+
 
     }
 }

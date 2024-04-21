@@ -1,5 +1,6 @@
 import { type PayloadAction, createSlice } from '@reduxjs/toolkit'
 import { type IMathSettings } from '../Components/Mathema/inttypes'
+import { type ITokenApiModel } from '../Components/Pages/LangMaster/BLLangMaster'
 
 const langSlice = createSlice({
   name: 'lanswitch',
@@ -7,7 +8,8 @@ const langSlice = createSlice({
     lang: 'en',
     selectedPage: 1,
     mathSettings: { minValue: 0, maxValue: 10, mathAction: 'addition' } satisfies IMathSettings,
-    userToken: ''
+    userToken: { accessToken: '', refreshToken: '' } satisfies ITokenApiModel
+    // userToken: (localStorage.getItem('userToken') === null) ? { accessToken: '', refreshToken: '' } : localStorage.getItem('userToken')
   },
 
   reducers: {
@@ -24,9 +26,10 @@ const langSlice = createSlice({
         minValue: action.payload.minValue
       }
     },
-    saveUserToken (state, action: PayloadAction<string | null>) {
-      if (action.payload !== null) {
-        state.userToken = action.payload
+    saveUserToken (state, action: PayloadAction<ITokenApiModel>) {
+      state.userToken = {
+        accessToken: action.payload.accessToken === undefined ? '' : action.payload.accessToken,
+        refreshToken: action.payload.refreshToken === undefined ? '' : action.payload.refreshToken
       }
     }
   }

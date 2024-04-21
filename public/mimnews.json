@@ -1,82 +1,82 @@
 [
   {
-    "id": 1261,
-    "date": "2023-09-13T10:02:56",
+    "id": 1513,
+    "date": "2024-04-20T05:38:00",
     "status": "publish",
-    "title": "Add the application as a service at Windows Server",
-    "excerpt": "<p>You can add the service with PowerShell. New-Service and Get-service are available in PowerShell 5, for &#8216;Remove-Service&#8217; PowerShell &gt;= 6 required. Otherwise you can use &#8216;sc.exe DELETE MyMegaServiceApplication&#8217;. You should execute it with as an administrator. Not any application you can start a service. As a .Net developer, I usually create .Net solutions, in this [&hellip;]</p>\n",
-    "link": "https://markimarta.com/windows/add-the-application-as-a-service/"
+    "title": "SharePoint List Template ID Reference",
+    "excerpt": "<p>Its&#8217;s more and more complicated to find information about SharePoint. I don&#8217;t really know why it&#8217;s so. That&#8217;s why I often write down the references and examples. Today I tried to remember how to create a SharePoint list with PNPJS and there&#8217;s a parameter which template you will use.</p>\n",
+    "link": "https://markimarta.com/sharepoint/sharepoint-list-template-id-reference/"
   },
   {
-    "id": 1255,
-    "date": "2023-09-11T10:07:30",
+    "id": 1511,
+    "date": "2024-04-19T06:38:00",
     "status": "publish",
-    "title": "Simple implementation of 'env.IsDevelopment' for a console Net Core application",
-    "excerpt": "<p>If you work with Net Core WebApi project, it already contains the packages for DI, Environment variables. But if you make a console application from the template, it doesn’t contain the packages for environment variables. And if you want to use different configs for Debug and Release, there are 2 ways:</p>\n",
-    "link": "https://markimarta.com/c/simple-implementation-of-env-isdevelopment-for-a-console-net-core-application/"
+    "title": "How to create a striped DataGrid in Material UI (React, TypeScript)",
+    "excerpt": "<p>DataGrid looks like a table, but it&#8217;s another component, it consists of multiple div-elements. But for a user it&#8217;s a table and common table attributes are often required. One of them is striped rows. Below there&#8217;s an example how to implement it.</p>\n",
+    "link": "https://markimarta.com/html-css/how-to-create-a-striped-datagrid-in-material-ui-react-typescript/"
   },
   {
-    "id": 1252,
-    "date": "2023-09-09T19:54:54",
+    "id": 1507,
+    "date": "2024-04-18T07:24:36",
     "status": "publish",
-    "title": "Add user to Nginx folder",
-    "excerpt": "<p>Create a group in Linux with command line :sudo addgroup nginxusers sudo usermod -a -G nginxusers newusername</p>\n",
-    "link": "https://markimarta.com/ubuntu/add-user-to-nginx-folder/"
+    "title": "Fill the field with Random dates from the specific range in MSSQL",
+    "excerpt": "<p>I had to update the date values in the MSSQL database table for tests and demo. I needed to set random Dates from the specific range.</p>\n",
+    "link": "https://markimarta.com/sql/fill-the-field-with-random-dates-from-the-specific-range-in-mssql/"
   },
   {
-    "id": 1247,
-    "date": "2023-09-07T14:55:19",
+    "id": 1504,
+    "date": "2024-04-17T09:04:35",
     "status": "publish",
-    "title": "Fishing a-la 'Deutsche Post' in Germany from Canada",
-    "excerpt": "<p>Paper mail is very popular in Germany. People send the letters if they need to do it or even if they don’t need one. To send the letter costs from 0,85 € cents to 2.75€ and it depends on the size of the letter. Today I’ve got the sms «Ihr Paket DE14127482 wird im Zollzentrum [&hellip;]</p>\n",
-    "link": "https://markimarta.com/uncategorized/fishing-a-la-deutsche-post-in-germany-from-canada/"
+    "title": "Swagger error ‘Failed to load API definition’",
+    "excerpt": "<p>When you execute your Web Api and at Swagger Page you can see Swagger error ‘Failed to load API definition’, you can’t really determine, where the error is. It is in one of the controllers. But do you want to check all of them?</p>\n",
+    "link": "https://markimarta.com/c/swagger-error-failed-to-load-api-definition/"
   },
   {
-    "id": 1243,
-    "date": "2023-09-04T11:26:32",
+    "id": 1502,
+    "date": "2024-04-16T08:06:05",
     "status": "publish",
-    "title": "ID numbers dramatically increased with MS SQL in Docker",
-    "excerpt": "<p>I work with a WebApi project in Net.Core and MS SQL Database. MS SQL server is executed in Docker container. Suddenly I found out, that ID field value with autoincrement has increased from 2 to 1001.</p>\n",
-    "link": "https://markimarta.com/sql/id-numbers-dramatically-increased-with-ms-sql-in-docker/"
+    "title": "Feed uniqueidentifier field with Random GUID value in SQL",
+    "excerpt": "<p>There&#8217;s a data type &#8216;uniqueidentifier&#8217; in SQL. If you need to feed this field with random value, you can use NEWID(). The &#8216;uniqueidentifier&#8217; value in SQL looks like this: &#8216;234779E5-996F-45AC-90C3-21631AF4A08D&#8217;.</p>\n",
+    "link": "https://markimarta.com/sql/feed-uniqueidentifier-field-with-random-guid-value-in-sql/"
   },
   {
-    "id": 1238,
-    "date": "2023-08-31T06:52:36",
+    "id": 1500,
+    "date": "2024-04-15T10:10:03",
     "status": "publish",
-    "title": "How to adapt SharePoint online workbench.aspx for a full width solution",
-    "excerpt": "<p>When you are developing SPFX application for SharePoint online, you use a page https://{sharepoint_url}/sites/{some_subsite}/_layouts/15/workbench.aspx. For non-fullwidth webparts it fits normally, but if you need to create a wide or full-width webpart, it&#8217;s not very comfortable.</p>\n",
-    "link": "https://markimarta.com/sharepoint/sharepoint-online-workbench-aspx-to-full-width/"
+    "title": "The implementation of the buttons with Horisontal Scroll action for Material UI DataGrid",
+    "excerpt": "<p>If you use a Pro version of Material UI, then you have a tool, how to switch the cells in the DataGrid table. But if you work with a wide table and you just want to make it more comfortable to work with it, there are some tricks for that. The first thing is to [&hellip;]</p>\n",
+    "link": "https://markimarta.com/js/the-implementation-of-the-buttons-with-horisontal-scroll-action-for-material-ui-datagrid/"
   },
   {
-    "id": 1235,
-    "date": "2023-08-30T07:45:27",
+    "id": 1494,
+    "date": "2024-04-10T14:06:25",
     "status": "publish",
-    "title": "Create a self-signed public certificate to authenticate your application",
-    "excerpt": "<p>Create a self-signed public certificate to authenticate your application in PowerShell</p>\n",
-    "link": "https://markimarta.com/windows/create-a-self-signed-public-certificate-to-authenticate-your-application/"
+    "title": "Translate to German Error messages from Microsoft. AspNetCore. Identity. EntityFrameworkCore",
+    "excerpt": "<p>In one Web Api Net Core solition I used Microsoft.AspNetCore.Identity.EntityFrameworkCore for Authentication. It’s really comfortable to work with this package because you a free from the implementation of all the methods and don’t spare much time. It also returns the text of errors, for example, that password is to short or special character is required. [&hellip;]</p>\n",
+    "link": "https://markimarta.com/c/translate-to-german-error-messages-from-microsoft-aspnetcore-identity-entityframeworkcore/"
   },
   {
-    "id": 1232,
-    "date": "2023-08-21T08:17:39",
+    "id": 1485,
+    "date": "2024-04-08T14:45:51",
     "status": "publish",
-    "title": "C# method to create a UNC directory recursively and return the path",
-    "excerpt": "<p>I will write down the useful method. I used it several times and it works good. It&#8217;s C# method to create a UNC directory recursively and return the path.</p>\n",
-    "link": "https://markimarta.com/c/c-method-to-create-a-unc-directory-recursively-and-return-the-path/"
+    "title": "Create an array of Objects and fill it with initial values in Typescript",
+    "excerpt": "<p>Obviously, it&#8217;s an ordinary case, when you get an array of objects and you need to create for the reply the array of other Objects, but you need to initialize it on load. For React developers it can be often used with useEffect or componentDidMount.</p>\n",
+    "link": "https://markimarta.com/uncategorized/create-array-of-objects-and-fill-with-initial-values-in-typescript/"
   },
   {
-    "id": 1226,
-    "date": "2023-08-18T11:38:35",
+    "id": 1481,
+    "date": "2024-04-03T10:10:44",
     "status": "publish",
-    "title": "Create .Net application with RabbitMQ on your local machine",
-    "excerpt": "<p>If you want to write an application which uses RabbitMQ, I advise you to use docker image of Rabbit. It&#8217;s lightweight and can be easily executed.</p>\n",
-    "link": "https://markimarta.com/c/create-net-application-with-rabbitmq-on-your-local-machine/"
+    "title": "How to make the component TextField in Material UI small",
+    "excerpt": "<p>To modify the size of the TextField component in Material UI, you can make several things. The basic modification is obvious, but other ones are not so. By default, the component TextField is rather big and it&#8217;s really a common task to make it less.</p>\n",
+    "link": "https://markimarta.com/html-css/how-to-make-the-component-textfield-in-material-ui-small/"
   },
   {
-    "id": 1222,
-    "date": "2023-08-17T09:36:03",
+    "id": 1477,
+    "date": "2024-03-12T09:34:35",
     "status": "publish",
-    "title": "Add external CSS or styles to SPFX solution",
-    "excerpt": "<p>When I started to work with SPFX solutions for SharePoint, I couldn’t understand how to load external CSS files. I came up with one solution, but it was a crutch. I did it with embedding &lt;styles&gt; tag into JSX. It looked like this:</p>\n",
-    "link": "https://markimarta.com/html-css/add-external-css-or-styles-to-spfx-solution/"
+    "title": "How to add test data for the development and tests in EF Core",
+    "excerpt": "<p>There’s a nice online tool for rendering the test data. It’s at the website https://www.mockaroo.com/. I often use it to render fake SQL data. But now I am working on a Net application with EF Core. And obviously, I need test data for webservices and interfaces. Below is the way to quickly insert the test [&hellip;]</p>\n",
+    "link": "https://markimarta.com/c/how-to-add-test-data-for-the-development-and-tests-in-ef-core/"
   }
 ]

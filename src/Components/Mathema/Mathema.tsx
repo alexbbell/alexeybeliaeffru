@@ -29,6 +29,10 @@ const Mathema = (): JSX.Element => {
   const [isAlertVisibe, setIsAlertVisibe] = useState<string>('none')
   const [localMathSettings, setLocalMathSettings] = useState<IMathSettings>(mathSettings)
 
+  useEffect(() => {
+    document.title = `Aleksei Beliaev. Fullstack developer. ${t('theGame.gameTitle')}`
+  }, [t('theGame.gameTitle')])
+
   const mathActionOptions: any[] = []
   // eslint-disable-next-line array-callback-return
   AllMathActions.map(x => {

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Row, Col, Space, Input, type CollapseProps, Collapse, Button, Popconfirm, message } from 'antd'
 import styles from './../../../style/style.module.scss'
 import formstyles from './LangMaster.module.scss'
-import { emptyObject, type Skill, type ISiteObjects, type WorkItem, type EducationItem, type ISocial } from './BLLangMaster'
+import { emptyObject, type Skill, type ISiteObjects, type WorkItem, type EducationItem, type ISocial, type ITokenApiModel } from './BLLangMaster'
 import { GetLangContent, updateSkills } from './ApiRequests'
 import LangSelector from './LangSelector'
 import SkillsEditor from './SkillsEditor'
@@ -15,7 +15,17 @@ const LangManager = (): JSX.Element => {
   const [content, setContent] = useState<ISiteObjects>(emptyObject)
 
   const [isLoaded, setIsLoaded] = useState<boolean>(false)
-  const token: string | null = useAppSelector(state => state.lang.userToken)
+
+  const lsToken: string | null = localStorage.getItem('userToken')
+
+  let bearerToken: ITokenApiModel = {}
+  if (lsToken !== null) {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    bearerToken = JSON.parse(lsToken)
+  }
+  // const tokenApi: ITokenApiModel = useAppSelector(state => state.lang.userToken)
+  // console.log({ tokenApi })
+  // const refreshToken: string | null = useAppSelector(state => state.lang.userToken)
 
   const switchLangEdit = (lang: string): void => {
     setSelectedLang(lang)
@@ -38,8 +48,10 @@ const LangManager = (): JSX.Element => {
   }
 
   const readdata = async (): Promise<void> => {
-    const siteData: ISiteObjects = await GetLangContent(selectedLang, token)
+    const siteData: ISiteObjects = await GetLangContent(selectedLang, bearerToken)
+    if (siteData.errorText !== '' || siteData.errorText !== '') console.log('Error in useffex', siteData.errorText)
     // const eduData: ISiteObjects = await GetLangContent(selectedLang)
+    setIsLoaded(true)
     setContent(siteData)
   }
 
@@ -51,7 +63,6 @@ const LangManager = (): JSX.Element => {
 
   useEffect(() => {
     void readdata()
-    setIsLoaded(true)
   }, [selectedLang])
 
   const jsxInputText = (fieldName: 'address' | 'beforename' | 'bio' | 'description' | 'email' | 'fullname' | 'greeting' | 'image' | 'name' | 'phone' | 'position' | 'resumedownload' | 'social' | 'titleAbout' | 'website'
@@ -362,6 +373,7 @@ const LangManager = (): JSX.Element => {
     <Col xs={1} md={1} lg={1}></Col>
     <Col xs={21} md={21} lg={21}>
       <LangSelector data={switchLangEdit} />
+      <br />
     {
   !isLoaded &&
   (
@@ -385,10 +397,10 @@ const LangManager = (): JSX.Element => {
         <Collapse items={GetCollapseProps('ru')} defaultActiveKey={['cp4']} />
 
         {
-          token !== '' && (
+          (bearerToken !== undefined && bearerToken.accessToken !== '') && (
             <Button type="primary" onClick={(evt: any) => {
               evt.preventDefault()
-              updateSkills(selectedLang, content, token)
+              updateSkills(selectedLang, content, bearerToken)
             }}>Update Skills {selectedLang}</Button>
           )
 

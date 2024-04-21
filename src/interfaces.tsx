@@ -25,3 +25,15 @@ export interface IWatch {
 export interface IClockParams {
   size: number
 }
+
+export interface ITestimonial {
+  author: string
+  img: string
+  text: string
+  position?: string
+  link?: string
+}
+
+export interface ITestimonials {
+  posts: ITestimonial[]
+}

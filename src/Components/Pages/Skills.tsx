@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Row, Col, Space, Tabs } from 'antd'
 import styles from './../../style/style.module.scss'
 import { useTranslation } from 'react-i18next'
@@ -29,6 +29,9 @@ const Skills = (props: IStaticPage): JSX.Element => {
   const { t } = useTranslation()
   const skillsList: ND[] = t(`${props.query}.content`, { returnObjects: true })
   const skillsContent: JSX.Element[] = skillsList.map(function (skill) {
+    useEffect(() => {
+      document.title = `Aleksei Beliaev. Fullstack developer. ${t('skills.title')}, ${t('work.title')}, ${t('education.title')}`
+    }, [skillsList])
     return <li key={skill.name}>
                     <h4>{skill.name }</h4>
                     <p>

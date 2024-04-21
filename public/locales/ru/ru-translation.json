@@ -5,7 +5,7 @@
         "greeting": "Привет! ",
         "beforename": "Меня зовут ",
         "name": "Алексей Беляев",
-        "position": "Full-stack разработчик (TypeScript, JavaScript, React, C#, NodeJS (no)SQL)",
+        "position": "Full-stack разработчик (TypeScript, JavaScript, React, C#, SharePoint, SQL)",
         "titleAbout": "Обо мне",
         "description": "Работаю разработчиком ПО более 15 лет, в течение которых получил большой опыт разработки и внедрения ИТ систем. Основной стек - C# (Net), JavaScript (React), SharePoint, SQL, REST. Более 10 лет работаю с  Microsoft SharePoint, разработал ряд приложений для SharePoint, интегрированных со сторонними базами данных (SQL и NoSQL) и веб-сервисами. Сейчас много работаю с SharePoint Online и Azure\n",
         "image": "/public/img/banner/abb.jpg",

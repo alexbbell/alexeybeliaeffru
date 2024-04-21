@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 import store from './store/index'
 import { BrowserRouter } from 'react-router-dom'
 import './i18n'
+import './index.css'
 
 const rootElement = document.getElementById('root') as HTMLElement
 const root = createRoot(rootElement)

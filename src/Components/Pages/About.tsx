@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { Row, Col, Space, Modal } from 'antd'
 import styles from './../../style/style.module.scss'
@@ -14,7 +14,9 @@ const About = (): JSX.Element => {
   const CloseModal = (): void => {
     setIsModalOpen(false)
   }
-
+  useEffect(() => {
+    document.title = `Aleksei Beliaev. Fullstack developer. ${t('main.titleAbout')}`
+  }, [t('main.titleAbout')])
   const aboutTextArray = t('main.about').split(/\n/g)
   const aboutText = aboutTextArray.map(function (text, index) {
     return <p key={`p${index}`}>

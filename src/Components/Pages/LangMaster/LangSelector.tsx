@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 const LangSelector = (props: any): JSX.Element => {
   const [switchEditorLang, setSwitchEditorLang] = useState('en')
 
-  const langs: string[] = ['ru', 'en', 'he']
+  const langs: string[] = ['ru', 'en', 'de', 'he']
   return (
     <div style={{ display: 'flex', flexDirection: 'row' }}>
     {

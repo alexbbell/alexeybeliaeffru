@@ -28,7 +28,8 @@ const NewsLoader = (props: IStaticPage): JSX.Element => {
           <br />
         </div>
       )
-    })
+    }
+    )
   }
   </>
 

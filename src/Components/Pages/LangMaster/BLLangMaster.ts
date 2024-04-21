@@ -99,6 +99,12 @@ export const emptyLangObject: ILangSiteObjects = {
 }
 
 export interface ILoginData {
-  username: string
+  email: string
   password: string
+  rememberMe?: boolean
+}
+
+export interface ITokenApiModel {
+  accessToken?: string
+  refreshToken?: string
 }

@@ -1,14 +1,11 @@
 @font-face {
     font-family: 'Kirlian-Bold';
      src: url('./../libs/Kirlian-Bold.woff' ) format('woff');
-    
+
 
 }
 
-@font-face {
-    font-family: 'Euclid-Circular-Regular';
-    src: url('./../libs/EuclidCircularA-Regular.woff') format('woff');
-}
+
 @font-face {
     font-family: 'Euclid-Circular-Bold';
     src: url('./../libs/EuclidCircularA-Bold.woff') format('woff');
@@ -25,7 +22,7 @@
     font-style: normal;
   }
 
-  
+
 .italic {
     font-family: 'Euclid-Circular-Italic';
     font-weight: normal;

@@ -76,6 +76,7 @@ export default function Blog (): JSX.Element {
     const fetchData = (): void => {
       void LoadPosts()
       setOperationResult(true)
+      document.title = 'Aleksei Beliaev. Fullstack developer. Personal blogs'
     }
     fetchData()
   }, [operationResult, currentPage, perPage, lang])
