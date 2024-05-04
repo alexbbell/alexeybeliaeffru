@@ -22,7 +22,7 @@ export const Homepage = (): JSX.Element => {
 
             <div className={styles.trackingInExpand}>
                 <img src='/img/abbfp.jpg' className={styles.image}
-                alt={`${t('main.beforename')} {t('main.name')}`} />
+                alt={`${t('main.beforename')} ${t('main.name')}`} />
             </div>
         </Col>
         <Col xs={24} md={9} lg={13} className={styles.about}>

@@ -5,9 +5,7 @@ import { MyLayout } from './Components/MyLayout'
 import { Homepage } from './Components/Pages/Homepage'
 
 import { lazy } from 'react'
-// import Fpslider from './Components/Fpslider'
 import AbbAnalogClock from './Components/Pages/AbbAnaligClock'
-// import Mathema from './Components/Mathema/Mathema'
 const About = lazy(async () => await import('./Components/Pages/About'))
 const Skills = lazy(async () => await import ('./Components/Pages/Skills'))
 const Blog = lazy(async () => await import ('./Components/Pages/Blog'))

@@ -24,7 +24,7 @@ const NewsLoader = (props: IStaticPage): JSX.Element => {
           <h1><a href={x.link}>{x.title}</a></h1>
           <span className={styles.newsdate}>{x.date.toString().substring(0, 10).replaceAll('-', '.')}</span>
           <span dangerouslySetInnerHTML={{ __html: `${x.excerpt}` }}></span>
-          <a href={x.link} target='blank'>{ (lang === 'ru' ? 'Читать далее' : 'Read more') }</a>
+          <a href={x.link} target='blank'>{ (lang === 'ru' ? `Читать про '${x.title}'` : `Read about '${x.title}'`) }</a>
           <br />
         </div>
       )

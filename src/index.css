@@ -1,6 +1,7 @@
 @font-face {
   font-family: 'Euclid-Circular-Regular';
   src: url('libs/EuclidCircularA-Regular.woff') format('woff');
+  font-display: swap;
 }
 
 body {
@@ -10,6 +11,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+a:hover {
+  text-decoration: underline;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -17,7 +21,7 @@ code {
 
 
 h3 {
-  color: #00C6CF;
+  color: #333;
   font-family: 'Euclid-Circular-Bold';
   font-weight: bold;
   font-size: 14pt;

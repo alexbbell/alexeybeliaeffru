@@ -21,7 +21,6 @@ const LangMaster = (): JSX.Element => {
   }
   if (tokenApi.accessToken === undefined) {
     if (tokenApi === null || tokenApi.accessToken === '') tokenApi = { accessToken: '', refreshToken: '' }
-    console.log(tokenApi)
     dispatch(saveUserToken(tokenApi))
   }
 

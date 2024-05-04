@@ -31,7 +31,6 @@ export const GetLangContent = async (lang: string, tokenApi: ITokenApiModel): Pr
   }).catch((err: AxiosError) => {
     data = emptyObject
     data.errorText = err.message
-    console.log('err', err)
     return data
   })
   return data

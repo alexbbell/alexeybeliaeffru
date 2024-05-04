@@ -49,7 +49,7 @@ const LangManager = (): JSX.Element => {
 
   const readdata = async (): Promise<void> => {
     const siteData: ISiteObjects = await GetLangContent(selectedLang, bearerToken)
-    if (siteData.errorText !== '' || siteData.errorText !== '') console.log('Error in useffex', siteData.errorText)
+    // if (siteData.errorText !== '' || siteData.errorText !== '') console.log('Error in useffex', siteData.errorText)
     // const eduData: ISiteObjects = await GetLangContent(selectedLang)
     setIsLoaded(true)
     setContent(siteData)
@@ -192,7 +192,6 @@ const LangManager = (): JSX.Element => {
     title="Delete the task"
     description="Are you sure to delete this task?"
   onConfirm={ (e) => {
-    console.log('efd', index)
     const newWorks = content
     newWorks.work.content.splice(index, 1)
     setContent({ ...newWorks })

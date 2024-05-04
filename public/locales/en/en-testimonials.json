@@ -17,6 +17,12 @@
             "position": "Lead Developer",
             "img": "furman_dmitrii_tn.jpg",
             "text": "Aleksei is an excellent IT leader. He controls tasks, helps with difficulties, sets the right direction for development and growth. In addition, he monitors the emotional state of colleagues, preventing overwork and burnout!"
+        },
+        {
+            "author": "Boris Fedorov",
+            "position": "Head of Department",
+            "img" : "fedorov_boris_tn.jpg",
+            "text": "Aleksei is a true professional in his field who values teamwork and collaboration. He never puts his personal ambitions above the collective. He possesses a vast array of professional skills and excellent communication abilities. Throughout all the years of working together, he has been dedicated to enhancing his qualifications, constantly studying and applying new skills in his work. One of his most important qualities is his focus on results and sticking to his word. All of Aleksei's colleagues have only positive memories of working with him and gratitude for the projects he has completed."
         }
     ]
 }

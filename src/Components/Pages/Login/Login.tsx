@@ -12,7 +12,6 @@ export default function Login (): JSX.Element {
   const [errorAuth, setErrorAuth] = useState('')
   const dispatch = useAppDispatch()
   async function loginUser (): Promise<void> {
-    console.log('credentials', credentials)
     axios.post(authUrl, credentials,
       {
         headers: {
@@ -21,12 +20,10 @@ export default function Login (): JSX.Element {
         }
       })
       .then(res => {
-        console.log('autg', res.data) // ITokenApiModel
         // setToken(res.data)
         if (res.data?.status === 'Failed to login') {
           setErrorAuth(`Failed to login  ${res.data?.status as string}`)
         } else {
-          console.log('Auth success')
           dispatch(saveUserToken({ accessToken: res.data.accessToken, refreshToken: res.data.refreshToken }))
           setTokenAuth(res.data)
           setErrorAuth('')

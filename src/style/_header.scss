@@ -44,19 +44,22 @@
 
 //Language control start
 .langCtrl {
-  display: flex;
+
   flex-direction: row;
   padding-bottom: 10px ;
   justify-content: flex-end;
 }
 .langCtrl ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
   padding-right: 5px;
 }
 
 
 .langCtrl ul li {
   list-style-type: none;
-  flex-direction: column;
+
   -webkit-order: 0;
   -ms-flex-order: 0;
   order: 0;

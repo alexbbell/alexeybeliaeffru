@@ -53,7 +53,6 @@ export default function Blog (): JSX.Element {
       json = await data.json()
       setTotalPosts(data?.headers?.get('x-wp-total') !== null ? 10 : 0)
     }
-    // console.log('header', data.headers.get('x-wp-total'))
     const t = data.headers.get('x-wp-total')?.toString()
     setTotalPosts(Number(t))
 
@@ -127,7 +126,6 @@ export default function Blog (): JSX.Element {
     )
   }
   const onChange = (page: number, items: number): void => {
-    // console.log(page, items)
     page = (page === 0) ? page + 1 : page
     setCurrentPage(page)
     setPerPage(items)

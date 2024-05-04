@@ -33,17 +33,18 @@ const Testimonials = (lng: Props): React.JSX.Element => {
     <div style={{ position: 'absolute', top: '10px', left: '10px', zIndex: 1000 }}
      className={`${styles.h3} ${styles.uppercase}`}>
       <h3>{ (lang === 'ru') ? 'Отзывы' : 'Testimonials'} </h3></div>
-
-      <Carousel dotPosition='bottom'
-        dots={{ className: 'dots' }}
-        autoplay autoplaySpeed={4000} fade={true} pauseOnHover pauseOnFocus pauseOnDotsHover
-        className='carousel'>
+{
+  testimonials.posts.length > 1 &&
+  <Carousel dotPosition='bottom'
+  dots={{ className: 'dots' }}
+  autoplay autoplaySpeed={4000} fade={true} pauseOnHover pauseOnFocus pauseOnDotsHover
+  className='carousel'>
 
 {testimonials.posts.map((x, index) => {
   return (
   <div key={x.author} className='testimonial'>
         <div className='tImage'>
-          <div className='circular'><img src={`/img/testimonials/${x.img}`} /></div>
+          <div className='circular'><img src={`/img/testimonials/${x.img}`} alt={x.author} /></div>
         </div>
         <div className='tSpeech'>
         <div className='beruf'><b >{x.author}</b><br />{x.position}</div>
@@ -51,7 +52,9 @@ const Testimonials = (lng: Props): React.JSX.Element => {
      </div>
   )
 })}
-         </Carousel></>
+  </Carousel>
+}
+</>
   )
 }
 
