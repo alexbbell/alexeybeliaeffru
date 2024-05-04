@@ -5,6 +5,10 @@ I use this site as a platform for the experiments and the feture creations.
 
 
 ## News:
+
+### 15 April 2024
+Added reviews from my ex-colleagues
+
 ### 31 Dcecember 2023
 Implemented the multiplication and the division in math for Ian
 
