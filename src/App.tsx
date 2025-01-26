@@ -6,6 +6,8 @@ import { Homepage } from './Components/Pages/Homepage'
 
 import { lazy } from 'react'
 import AbbAnalogClock from './Components/Pages/AbbAnaligClock'
+
+const Auth = lazy(async () => await import ('./Components/Pages/Auth'))
 const About = lazy(async () => await import('./Components/Pages/About'))
 const Skills = lazy(async () => await import ('./Components/Pages/Skills'))
 const Blog = lazy(async () => await import ('./Components/Pages/Blog'))
@@ -25,6 +27,8 @@ const App = (): JSX.Element => {
       {/* <Route path="/" element={<Fpslider title='FP Slider' />}></Route> */}
       <Route path="/Clock" element={<AbbAnalogClock size={200} />}></Route>
       <Route path="/:lng/" element={<Homepage />}></Route>
+      <Route path="/auth/" element={<Auth />}></Route>
+
       <Route path="/:lng/blogs/" element={<Blog />}></Route>
       {/* <Route path="/" element={<Banner data={resumeData.main} />}></Route> */}
       <Route path="/:lng/about/" element={<About />}></Route>

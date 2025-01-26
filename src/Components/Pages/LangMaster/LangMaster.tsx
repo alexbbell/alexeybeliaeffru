@@ -11,7 +11,7 @@ import { type ITokenApiModel } from './BLLangMaster'
 const LangMaster = (): JSX.Element => {
   const dispatch = useAppDispatch()
   // let tokenApi: ITokenApiModel = useAppSelector(state => state.lang.userToken)
-  let tokenApi: ITokenApiModel = { accessToken: '', refreshToken: '' }
+  let tokenApi: ITokenApiModel = { accessToken: '' }
   const [, setTokenAuth] = useLocalStorage('userToken', tokenApi)
 
   const lsUserToken: string | null = localStorage.getItem('userToken')
@@ -20,7 +20,7 @@ const LangMaster = (): JSX.Element => {
     tokenApi = JSON.parse(lsUserToken)
   }
   if (tokenApi.accessToken === undefined) {
-    if (tokenApi === null || tokenApi.accessToken === '') tokenApi = { accessToken: '', refreshToken: '' }
+    if (tokenApi === null || tokenApi.accessToken === '') tokenApi = { accessToken: '' }
     dispatch(saveUserToken(tokenApi))
   }
 
@@ -36,7 +36,7 @@ const LangMaster = (): JSX.Element => {
 
           <>
             <div style={{ position: 'absolute', right: '30px' }} onClick={() => {
-              dispatch(saveUserToken({ accessToken: '', refreshToken: '' }))
+              dispatch(saveUserToken({ accessToken: '' }))
               setTokenAuth({})
             }}>Logout</div>
 

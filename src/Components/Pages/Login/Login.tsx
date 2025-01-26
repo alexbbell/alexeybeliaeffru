@@ -5,9 +5,11 @@ import { saveUserToken } from './../../../store/langSlice'
 import axios from 'axios'
 import { useAppDispatch } from '../../../hooks'
 import { useLocalStorage } from 'usehooks-ts'
+import { useNavigate } from 'react-router-dom'
 
 export default function Login (): JSX.Element {
-  const [credentials, setCredentials] = useState<ILoginData>({ email: '', password: '' })
+  const navigate = useNavigate()
+  const [credentials, setCredentials] = useState<ILoginData>({ username: '', password: '' })
   const [, setTokenAuth] = useLocalStorage('userToken', '')
   const [errorAuth, setErrorAuth] = useState('')
   const dispatch = useAppDispatch()
@@ -24,13 +26,17 @@ export default function Login (): JSX.Element {
         if (res.data?.status === 'Failed to login') {
           setErrorAuth(`Failed to login  ${res.data?.status as string}`)
         } else {
-          dispatch(saveUserToken({ accessToken: res.data.accessToken, refreshToken: res.data.refreshToken }))
+          console.log('res.data', res.data)
+          dispatch(saveUserToken({ accessToken: res.data }))
           setTokenAuth(res.data)
           setErrorAuth('')
+          console.log('ok redirect')
+          navigate('/en/lngmngr/', { replace: true })
         }
       })
       .catch((error) => {
-        dispatch(saveUserToken({ accessToken: '', refreshToken: '' }))
+        console.error(error)
+        dispatch(saveUserToken({ accessToken: '' }))
         setTokenAuth('')
         setErrorAuth(`Login failed,   ${error.message as string}`)
       })
@@ -50,7 +56,7 @@ export default function Login (): JSX.Element {
                     <input type="text" onChange={e => {
                       setCredentials({
                         ...credentials,
-                        email: e.target.value
+                        username: e.target.value
                       })
                     }
                   }
